@@ -131,5 +131,4 @@ public class MainActivity extends Activity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
-
 }
