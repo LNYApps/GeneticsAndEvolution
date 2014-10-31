@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">GeneticsAndEvolution</string>
+    <string name="app_name">Genetics And Evolution</string>
 
+    <string name="problem_solver">Problem Solver</string>
+    <string name="single_problem_generator">Single Problem Generator</string>
+    <string name="multiple_problem_generator">Multiple Problem Generator</string>
+    <string name="self_test_quiz">Self-Test Quiz</string>
+    <string name="about">About</string>
     <string-array name="navigation_drawer_strings">
-        <item>Problem Solver</item>
-        <item>Single Problem Generator</item>
-        <item>Multiple Problem Generator</item>
-        <item>Self-Test Quiz</item>
-        <item>About</item>
+        <item>@string/problem_solver</item>
+        <item>@string/single_problem_generator</item>
+        <item>@string/multiple_problem_generator</item>
+        <item>@string/self_test_quiz</item>
+        <item>@string/about</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+
+    <!-- About Fragment -->
+    <string name="a_title">Genetics And Evolution</string>
+    <string name="a_about">\tThis app was developed by Jonathan Tseng and Alex Dao to supplement the Duke University Introduction to Genetics and Evolution course taught by Prof. Mohamed Noor. \n\n\tIt allows users to solve problems covered in the course, including three-point genetic cross mapping, heritability from the breeder\'s equation, population growth and testing for Hardy Weinberg equilibrium.</string>
+    <string name="a_coursewebsite">Course Webpage</string>
+    <string name="a_onlinedocumentation">Online Manual</string>
 
 </resources>

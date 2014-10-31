@@ -6,17 +6,18 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.TextureView;
-import android.view.View;
-import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.Button;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import android.support.v4.widget.DrawerLayout;
+
+import com.lnyapps.geneticsandevolution.fragments.AboutFragment;
+import com.lnyapps.geneticsandevolution.fragments.MultipleProblemGeneratorFragment;
+import com.lnyapps.geneticsandevolution.fragments.ProblemSolverFragment;
+import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
+import com.lnyapps.geneticsandevolution.fragments.SingleProblemGeneratorFragment;
+
 
 
 public class MainActivity extends Activity
@@ -50,14 +51,37 @@ public class MainActivity extends Activity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position))
-                .commit();
+        displayView(position);
     }
 
-    public void onSectionAttached(int number) {
-        mTitle = getResources().getStringArray(R.array.navigation_drawer_strings)[number];
+    public void displayView(int position) {
+        FragmentManager fragmentManager = getFragmentManager();
+        String fragmentName = getResources().getStringArray(R.array.navigation_drawer_strings)[position];
+        Fragment fragment = null;
+        if (fragmentName.equals(getResources().getString(R.string.problem_solver))) {
+            fragment = new ProblemSolverFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.single_problem_generator))) {
+            fragment = new SingleProblemGeneratorFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.multiple_problem_generator))) {
+            fragment = new MultipleProblemGeneratorFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.self_test_quiz))) {
+            fragment = new SelfTestQuizFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.about))) {
+            fragment = new AboutFragment();
+        }
+
+        if (fragment != null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+        } else {
+            // error in creating fragment
+            Log.e("MainActivity", "Error in creating fragment");
+        }
+    }
+
+    public void onSectionAttached(String title) {
+        mTitle = title;
     }
 
     public void restoreActionBar() {
@@ -90,45 +114,5 @@ public class MainActivity extends Activity
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
     }
 }
