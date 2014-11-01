@@ -37,13 +37,27 @@
         <item>@string/pop_growth</item>
         <item>@string/breeder_eq_heritability</item>
     </string-array>
-    <!-- Hardy Weinberg Inputs -->
-    <string name="instructions">Please enter the genotype counts observed within a population below.</string>
+    <!-- Hardy Weinberg Fragment -->
+    <string name="hardy_weinberg_instructions">Please enter the genotype counts observed within a population below.</string>
     <string name="AA_hint">AA count</string>
     <string name="Aa_hint">Aa count</string>
     <string name="aa_hint">aa count</string>
     <string name="solve">Solve!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Genetic Cross Mapping Fragment -->
+    <string name="cross_mapping_instructions">Please enter the genotype counts observed in gametes below.</string>
+    <string name="ABC_hint">ABC</string>
+    <string name="ABc_hint">ABc</string>
+    <string name="AbC_hint">AbC</string>
+    <string name="Abc_hint">Abc</string>
+    <string name="aBC_hint">aBC</string>
+    <string name="aBc_hint">aBc</string>
+    <string name="abC_hint">abC</string>
+    <string name="abc_hint">abc</string>
+
+    <!-- Population Growth Fragment -->
+    <string name="population_growth_instructions">Please enter 3 parameters below to calculate the fourth.</string>
 
     <!-- Self-Test Quiz Fragment -->
     <string name="stq_definition">Definition</string>
