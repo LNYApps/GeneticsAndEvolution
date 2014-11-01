@@ -22,7 +22,7 @@ public class BreederFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hardy_weinberg, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_breeder, container, false);
         return rootView;
     }
 

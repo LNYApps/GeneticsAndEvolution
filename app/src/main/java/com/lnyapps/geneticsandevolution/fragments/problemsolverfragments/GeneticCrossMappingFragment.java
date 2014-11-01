@@ -30,7 +30,7 @@ public class GeneticCrossMappingFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hardy_weinberg, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_genetic_cross_mapping, container, false);
         return rootView;
     }
 
