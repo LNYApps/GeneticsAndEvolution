@@ -8,11 +8,20 @@
     tools:context=".MainActivity"
     >
 
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        />
 
     <EditText
         android:id="@+id/AA_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/instructions"
         android:inputType="number"
         android:hint="@string/AA_hint"/>
     <EditText
@@ -29,5 +38,12 @@
         android:layout_below="@id/Aa_count"
         android:inputType="number"
         android:hint="@string/aa_hint"/>
+
+    <Button
+        android:id="@+id/solve_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/solve"
+        android:layout_below="@id/aa_count"/>
 
 </RelativeLayout>
