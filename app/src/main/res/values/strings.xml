@@ -2,12 +2,12 @@
 <resources>
 
     <string name="app_name">Genetics And Evolution</string>
-
     <string name="problem_solver">Problem Solver</string>
     <string name="single_problem_generator">Single Problem Generator</string>
     <string name="multiple_problem_generator">Multiple Problem Generator</string>
     <string name="self_test_quiz">Self-Test Quiz</string>
     <string name="about">About</string>
+
     <string-array name="navigation_drawer_strings">
         <item>@string/problem_solver</item>
         <item>@string/single_problem_generator</item>
@@ -26,5 +26,23 @@
     <string name="a_about">\tThis app was developed by Jonathan Tseng and Alex Dao to supplement the Duke University Introduction to Genetics and Evolution course taught by Prof. Mohamed Noor. \n\n\tIt allows users to solve problems covered in the course, including three-point genetic cross mapping, heritability from the breeder\'s equation, population growth and testing for Hardy Weinberg equilibrium.</string>
     <string name="a_coursewebsite">Course Webpage</string>
     <string name="a_onlinedocumentation">Online Manual</string>
+
+    <!-- Problem Solver Fragment -->
+    <string name="hardy_weinberg">Hardy Weinberg</string>
+    <string name="genetic_cross_mapping">Genetic Cross Mapping</string>
+    <string name="pop_growth">Population Growth</string>
+    <string name="breeder_eq_heritability">Breeder\'s Equation Heritability</string>
+
+    <string-array name="problem_solver_functions_array">
+        <item>@string/hardy_weinberg</item>
+        <item>@string/genetic_cross_mapping</item>
+        <item>@string/pop_growth</item>
+        <item>@string/breeder_eq_heritability</item>
+    </string-array>
+    <!-- Hardy Weinberg Inputs -->
+    <string name="AA_hint">AA count</string>
+    <string name="Aa_hint">Aa count</string>
+    <string name="aa_hint">aa count</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
