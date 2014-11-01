@@ -1,49 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    tools:context=".MainActivity"
-    >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/instructions"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hardy_weinberg_instructions"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        />
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"
+        android:textSize="@dimen/fragment_ps_textsize"/>
 
     <EditText
         android:id="@+id/AA_count"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/instructions"
         android:inputType="number"
-        android:hint="@string/AA_hint"/>
+        android:hint="@string/AA_hint"
+        android:textSize="@dimen/fragment_ps_textsize"/>
     <EditText
         android:id="@+id/Aa_count"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/AA_count"
         android:inputType="number"
-        android:hint="@string/Aa_hint"/>
+        android:hint="@string/Aa_hint"
+        android:textSize="@dimen/fragment_ps_textsize"/>
     <EditText
         android:id="@+id/aa_count"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Aa_count"
         android:inputType="number"
-        android:hint="@string/aa_hint"/>
+        android:hint="@string/aa_hint"
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"
+        android:textSize="@dimen/fragment_ps_textsize"/>
 
     <Button
-        android:id="@+id/solve_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/hardyweinberg_solve_button"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/solve"
-        android:layout_below="@id/aa_count"/>
+        android:text="@string/solve"/>
 
-</RelativeLayout>
+</LinearLayout>

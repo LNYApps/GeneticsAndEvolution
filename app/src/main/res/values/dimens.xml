@@ -27,7 +27,12 @@
 
     <!-- Multiple Problem Generator Fragment -->
     <dimen name="fragment_mpg_horizontalmargin">25dp</dimen>
-    <dimen name="fragment_mpg_textsize">20dp</dimen>
+    <dimen name="fragment_mpg_textsize">18dp</dimen>
     <dimen name="fragment_mpg_verticalspacing">18dp</dimen>
+
+    <!-- Problem Solver Fragment -->
+    <dimen name="fragment_ps_horizontalmargin">25dp</dimen>
+    <dimen name="fragment_ps_textsize">18dp</dimen>
+    <dimen name="fragment_ps_verticalspacing">18dp</dimen>
 
 </resources>

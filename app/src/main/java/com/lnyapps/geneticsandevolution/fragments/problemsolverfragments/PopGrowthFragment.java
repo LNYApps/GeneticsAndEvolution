@@ -1,6 +1,6 @@
 package com.lnyapps.geneticsandevolution.fragments.problemsolverfragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +26,17 @@ public class PopGrowthFragment extends Fragment {
         return rootView;
     }
 
+    public void destroyFragment() {
+        getChildFragmentManager().beginTransaction().hide(this).commit();
+    }
+
+    public void createFragment() {
+        getChildFragmentManager().beginTransaction().show(this).commit();
+    }
+
+    //TODO: finish PopGrowthProblem class with this stuff
+    //Still need this
+    /*
     public double calcPopGrowthRate(double initialPopSize, double finalPopSize, double time){
         double output = Math.log(finalPopSize/initialPopSize)/time;
         return output;
@@ -45,4 +56,5 @@ public class PopGrowthFragment extends Fragment {
         double output = finalPopSize/Math.exp(growthRate*time);
         return output;
     }
+    */
 }

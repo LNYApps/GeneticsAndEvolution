@@ -1,6 +1,6 @@
 package com.lnyapps.geneticsandevolution.fragments.problemsolverfragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,23 +26,12 @@ public class BreederFragment extends Fragment {
         return rootView;
     }
 
-    public double calcHeritability(double startingPhenotype, double selectedPhenotype, double responsePhenotype){
-        double output = (startingPhenotype - responsePhenotype)/(startingPhenotype - selectedPhenotype);
-        return output;
+    public void destroyFragment() {
+        getChildFragmentManager().beginTransaction().hide(this).commit();
     }
 
-    public double calcStartingPhenotype(double selectedPhenotype, double responsePhenotype, double heritability){
-        double output = (responsePhenotype - selectedPhenotype*heritability)/(1-heritability);
-        return output;
+    public void createFragment() {
+        getChildFragmentManager().beginTransaction().show(this).commit();
     }
 
-    public double calcSelectedPhenotype(double startingPhenotype, double responsePhenotype, double heritability){
-        double output = (responsePhenotype-startingPhenotype)/heritability + startingPhenotype;
-        return output;
-    }
-
-    public double calcResponsePhenotype(double startingPhenotype, double selectedPhenotype, double heritability){
-        double output = startingPhenotype - (startingPhenotype-selectedPhenotype)*heritability;
-        return output;
-    }
 }

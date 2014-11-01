@@ -15,10 +15,6 @@ import android.widget.Toast;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
 import com.lnyapps.geneticsandevolution.R;
-import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.BreederGeneratorFragment;
-import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.GeneticCrossMappingGeneratorFragment;
-import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.HardyWeinbergGeneratorFragment;
-import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.PopGrowthGeneratorFragment;
 import com.lnyapps.geneticsandevolution.problems.BreederProblem;
 import com.lnyapps.geneticsandevolution.problems.CrossMappingProblem;
 import com.lnyapps.geneticsandevolution.problems.GenEvolProblem;
@@ -101,28 +97,6 @@ public class SingleProblemGeneratorFragment extends Fragment {
                 }
                 mGivenText.setText(mCurrentProblem.emptyGivenString());
                 mSolveText.setText(mCurrentProblem.emptySolveString());
-
-
-
-                BreederGeneratorFragment breederFragment = (BreederGeneratorFragment) getChildFragmentManager().findFragmentById(R.id.spg_fragment_breeder);
-                GeneticCrossMappingGeneratorFragment crossmapFragment = (GeneticCrossMappingGeneratorFragment) getChildFragmentManager().findFragmentById(R.id.spg_fragment_crossmapping);
-                HardyWeinbergGeneratorFragment hardyweinbergFragment = (HardyWeinbergGeneratorFragment) getChildFragmentManager().findFragmentById(R.id.spg_fragment_hardyweinberg);
-                PopGrowthGeneratorFragment popgrowthFragment = (PopGrowthGeneratorFragment) getChildFragmentManager().findFragmentById(R.id.spg_fragment_popgrowth);
-
-                breederFragment.destroyFragment();
-                crossmapFragment.destroyFragment();
-                hardyweinbergFragment.destroyFragment();
-                popgrowthFragment.destroyFragment();
-
-                if (item.equals(getString(R.string.breeder_eq_heritability))) {
-                    breederFragment.createFragment();
-                } else if (item.equals(getString(R.string.hardy_weinberg))) {
-                    hardyweinbergFragment.createFragment();
-                } else if (item.equals(getString(R.string.pop_growth))) {
-                    popgrowthFragment.createFragment();
-                } else if (item.equals(getString(R.string.genetic_cross_mapping))) {
-                    crossmapFragment.createFragment();
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {

@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/breeder_instructions"
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:id="@+id/edittext_avgstartpheno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/avg_start_phenotype"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+    <EditText
+        android:id="@+id/edittext_avgselectpheno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/avg_selected_phenotype"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+    <EditText
+        android:id="@+id/edittext_avgresponsepheno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/avg_response_phenotype"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+    <EditText
+        android:id="@+id/edittext_broadheritability"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/broad_heriability"
+        android:textSize="@dimen/fragment_ps_textsize"
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"/>
+
+    <Button
+        android:id="@+id/breeder_solve_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/solve"/>
 
 </LinearLayout>

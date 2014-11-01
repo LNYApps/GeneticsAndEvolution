@@ -56,6 +56,13 @@
     <string name="abC_hint">abC</string>
     <string name="abc_hint">abc</string>
 
+    <!-- Breeder's Equation Fragment -->
+    <string name="breeder_instructions">Please enter any 3 parameters below for the 4th to be solved</string>
+    <string name="avg_start_phenotype">Average Starting Phenotype</string>
+    <string name="avg_selected_phenotype">Average Selected Phenotype</string>
+    <string name="avg_response_phenotype">Average Response Phenotype</string>
+    <string name="broad_heriability">Broad Heratibility</string>
+
     <!-- Population Growth Fragment -->
     <string name="population_growth_instructions">Please enter 3 parameters below to calculate the fourth.</string>
 
