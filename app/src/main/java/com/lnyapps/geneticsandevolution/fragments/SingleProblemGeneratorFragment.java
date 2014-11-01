@@ -113,7 +113,7 @@ public class SingleProblemGeneratorFragment extends Fragment {
                 crossmapFragment.destroyFragment();
                 hardyweinbergFragment.destroyFragment();
                 popgrowthFragment.destroyFragment();
-                /*
+
                 if (item.equals(getString(R.string.breeder_eq_heritability))) {
                     breederFragment.createFragment();
                 } else if (item.equals(getString(R.string.hardy_weinberg))) {
@@ -122,7 +122,7 @@ public class SingleProblemGeneratorFragment extends Fragment {
                     popgrowthFragment.createFragment();
                 } else if (item.equals(getString(R.string.genetic_cross_mapping))) {
                     crossmapFragment.createFragment();
-                }*/
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
