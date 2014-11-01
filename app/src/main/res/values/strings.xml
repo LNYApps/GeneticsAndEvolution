@@ -3,15 +3,13 @@
 
     <string name="app_name">Genetics And Evolution</string>
     <string name="problem_solver">Problem Solver</string>
-    <string name="single_problem_generator">Single Problem Generator</string>
-    <string name="multiple_problem_generator">Multiple Problem Generator</string>
+    <string name="problem_generator">Problem Generator</string>
     <string name="self_test_quiz">Self-Test Quiz</string>
     <string name="about">About</string>
 
     <string-array name="navigation_drawer_strings">
         <item>@string/problem_solver</item>
-        <item>@string/single_problem_generator</item>
-        <item>@string/multiple_problem_generator</item>
+        <item>@string/problem_generator</item>
         <item>@string/self_test_quiz</item>
         <item>@string/about</item>
     </string-array>

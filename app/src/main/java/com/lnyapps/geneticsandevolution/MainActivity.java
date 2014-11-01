@@ -2,8 +2,8 @@ package com.lnyapps.geneticsandevolution;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -11,9 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.lnyapps.geneticsandevolution.fragments.AboutFragment;
-import com.lnyapps.geneticsandevolution.fragments.MultipleProblemGeneratorFragment;
+import com.lnyapps.geneticsandevolution.fragments.ProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
-import com.lnyapps.geneticsandevolution.fragments.SingleProblemGeneratorFragment;
 
 
 public class MainActivity extends Activity
@@ -56,10 +55,8 @@ public class MainActivity extends Activity
         Fragment fragment = null;
         if (fragmentName.equals(getResources().getString(R.string.problem_solver))) {
             fragment = new AboutFragment();
-        } else if (fragmentName.equals(getResources().getString(R.string.single_problem_generator))) {
-            fragment = new SingleProblemGeneratorFragment();
-        } else if (fragmentName.equals(getResources().getString(R.string.multiple_problem_generator))) {
-            fragment = new MultipleProblemGeneratorFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.problem_generator))) {
+            fragment = new ProblemGeneratorFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.self_test_quiz))) {
             fragment = new SelfTestQuizFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.about))) {

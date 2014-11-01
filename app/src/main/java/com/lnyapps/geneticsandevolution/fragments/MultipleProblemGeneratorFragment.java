@@ -31,7 +31,7 @@ public class MultipleProblemGeneratorFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.multiple_problem_generator));
+        ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.problem_generator));
     }
 
 }

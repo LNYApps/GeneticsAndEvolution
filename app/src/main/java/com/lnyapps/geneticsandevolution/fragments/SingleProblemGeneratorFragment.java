@@ -31,7 +31,7 @@ public class SingleProblemGeneratorFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.single_problem_generator));
+        ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.problem_generator));
     }
 
 }
