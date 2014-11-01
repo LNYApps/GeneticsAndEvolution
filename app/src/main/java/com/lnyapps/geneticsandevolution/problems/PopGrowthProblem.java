@@ -20,11 +20,29 @@ public class PopGrowthProblem extends GenEvolProblem {
     private int mUnknown1;
     private int mUnknown2;
     private int mUnknown3;
-    private double mSolution;
 
+
+    //nitialPopSize, double finalPopSize, double time
     @Override
     public String solution() {
-        return "TODO";
+        if (mUnknown3 == 2) {
+            return mParams[0] + calcPopGrowthRate(mVals[3], mVals[4], mVals[5]);
+        } else {
+            StringBuilder sb = new StringBuilder();
+            double rateAnswer = (mUnknown1 == 1) ?
+                    1000 * mVals[0] + mVals[2] : mVals[1] - 1000 *mVals[0];
+            sb.append(mParams[mUnknown1] + rateAnswer + "\n");
+            double otherAnswer;
+            if (mUnknown2 == 3) {
+                otherAnswer = calcInitialPop(mVals[0], mVals[4], mVals[5]);
+            } else if (mUnknown2 == 4) {
+                otherAnswer = calcFinalPop(mVals[0], mVals[3], mVals[5]);
+            } else {
+                otherAnswer = calcTime(mVals[0], mVals[3], mVals[4]);
+            }
+            sb.append(mParams[mUnknown2] + otherAnswer);
+            return sb.toString();
+        }
     }
 
     @Override
@@ -43,18 +61,11 @@ public class PopGrowthProblem extends GenEvolProblem {
             mVals[i] = Math.random();
         }
         mVals[0] = mVals[0];
-        mVals[1] = mVals[1] * 180;
-        mVals[2] = mVals[2] * 180;
-        mVals[3] = ((int)(mVals[3] * 100)) * 1000000;
-        mVals[4] = ((int)(mVals[4] * 100)) * 1000000;
+        mVals[2] = mVals[2] * 90;
+        mVals[1] = mVals[2] + mVals[1] * 90;
+        mVals[3] = ((int)(mVals[3] * 50)) * 1000000;
+        mVals[4] = mVals[3] + ((int)(mVals[4] * 50)) * 1000000;
         mVals[5] = mVals[5] * 200;
-        if (invalidQuestion()) {
-            randomValues();
-        }
-    }
-
-    private boolean invalidQuestion() {
-        return false;
     }
 
     @Override
@@ -64,7 +75,23 @@ public class PopGrowthProblem extends GenEvolProblem {
 
     @Override
     public String nonEmptyGivenString() {
-        return "TODO";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < mParams.length; i ++) {
+            sb.append(mParams[i]);
+            if (mUnknown3 == 2) {
+                if (i == 1 || i == 2) {
+                    sb.append("n/a");
+                } else {
+                    sb.append(mVals[i]);
+                }
+            } else {
+                if (i != mUnknown1 && i != mUnknown2) {
+                    sb.append(mVals[i]);
+                }
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     @Override
