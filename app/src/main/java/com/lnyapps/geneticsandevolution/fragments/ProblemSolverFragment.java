@@ -44,9 +44,9 @@ public class ProblemSolverFragment extends Fragment {
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 if (true) {
-                    Fragment inputFrag = new HardyWeinbergFragment();
-                    transaction.add(getId(), inputFrag);
-                    transaction.commit();
+                    //Fragment inputFrag = new HardyWeinbergFragment();
+                    //transaction.add(getId(), inputFrag);
+                    //transaction.commit();
                 }
                 if (pos == 1) {
 
