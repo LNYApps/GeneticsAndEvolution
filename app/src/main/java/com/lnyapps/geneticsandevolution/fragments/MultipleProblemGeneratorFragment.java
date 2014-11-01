@@ -1,10 +1,15 @@
 package com.lnyapps.geneticsandevolution.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.text.InputType;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +29,7 @@ import com.lnyapps.geneticsandevolution.problems.PopGrowthProblem;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Jonathan Tseng on 10/31/2014.
@@ -126,6 +132,7 @@ public class MultipleProblemGeneratorFragment extends Fragment {
         if (isExternalStorageWritable()) {
             String text = createDocumentText();
             try {
+
                 File file = new File(
                         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
                         mFileEditText.getText().toString());
@@ -133,8 +140,10 @@ public class MultipleProblemGeneratorFragment extends Fragment {
                 writer.append(text);
                 writer.flush();
                 writer.close();
-                Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
-                Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                startActivity(Intent.createChooser(intent, getResources().getText(R.string.send_to)));
             } catch (IOException e) {
                 Log.e("Generating Multiple Problems", "Failed to write to file", e);
             }
@@ -145,7 +154,7 @@ public class MultipleProblemGeneratorFragment extends Fragment {
         StringBuilder questions = new StringBuilder();
         StringBuilder answers = new StringBuilder();
         questions.append("Practice Problems\n\n");
-        answers.append("Answers\n\n");
+        answers.append("\n\nAnswers\n\n");
         int count = 1;
         count = createQuestions(count, questions, answers, mPopGrowthEditText);
         count = createQuestions(count, questions, answers, mBreedersEditText);

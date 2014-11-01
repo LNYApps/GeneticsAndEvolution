@@ -89,5 +89,6 @@
     <string name="mpg_hardyweinberghint">@string/hardy_weinberg</string>
     <string name="mpg_crossmappinghint">@string/genetic_cross_mapping</string>
     <string name="mpg_breederhint">@string/breeder_eq_heritability</string>
+    <string name="send_to">Send problems via...</string>
 
 </resources>
