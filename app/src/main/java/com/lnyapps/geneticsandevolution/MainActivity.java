@@ -12,7 +12,6 @@ import android.view.MenuItem;
 
 import com.lnyapps.geneticsandevolution.fragments.AboutFragment;
 import com.lnyapps.geneticsandevolution.fragments.MultipleProblemGeneratorFragment;
-import com.lnyapps.geneticsandevolution.fragments.ProblemSolverFragment;
 import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
 import com.lnyapps.geneticsandevolution.fragments.SingleProblemGeneratorFragment;
 
@@ -26,7 +25,7 @@ public class MainActivity extends Activity
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+     * Used to store the last screen title.
      */
     private CharSequence mTitle;
 
@@ -56,7 +55,7 @@ public class MainActivity extends Activity
         String fragmentName = getResources().getStringArray(R.array.navigation_drawer_strings)[position];
         Fragment fragment = null;
         if (fragmentName.equals(getResources().getString(R.string.problem_solver))) {
-            fragment = new ProblemSolverFragment();
+            fragment = new AboutFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.single_problem_generator))) {
             fragment = new SingleProblemGeneratorFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.multiple_problem_generator))) {

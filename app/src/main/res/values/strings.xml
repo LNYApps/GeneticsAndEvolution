@@ -49,5 +49,6 @@
     <string name="stq_definition">Definition</string>
     <string name="stq_answers">Answers</string>
     <string name="stq_submit">Submit</string>
+    <string name="stq_refresh">Refresh</string>
 
 </resources>

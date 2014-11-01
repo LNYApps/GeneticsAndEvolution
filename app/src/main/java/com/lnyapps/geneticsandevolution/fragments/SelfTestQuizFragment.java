@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,6 +37,7 @@ public class SelfTestQuizFragment extends Fragment {
     private VocabQuestion mCurrentVocabQuestion;
 
     public SelfTestQuizFragment() {
+        setHasOptionsMenu(true);
         Bundle args = new Bundle();
         //args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         setArguments(args);
@@ -49,12 +53,29 @@ public class SelfTestQuizFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_selftestquiz, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.stq_action_refresh) {
+            mVocabList.shuffle();
+            setQuizQuestion(getView());
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void setQuizQuestion(View root) {
         if (mVocabList != null) {
             mCurrentVocabQuestion = mVocabList.getNextQuestion();
             TextView question = (TextView) root.findViewById(R.id.stq_textview_question);
             question.setText(mCurrentVocabQuestion.getQuestion());
-
+            RadioGroup choices = (RadioGroup) root.findViewById(R.id.stq_radiogroup_multiplechoice);
+            choices.clearCheck();
             RadioButton choice0 = (RadioButton) root.findViewById(R.id.stq_radio_choice1);
             choice0.setText(mCurrentVocabQuestion.getChoices()[0]);
             RadioButton choice1 = (RadioButton) root.findViewById(R.id.stq_radio_choice2);
