@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    tools:context=".MainActivity"
-    >
+    android:paddingLeft="@dimen/fragment_ps_horizontalmargin"
+    android:paddingRight="@dimen/fragment_ps_horizontalmargin"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal">
 
     <Spinner
         android:id="@+id/problem_solver_function_spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing" />
+
+    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.BreederFragment"
+        android:id="@+id/ps_fragment_breeder"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
-    <!-- Hardy Weinberg Items -->
+    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.HardyWeinbergFragment"
+        android:id="@+id/ps_fragment_hardyweinberg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
 
-    <!--
-    <fragment
-        android:id="@+id/fragment_hardy_weinberg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/problem_solver_function_spinner" />
-        tools:layout="@layout/fragment_hardy_weinberg"-->
-</RelativeLayout>
+    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.PopGrowthFragment"
+        android:id="@+id/ps_fragment_popgrowth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.GeneticCrossMappingFragment"
+        android:id="@+id/ps_fragment_crossmapping"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

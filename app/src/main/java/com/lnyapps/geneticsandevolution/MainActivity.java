@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.lnyapps.geneticsandevolution.fragments.AboutFragment;
 import com.lnyapps.geneticsandevolution.fragments.ProblemGeneratorFragment;
+import com.lnyapps.geneticsandevolution.fragments.ProblemSolverFragment;
 import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
 
 
@@ -54,7 +55,7 @@ public class MainActivity extends FragmentActivity
         String fragmentName = getResources().getStringArray(R.array.navigation_drawer_strings)[position];
         Fragment fragment = null;
         if (fragmentName.equals(getResources().getString(R.string.problem_solver))) {
-            fragment = new AboutFragment();
+            fragment = new ProblemSolverFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.problem_generator))) {
             fragment = new ProblemGeneratorFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.self_test_quiz))) {

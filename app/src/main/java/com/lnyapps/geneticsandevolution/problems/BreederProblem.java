@@ -67,7 +67,7 @@ public class BreederProblem extends GenEvolProblem {
 
     @Override
     public String emptySolveString() {
-        return "Unkonwn value";
+        return "Unknown value";
     }
 
     private double calcHeritability(double startingPhenotype, double selectedPhenotype, double responsePhenotype){
