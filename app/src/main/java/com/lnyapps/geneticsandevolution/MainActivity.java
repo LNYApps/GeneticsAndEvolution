@@ -1,23 +1,20 @@
 package com.lnyapps.geneticsandevolution;
 
-import android.app.Activity;
-
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.support.v4.widget.DrawerLayout;
 
 import com.lnyapps.geneticsandevolution.fragments.AboutFragment;
 import com.lnyapps.geneticsandevolution.fragments.MultipleProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.fragments.ProblemSolverFragment;
 import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
 import com.lnyapps.geneticsandevolution.fragments.SingleProblemGeneratorFragment;
-
 
 
 public class MainActivity extends Activity
