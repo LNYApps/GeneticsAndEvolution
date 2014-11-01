@@ -27,4 +27,9 @@
     <string name="a_coursewebsite">Course Webpage</string>
     <string name="a_onlinedocumentation">Online Manual</string>
 
+    <!-- Self-Test Quiz Fragment -->
+    <string name="stq_definition">Definition</string>
+    <string name="stq_answers">Answers</string>
+    <string name="stq_submit">Submit</string>
+
 </resources>

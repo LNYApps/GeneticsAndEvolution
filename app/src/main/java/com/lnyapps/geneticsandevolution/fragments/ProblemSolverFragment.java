@@ -21,6 +21,7 @@ public class ProblemSolverFragment extends Fragment {
         setArguments(args);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

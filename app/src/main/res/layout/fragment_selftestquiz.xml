@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/fragment_stq_horizontalmargin"
+    android:paddingRight="@dimen/fragment_stq_horizontalmargin">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stq_definition"
+        android:id="@+id/stq_textview_definition"
+        android:layout_gravity="center_horizontal"
+        android:textIsSelectable="false"
+        android:textSize="@dimen/fragment_stq_headertextsize" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stq_textview_question"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stq_answers"
+        android:id="@+id/stq_textview_answers"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_stq_headertextsize" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/stq_radiogroup_multiplechoice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal" >
+        <RadioButton android:id="@+id/stq_radio_choice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+        <RadioButton android:id="@+id/stq_radio_choice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+        <RadioButton android:id="@+id/stq_radio_choice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+        <RadioButton android:id="@+id/stq_radio_choice4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stq_submit"
+        android:id="@+id/stq_button_submit"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_stq_headertextsize"/>
 
 </LinearLayout>
