@@ -25,4 +25,24 @@ public class PopGrowthFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_hardy_weinberg, container, false);
         return rootView;
     }
+
+    public double calcPopGrowthRate(double initialPopSize, double finalPopSize, double time){
+        double output = Math.log(finalPopSize/initialPopSize)/time;
+        return output;
+    }
+
+    public double calcTime(double growthRate, double initialPopSize, double finalPopSize){
+        double output = Math.log(finalPopSize/initialPopSize)/growthRate;
+        return output;
+    }
+
+    public double calcFinalPop(double growthRate, double initialPopSize, double time){
+        double output = initialPopSize*Math.exp(growthRate*time);
+        return output;
+    }
+
+    public double calcInitialPop(double growthRate, double finalPopSize, double time){
+        double output = finalPopSize/Math.exp(growthRate*time);
+        return output;
+    }
 }
