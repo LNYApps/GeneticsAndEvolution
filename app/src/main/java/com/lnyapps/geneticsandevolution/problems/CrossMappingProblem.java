@@ -15,11 +15,13 @@ public class CrossMappingProblem extends GenEvolProblem {
     public String solution() {
         double[] solution = calculateCrossMapping(mParams[0], mParams[1], mParams[2], mParams[3],
                 mParams[4], mParams[5], mParams[6], mParams[7]);
-        return "Predicted phase, order & linkage:" +
-                "\na--c--B//A--C--b" +
+        return
+                //TODO: Calculate the predicated linkage
+                /*"Predicted phase, order & linkage:" +
+                "\na--c--B//A--C--b" +*/
                 "\nAB rec fraction: " + solution[0] +
-                "\nBC rec fraction: " + solution[1] +
-                "\nAC rec fraction: " + solution[2];
+                "\nBC rec fraction: " + solution[2] +
+                "\nAC rec fraction: " + solution[1];
     }
 
     @Override
