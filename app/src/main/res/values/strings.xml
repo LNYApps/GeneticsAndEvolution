@@ -74,9 +74,20 @@
         <item>@string/pop_growth</item>
         <item>@string/breeder_eq_heritability</item>
     </string-array>
+
+    <!-- Single Problem Generator -->
     <string name="spg_given">Given:</string>
     <string name="spg_solve">Solve:</string>
     <string name="spg_generate">Generate</string>
     <string name="spg_showanswer">Show Answer</string>
+
+    <!-- Multiple Problem Generator -->
+    <string name="mpg_generate">Generate</string>
+    <string name="mpg_filehint">File Name</string>
+    <string name="mpg_numquestionsheading">Number of each type of problem:</string>
+    <string name="mpg_popgrowthhint">@string/pop_growth</string>
+    <string name="mpg_hardyweinberghint">@string/hardy_weinberg</string>
+    <string name="mpg_crossmappinghint">@string/genetic_cross_mapping</string>
+    <string name="mpg_breederhint">@string/breeder_eq_heritability</string>
 
 </resources>

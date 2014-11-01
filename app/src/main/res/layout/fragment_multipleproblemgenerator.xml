@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal"
+    android:paddingLeft="@dimen/fragment_mpg_horizontalmargin"
+    android:paddingRight="@dimen/fragment_mpg_horizontalmargin">
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mpg_edittext_filename"
+        android:hint="@string/mpg_filehint"
+        android:textSize="@dimen/fragment_mpg_textsize"
+        android:layout_marginBottom="@dimen/fragment_mpg_verticalspacing"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mpg_numquestionsheading"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_mpg_textsize"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="@string/mpg_popgrowthhint"
+        android:id="@+id/mpg_edittext_numpopgrowth"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_mpg_textsize"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="@string/mpg_hardyweinberghint"
+        android:id="@+id/mpg_edittext_numhardyweinberg"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_mpg_textsize"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:hint="@string/mpg_crossmappinghint"
+        android:id="@+id/mpg_edittext_numcrossmapping"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_mpg_textsize"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="@string/mpg_breederhint"
+        android:id="@+id/mpg_edittext_numbreeders"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_mpg_textsize"
+        android:layout_marginBottom="@dimen/fragment_mpg_verticalspacing"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mpg_generate"
+        android:id="@+id/mpg_button_generate"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/fragment_mpg_textsize"/>
 </LinearLayout>

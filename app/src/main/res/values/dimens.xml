@@ -25,4 +25,9 @@
     <dimen name="fragment_spg_textsize">18dp</dimen>
     <dimen name="fragment_spg_verticalspacing">18dp</dimen>
 
+    <!-- Multiple Problem Generator Fragment -->
+    <dimen name="fragment_mpg_horizontalmargin">25dp</dimen>
+    <dimen name="fragment_mpg_textsize">20dp</dimen>
+    <dimen name="fragment_mpg_verticalspacing">18dp</dimen>
+
 </resources>
