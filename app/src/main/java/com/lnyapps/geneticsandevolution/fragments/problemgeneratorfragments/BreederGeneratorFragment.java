@@ -1,7 +1,7 @@
 package com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,7 @@ import com.lnyapps.geneticsandevolution.R;
 /**
  * Created by Alex on 11/1/2014.
  */
-public class BreederGeneratorFragment extends Fragment{
+public class BreederGeneratorFragment extends Fragment {
 
     public BreederGeneratorFragment() {
         Bundle args = new Bundle();
@@ -25,4 +25,13 @@ public class BreederGeneratorFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_breeder_generator, container, false);
         return rootView;
     }
+
+    public void destroyFragment() {
+        getChildFragmentManager().beginTransaction().hide(this).commit();
+    }
+
+    public void createFragment() {
+        getChildFragmentManager().beginTransaction().show(this).commit();
+    }
+
 }

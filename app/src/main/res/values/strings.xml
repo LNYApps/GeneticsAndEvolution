@@ -68,5 +68,11 @@
     <!-- Problem Generator Fragment -->
     <string name="pg_single_title">Single Problem Generator</string>
     <string name="pg_multiple_title">Multiple Problem Generator</string>
+    <string-array name="spg_spinner_array">
+        <item>@string/hardy_weinberg</item>
+        <item>@string/genetic_cross_mapping</item>
+        <item>@string/pop_growth</item>
+        <item>@string/breeder_eq_heritability</item>
+    </string-array>
 
 </resources>

@@ -14,9 +14,14 @@
     <dimen name="fragment_about_spacing">20dp</dimen>
 
     <!-- Self-Test Quiz Fragment -->
-    <dimen name="fragment_stq_horizontalmargin">15dp</dimen>
+    <dimen name="fragment_stq_horizontalmargin">25dp</dimen>
     <dimen name="fragment_stq_headertextsize">20dp</dimen>
     <dimen name="fragment_stq_subgrouptextsize">14dp</dimen>
     <dimen name="fragment_stq_groupspacing">20dp</dimen>
+
+    <!-- Single Problem Generator Fragment -->
+    <dimen name="fragment_spg_horizontalmargin">25dp</dimen>
+    <dimen name="fragment_spg_textsize">15dp</dimen>
+    <dimen name="fragment_spg_verticalspacing">10dp</dimen>
 
 </resources>

@@ -1,6 +1,6 @@
 package com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,4 +24,13 @@ public class GeneticCrossMappingGeneratorFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_genetic_cross_mapping_generator, container, false);
         return rootView;
     }
+
+    public void destroyFragment() {
+        getChildFragmentManager().beginTransaction().hide(this).commit();
+    }
+
+    public void createFragment() {
+        getChildFragmentManager().beginTransaction().show(this).commit();
+    }
+
 }
