@@ -60,12 +60,20 @@ public class ProblemGeneratorFragment extends Fragment {
 
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
-            return new AboutFragment();
+            if (position == 0) {
+                return new SingleProblemGeneratorFragment();
+            } else {
+                return new MultipleProblemGeneratorFragment();
+            }
         }
 
         @Override
         public String getPageTitle(int position) {
-            return "something" + position;
+            if (position == 0) {
+                return getString(R.string.pg_single_title);
+            } else {
+                return getString(R.string.pg_multiple_title);
+            }
         }
 
     }

@@ -65,4 +65,8 @@
     <string name="stq_submit">Submit</string>
     <string name="stq_refresh">Refresh</string>
 
+    <!-- Problem Generator Fragment -->
+    <string name="pg_single_title">Single Problem Generator</string>
+    <string name="pg_multiple_title">Multiple Problem Generator</string>
+
 </resources>
