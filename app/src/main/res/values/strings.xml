@@ -21,7 +21,7 @@
 
     <!-- About Fragment -->
     <string name="a_title">Genetics And Evolution</string>
-    <string name="a_about">\tThis app was developed by Jonathan Tseng and Alex Dao to supplement the Duke University Introduction to Genetics and Evolution course taught by Prof. Mohamed Noor. \n\n\tIt allows users to solve problems covered in the course, including three-point genetic cross mapping, heritability from the breeder\'s equation, population growth and testing for Hardy Weinberg equilibrium.</string>
+    <string name="a_about">This app was developed by Jonathan Tseng and Alex Dao to supplement the Duke University Introduction to Genetics and Evolution course taught by Prof. Mohamed Noor. \n\nIt allows users to solve problems covered in the course, including three-point genetic cross mapping, heritability from the breeder\'s equation, population growth and testing for Hardy Weinberg equilibrium.</string>
     <string name="a_coursewebsite">Course Webpage</string>
     <string name="a_onlinedocumentation">Online Manual</string>
 
