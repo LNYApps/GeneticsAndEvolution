@@ -1,10 +1,10 @@
 package com.lnyapps.geneticsandevolution;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -15,7 +15,7 @@ import com.lnyapps.geneticsandevolution.fragments.ProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
 
 
-public class MainActivity extends Activity
+public class MainActivity extends FragmentActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -50,7 +50,7 @@ public class MainActivity extends Activity
     }
 
     public void displayView(int position) {
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         String fragmentName = getResources().getStringArray(R.array.navigation_drawer_strings)[position];
         Fragment fragment = null;
         if (fragmentName.equals(getResources().getString(R.string.problem_solver))) {

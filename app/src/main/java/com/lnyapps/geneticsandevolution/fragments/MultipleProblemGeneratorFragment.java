@@ -1,11 +1,12 @@
 package com.lnyapps.geneticsandevolution.fragments;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.support.v4.app.Fragment;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
 import com.lnyapps.geneticsandevolution.R;
