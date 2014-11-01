@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
@@ -17,11 +19,22 @@ import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.Bree
 import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.GeneticCrossMappingGeneratorFragment;
 import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.HardyWeinbergGeneratorFragment;
 import com.lnyapps.geneticsandevolution.fragments.problemgeneratorfragments.PopGrowthGeneratorFragment;
+import com.lnyapps.geneticsandevolution.problems.BreederProblem;
+import com.lnyapps.geneticsandevolution.problems.CrossMappingProblem;
+import com.lnyapps.geneticsandevolution.problems.GenEvolProblem;
+import com.lnyapps.geneticsandevolution.problems.HardyWeinbergProblem;
+import com.lnyapps.geneticsandevolution.problems.PopGrowthProblem;
 
 /**
  * Created by Jonathan Tseng on 10/31/2014.
  */
 public class SingleProblemGeneratorFragment extends Fragment {
+
+    private GenEvolProblem mCurrentProblem;
+    private Button mGenerateButton;
+    private Button mShowAnswerButton;
+    private TextView mGivenText;
+    private TextView mSolveText;
 
     public SingleProblemGeneratorFragment() {
         Bundle args = new Bundle();
@@ -34,7 +47,35 @@ public class SingleProblemGeneratorFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_singleproblemgenerator, container, false);
         setUpSpinner(rootView);
+        mGenerateButton = (Button) rootView.findViewById(R.id.spg_button_generate);
+        mShowAnswerButton = (Button) rootView.findViewById(R.id.spg_button_showanswer);
+        mGivenText = (TextView) rootView.findViewById(R.id.spg_textview_given);
+        mSolveText = (TextView) rootView.findViewById(R.id.spg_textview_solve);
+        setUpGenerateButton();
+        setUpShowAnswerButton();
         return rootView;
+    }
+
+    private void setUpGenerateButton() {
+        mGenerateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mShowAnswerButton.setActivated(true);
+                mCurrentProblem.randomValues();
+                mSolveText.setText(mCurrentProblem.emptySolveString());
+                mGivenText.setText(mCurrentProblem.nonEmptyGivenString());
+            }
+        });
+    }
+
+    private void setUpShowAnswerButton() {
+        mShowAnswerButton.setActivated(false);
+        mShowAnswerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mSolveText.setText(mCurrentProblem.solution());
+            }
+        });
     }
 
     private void setUpSpinner(View root) {
@@ -49,6 +90,19 @@ public class SingleProblemGeneratorFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String item = getResources().getStringArray(R.array.spg_spinner_array)[pos];
+                if (item.equals(getString(R.string.breeder_eq_heritability))) {
+                    mCurrentProblem = new BreederProblem();
+                } else if (item.equals(getString(R.string.hardy_weinberg))) {
+                    mCurrentProblem = new HardyWeinbergProblem();
+                } else if (item.equals(getString(R.string.pop_growth))) {
+                    mCurrentProblem = new PopGrowthProblem();
+                } else {
+                    mCurrentProblem = new CrossMappingProblem();
+                }
+                mGivenText.setText(mCurrentProblem.emptyGivenString());
+                mSolveText.setText(mCurrentProblem.emptySolveString());
+
+
 
                 BreederGeneratorFragment breederFragment = (BreederGeneratorFragment) getChildFragmentManager().findFragmentById(R.id.spg_fragment_breeder);
                 GeneticCrossMappingGeneratorFragment crossmapFragment = (GeneticCrossMappingGeneratorFragment) getChildFragmentManager().findFragmentById(R.id.spg_fragment_crossmapping);
@@ -59,7 +113,7 @@ public class SingleProblemGeneratorFragment extends Fragment {
                 crossmapFragment.destroyFragment();
                 hardyweinbergFragment.destroyFragment();
                 popgrowthFragment.destroyFragment();
-
+                /*
                 if (item.equals(getString(R.string.breeder_eq_heritability))) {
                     breederFragment.createFragment();
                 } else if (item.equals(getString(R.string.hardy_weinberg))) {
@@ -68,7 +122,7 @@ public class SingleProblemGeneratorFragment extends Fragment {
                     popgrowthFragment.createFragment();
                 } else if (item.equals(getString(R.string.genetic_cross_mapping))) {
                     crossmapFragment.createFragment();
-                }
+                }*/
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {

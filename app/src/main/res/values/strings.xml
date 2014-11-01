@@ -74,5 +74,9 @@
         <item>@string/pop_growth</item>
         <item>@string/breeder_eq_heritability</item>
     </string-array>
+    <string name="spg_given">Given:</string>
+    <string name="spg_solve">Solve:</string>
+    <string name="spg_generate">Generate</string>
+    <string name="spg_showanswer">Show Answer</string>
 
 </resources>

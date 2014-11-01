@@ -21,7 +21,8 @@
 
     <!-- Single Problem Generator Fragment -->
     <dimen name="fragment_spg_horizontalmargin">25dp</dimen>
-    <dimen name="fragment_spg_textsize">15dp</dimen>
-    <dimen name="fragment_spg_verticalspacing">10dp</dimen>
+    <dimen name="fragment_spg_headertextsize">25dp</dimen>
+    <dimen name="fragment_spg_textsize">18dp</dimen>
+    <dimen name="fragment_spg_verticalspacing">18dp</dimen>
 
 </resources>
