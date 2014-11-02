@@ -66,6 +66,12 @@
 
     <!-- Population Growth Fragment -->
     <string name="population_growth_instructions">Please enter 3 parameters below to calculate the fourth.</string>
+    <string name="population_growth_initialpop">Initial population</string>
+    <string name="population_growth_finalpop">Final population</string>
+    <string name="population_growth_time">Time (years)</string>
+    <string name="population_growth_rate">Growth rate</string>
+    <string name="population_growth_birthrate">Birth rate</string>
+    <string name="population_growth_deathrate">Death rate</string>
 
     <!-- Self-Test Quiz Fragment -->
     <string name="stq_definition">Definition</string>

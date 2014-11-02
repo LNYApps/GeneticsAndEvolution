@@ -11,4 +11,34 @@
         android:paddingBottom="@dimen/fragment_ps_verticalspacing"
         android:textSize="@dimen/fragment_mpg_textsize"/>
 
+    <EditText
+        android:id="@+id/pop_growth_rate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/population_growth_rate"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+    <EditText
+        android:id="@+id/pop_initial_pop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/population_growth_initialpop"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+    <EditText
+        android:id="@+id/pop_final_pop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/population_growth_finalpop"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+    <EditText
+        android:id="@+id/pop_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/population_growth_time"
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
 </LinearLayout>
