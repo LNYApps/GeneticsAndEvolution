@@ -24,11 +24,17 @@ public abstract class ProblemSolverInputFragment extends Fragment {
     }
 
     public String solve() {
+        loadArguments();
         return mProblem.solution();
     }
 
     public abstract boolean canSolve();
 
+    public abstract void loadArguments();
+
     public abstract void clearInputs();
+
+    public abstract void clearInputFocus();
+
 
 }

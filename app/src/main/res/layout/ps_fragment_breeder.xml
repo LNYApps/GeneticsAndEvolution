@@ -36,7 +36,7 @@
         android:id="@+id/edittext_broadheritability"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/broad_heriability"
         android:textSize="@dimen/fragment_ps_textsize"
         android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"/>

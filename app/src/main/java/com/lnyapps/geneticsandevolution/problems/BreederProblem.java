@@ -1,6 +1,7 @@
 package com.lnyapps.geneticsandevolution.problems;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 /**
  * Created by Jonathan Tseng on 11/1/2014.
@@ -47,9 +48,12 @@ public class BreederProblem extends GenEvolProblem {
 
     @Override
     public void setArguments(double[] args) {
-        randomValues();
-        for (int i = 0; i < args.length; i++) {
-            if (i < mVals.length) {
+        mVals = new double[4];
+        for (int i = 0; i < args.length; i ++) {
+            Log.e("what", Integer.toString(i));
+            if (Double.isNaN(args[i])) {
+                mUnknown = i;
+            } else {
                 mVals[i] = args[i];
             }
         }

@@ -33,7 +33,17 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
     }
 
     @Override
+    public void loadArguments() {
+
+    }
+
+    @Override
     public void clearInputs() {
+
+    }
+
+    @Override
+    public void clearInputFocus() {
 
     }
 }

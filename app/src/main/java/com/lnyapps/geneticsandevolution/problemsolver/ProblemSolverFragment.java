@@ -90,6 +90,7 @@ public class ProblemSolverFragment extends Fragment {
 
                 if (nextFragment != mCurrentFragment) {
                     mCurrentFragment = nextFragment;
+                    mCurrentFragment.clearInputs();
                     mSolutionTextView.setText("");
                     mSolutionTextView.setVisibility(View.INVISIBLE);
                 }
@@ -123,8 +124,11 @@ public class ProblemSolverFragment extends Fragment {
         mSolveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mCurrentFragment.clearInputFocus();
                 if (mCurrentFragment.canSolve()) {
                     updateSolutionTextView(mCurrentFragment.solve());
+                } else {
+                    Toast.makeText(getActivity(), "Invalid inputs", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -132,7 +136,7 @@ public class ProblemSolverFragment extends Fragment {
 
 
     public void updateSolutionTextView(String solution) {
-        mSolutionTextView.setText("some placeholder");
+        mSolutionTextView.setText(solution);
         mSolutionTextView.setVisibility(View.VISIBLE);
     }
 

@@ -19,13 +19,13 @@ public class HardyWeinbergProblem extends GenEvolProblem {
     @Override
     public String solution() {
         double[] solution = solve();
-        return "Observed AA: " + solution[0] +
-                "\nObserved Aa: " + solution[1] +
-                "\nObserved aa: " + solution[2] +
-                "\nExpected AA: " + solution[3] +
-                "\nExpected Aa: " + solution[4] +
-                "\nExpected aa: " + solution[5] +
-                "\nF: " + solution[6];
+        return "Observed AA: " + String.format("%.3f", solution[0]) +
+                "\nObserved Aa: " + String.format("%.3f", solution[1]) +
+                "\nObserved aa: " + String.format("%.3f", solution[2]) +
+                "\nExpected AA: " + String.format("%.3f", solution[3]) +
+                "\nExpected Aa: " + String.format("%.3f", solution[4]) +
+                "\nExpected aa: " + String.format("%.3f", solution[5]) +
+                "\nF: " + String.format("%.3f", solution[6]);
     }
 
     public double[] solve() {
@@ -60,7 +60,16 @@ public class HardyWeinbergProblem extends GenEvolProblem {
 
     @Override
     public void setArguments(double[] args) {
-
+        randomValues();
+        for (int i = 0; i < args.length; i++) {
+            if (i == 0) {
+                mAAcount = (int) args[0];
+            } else if (i == 1) {
+                mAacount = (int) args[1];
+            } else if (i == 2) {
+                maacount = (int) args[2];
+            }
+        }
     }
 
     @Override

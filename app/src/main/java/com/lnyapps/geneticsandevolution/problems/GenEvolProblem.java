@@ -11,8 +11,8 @@ public abstract class GenEvolProblem {
 
     /**
      * no error checking done--expects perfect input
-     * if too few arguments, populates the rest with random numbers
-     * if too many arguments, drops the extra ones
+     * if too few arguments, may add random arguments
+     * if too many arguments, extra ones ignored
      * @param args
      */
     public abstract void setArguments(double[] args);
