@@ -29,7 +29,7 @@ public class ProblemSolverFragment extends Fragment {
     private TextView mSolutionTextView;
     private Button mSolveButton;
     private ProblemSolverInputFragment mCurrentFragment;
-    private HashMap<String, ProblemSolverInputFragment> myFragmentMapping;
+    private HashMap<String, ProblemSolverInputFragment> mFragmentMapping;
 
     public ProblemSolverFragment() {
         setHasOptionsMenu(true);
@@ -62,14 +62,17 @@ public class ProblemSolverFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                for (ProblemSolverInputFragment fragment : myFragmentMapping.values()) {
+                for (ProblemSolverInputFragment fragment : mFragmentMapping.values()) {
                     fragment.destroyFragment();
                 }
 
                 String item = getResources().getStringArray(R.array.spg_spinner_array)[pos];
-                ProblemSolverInputFragment nextFragment = myFragmentMapping.get(item);
+                ProblemSolverInputFragment nextFragment = mFragmentMapping.get(item);
                 nextFragment.createFragment();
 
+                if (mCurrentFragment == null) {
+                    mCurrentFragment = nextFragment;
+                }
                 if (nextFragment != mCurrentFragment) {
                     mCurrentFragment.clearInputs();
                     mCurrentFragment = nextFragment;
@@ -100,11 +103,11 @@ public class ProblemSolverFragment extends Fragment {
         HardyWeinbergFragment hardyweinbergFragment = (HardyWeinbergFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_hardyweinberg);
         PopGrowthFragment popgrowthFragment = (PopGrowthFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_popgrowth);
 
-        myFragmentMapping = new HashMap<String, ProblemSolverInputFragment>();
-        myFragmentMapping.put(getString(R.string.breeder_eq_heritability), breederFragment);
-        myFragmentMapping.put(getString(R.string.hardy_weinberg), hardyweinbergFragment);
-        myFragmentMapping.put(getString(R.string.pop_growth), popgrowthFragment);
-        myFragmentMapping.put(getString(R.string.genetic_cross_mapping), crossmapFragment);
+        mFragmentMapping = new HashMap<String, ProblemSolverInputFragment>();
+        mFragmentMapping.put(getString(R.string.breeder_eq_heritability), breederFragment);
+        mFragmentMapping.put(getString(R.string.hardy_weinberg), hardyweinbergFragment);
+        mFragmentMapping.put(getString(R.string.pop_growth), popgrowthFragment);
+        mFragmentMapping.put(getString(R.string.genetic_cross_mapping), crossmapFragment);
     }
 
     @Override
