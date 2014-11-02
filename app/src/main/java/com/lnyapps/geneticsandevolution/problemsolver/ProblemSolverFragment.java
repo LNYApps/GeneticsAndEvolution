@@ -33,9 +33,6 @@ public class ProblemSolverFragment extends Fragment {
 
     public ProblemSolverFragment() {
         setHasOptionsMenu(true);
-        Bundle args = new Bundle();
-        //args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-        setArguments(args);
     }
 
     @Override
@@ -49,6 +46,7 @@ public class ProblemSolverFragment extends Fragment {
         if (item.getItemId() == R.id.ps_action_clearinputs) {
             Toast.makeText(getActivity(), "cleared", Toast.LENGTH_SHORT).show();
             mCurrentFragment.clearInputs();
+            clearSolutionTextView();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -64,37 +62,19 @@ public class ProblemSolverFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String item = getResources().getStringArray(R.array.spg_spinner_array)[pos];
-
-                mSolutionTextView.setVisibility(View.INVISIBLE);
-
-                BreederFragment breederFragment = (BreederFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_breeder);
-                GeneticCrossMappingFragment crossmapFragment = (GeneticCrossMappingFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_crossmapping);
-                HardyWeinbergFragment hardyweinbergFragment = (HardyWeinbergFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_hardyweinberg);
-                PopGrowthFragment popgrowthFragment = (PopGrowthFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_popgrowth);
-
-                if (myFragmentMapping == null) {
-                    myFragmentMapping = new HashMap<String, ProblemSolverInputFragment>();
-                    myFragmentMapping.put(getString(R.string.breeder_eq_heritability), breederFragment);
-                    myFragmentMapping.put(getString(R.string.hardy_weinberg), hardyweinbergFragment);
-                    myFragmentMapping.put(getString(R.string.pop_growth), popgrowthFragment);
-                    myFragmentMapping.put(getString(R.string.genetic_cross_mapping), crossmapFragment);
-                }
-
                 for (ProblemSolverInputFragment fragment : myFragmentMapping.values()) {
                     fragment.destroyFragment();
                 }
 
+                String item = getResources().getStringArray(R.array.spg_spinner_array)[pos];
                 ProblemSolverInputFragment nextFragment = myFragmentMapping.get(item);
                 nextFragment.createFragment();
 
                 if (nextFragment != mCurrentFragment) {
-                    mCurrentFragment = nextFragment;
                     mCurrentFragment.clearInputs();
-                    mSolutionTextView.setText("");
-                    mSolutionTextView.setVisibility(View.INVISIBLE);
+                    mCurrentFragment = nextFragment;
+                    clearSolutionTextView();
                 }
-
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -107,10 +87,24 @@ public class ProblemSolverFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_problemsolver, container, false);
+        setUpFragments();
         mSolutionTextView = (TextView) rootView.findViewById(R.id.ps_textview_solution);
         setUpSelectFunctionSpinner(rootView);
         setUpSolveButton(rootView);
         return rootView;
+    }
+
+    private void setUpFragments() {
+        BreederFragment breederFragment = (BreederFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_breeder);
+        GeneticCrossMappingFragment crossmapFragment = (GeneticCrossMappingFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_crossmapping);
+        HardyWeinbergFragment hardyweinbergFragment = (HardyWeinbergFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_hardyweinberg);
+        PopGrowthFragment popgrowthFragment = (PopGrowthFragment) getChildFragmentManager().findFragmentById(R.id.ps_fragment_popgrowth);
+
+        myFragmentMapping = new HashMap<String, ProblemSolverInputFragment>();
+        myFragmentMapping.put(getString(R.string.breeder_eq_heritability), breederFragment);
+        myFragmentMapping.put(getString(R.string.hardy_weinberg), hardyweinbergFragment);
+        myFragmentMapping.put(getString(R.string.pop_growth), popgrowthFragment);
+        myFragmentMapping.put(getString(R.string.genetic_cross_mapping), crossmapFragment);
     }
 
     @Override
@@ -134,6 +128,10 @@ public class ProblemSolverFragment extends Fragment {
         });
     }
 
+    private void clearSolutionTextView() {
+        mSolutionTextView.setText("");
+        mSolutionTextView.setVisibility(View.INVISIBLE);
+    }
 
     public void updateSolutionTextView(String solution) {
         mSolutionTextView.setText(solution);

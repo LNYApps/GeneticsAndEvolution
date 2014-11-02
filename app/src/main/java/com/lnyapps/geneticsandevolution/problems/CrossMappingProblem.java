@@ -40,7 +40,12 @@ public class CrossMappingProblem extends GenEvolProblem {
 
     @Override
     public void setArguments(double[] args) {
-
+        randomValues();
+        for (int i = 0; i < args.length; i++) {
+            if (i < 8) {
+                mParams[i] = (int) args[i];
+            }
+        }
     }
 
     @Override
