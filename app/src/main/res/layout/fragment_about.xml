@@ -7,6 +7,14 @@
     android:paddingLeft="@dimen/fragment_about_horizontalmargin"
     android:paddingRight="@dimen/fragment_about_horizontalmargin">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fragment_about_picture"
+        android:paddingTop="@dimen/fragment_about_picture_padding_top"
+        android:src="@drawable/about_picture"
+        />
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

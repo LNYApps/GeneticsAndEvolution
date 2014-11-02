@@ -12,6 +12,8 @@
     <dimen name="fragment_about_textsize">18sp</dimen>
     <dimen name="fragment_about_titletextsize">22sp</dimen>
     <dimen name="fragment_about_spacing">20dp</dimen>
+    <dimen name="fragment_about_picture">200dp</dimen>
+    <dimen name="fragment_about_picture_padding_top">20dp</dimen>
 
     <!-- Self-Test Quiz Fragment -->
     <dimen name="fragment_stq_horizontalmargin">25dp</dimen>
