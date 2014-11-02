@@ -1,4 +1,4 @@
-package com.lnyapps.geneticsandevolution.fragments;
+package com.lnyapps.geneticsandevolution.problemgenerator;
 
 import android.app.Activity;
 import android.os.Bundle;

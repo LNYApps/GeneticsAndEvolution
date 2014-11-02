@@ -9,30 +9,32 @@
 
     <!-- About Fragment -->
     <dimen name="fragment_about_horizontalmargin">50dp</dimen>
-    <dimen name="fragment_about_textsize">15dp</dimen>
-    <dimen name="fragment_about_titletextsize">25dp</dimen>
+    <dimen name="fragment_about_textsize">18sp</dimen>
+    <dimen name="fragment_about_titletextsize">22sp</dimen>
     <dimen name="fragment_about_spacing">20dp</dimen>
 
     <!-- Self-Test Quiz Fragment -->
     <dimen name="fragment_stq_horizontalmargin">25dp</dimen>
-    <dimen name="fragment_stq_headertextsize">20dp</dimen>
-    <dimen name="fragment_stq_subgrouptextsize">14dp</dimen>
+    <dimen name="fragment_stq_paragraphindent">16dp</dimen>
+    <dimen name="fragment_stq_headertextsize">22sp</dimen>
+    <dimen name="fragment_stq_subgrouptextsize">18sp</dimen>
     <dimen name="fragment_stq_groupspacing">20dp</dimen>
 
     <!-- Single Problem Generator Fragment -->
     <dimen name="fragment_spg_horizontalmargin">25dp</dimen>
-    <dimen name="fragment_spg_headertextsize">25dp</dimen>
-    <dimen name="fragment_spg_textsize">18dp</dimen>
+    <dimen name="fragment_spg_headertextsize">22sp</dimen>
+    <dimen name="fragment_spg_textsize">18sp</dimen>
     <dimen name="fragment_spg_verticalspacing">18dp</dimen>
+    <dimen name="fragment_spg_paragraphindent">16dp</dimen>
 
     <!-- Multiple Problem Generator Fragment -->
     <dimen name="fragment_mpg_horizontalmargin">25dp</dimen>
-    <dimen name="fragment_mpg_textsize">18dp</dimen>
+    <dimen name="fragment_mpg_textsize">18sp</dimen>
     <dimen name="fragment_mpg_verticalspacing">18dp</dimen>
 
     <!-- Problem Solver Fragment -->
     <dimen name="fragment_ps_horizontalmargin">25dp</dimen>
-    <dimen name="fragment_ps_textsize">18dp</dimen>
+    <dimen name="fragment_ps_textsize">18sp</dimen>
     <dimen name="fragment_ps_verticalspacing">18dp</dimen>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.lnyapps.geneticsandevolution.fragments;
+package com.lnyapps.geneticsandevolution.selftestquiz;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/fragment_ps_horizontalmargin"
-    android:paddingRight="@dimen/fragment_ps_horizontalmargin"
-    android:orientation="vertical"
-    android:gravity="center_vertical|center_horizontal">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/fragment_ps_horizontalmargin"
+        android:paddingRight="@dimen/fragment_ps_horizontalmargin"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal">
 
-    <Spinner
-        android:id="@+id/problem_solver_function_spinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing" />
+        <Spinner
+            android:id="@+id/ps_spinner_problemtype"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fragment_ps_verticalspacing" />
 
-    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.BreederFragment"
-        android:id="@+id/ps_fragment_breeder"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.BreederFragment"
+            android:id="@+id/ps_fragment_breeder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
-    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.HardyWeinbergFragment"
-        android:id="@+id/ps_fragment_hardyweinberg"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.HardyWeinbergFragment"
+            android:id="@+id/ps_fragment_hardyweinberg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
-    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.PopGrowthFragment"
-        android:id="@+id/ps_fragment_popgrowth"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.PopGrowthFragment"
+            android:id="@+id/ps_fragment_popgrowth"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
-    <fragment android:name="com.lnyapps.geneticsandevolution.fragments.problemsolverfragments.GeneticCrossMappingFragment"
-        android:id="@+id/ps_fragment_crossmapping"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.GeneticCrossMappingFragment"
+            android:id="@+id/ps_fragment_crossmapping"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/ps_button_solve"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/solve"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/fragment_ps_verticalspacing"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ps_textview_solution"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+</ScrollView>

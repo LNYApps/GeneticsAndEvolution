@@ -1,6 +1,5 @@
-package com.lnyapps.geneticsandevolution.fragments.problemsolverfragments;
+package com.lnyapps.geneticsandevolution.problemsolver;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import com.lnyapps.geneticsandevolution.R;
 /**
  * Created by Alex on 11/1/2014.
  */
-public class GeneticCrossMappingFragment extends Fragment{
+public class GeneticCrossMappingFragment extends ProblemSolverInputFragment {
 
     public GeneticCrossMappingFragment() {
         Bundle args = new Bundle();
@@ -22,16 +21,12 @@ public class GeneticCrossMappingFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_genetic_cross_mapping, container, false);
+        View rootView = inflater.inflate(R.layout.ps_fragment_genetic_cross_mapping, container, false);
         return rootView;
     }
 
-    public void destroyFragment() {
-        getChildFragmentManager().beginTransaction().hide(this).commit();
-    }
+    @Override
+    public void clearInputs() {
 
-    public void createFragment() {
-        getChildFragmentManager().beginTransaction().show(this).commit();
     }
-
 }

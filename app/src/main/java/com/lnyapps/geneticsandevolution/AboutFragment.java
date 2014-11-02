@@ -1,4 +1,4 @@
-package com.lnyapps.geneticsandevolution.fragments;
+package com.lnyapps.geneticsandevolution;
 
 import android.app.Activity;
 import android.content.Intent;

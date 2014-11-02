@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/stq_textview_question"
         android:layout_gravity="center_horizontal"
+        android:paddingLeft="@dimen/fragment_stq_paragraphindent"
+        android:paddingRight="@dimen/fragment_stq_paragraphindent"
         android:textSize="@dimen/fragment_stq_subgrouptextsize" />
 
     <TextView
@@ -36,7 +38,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="@dimen/fragment_stq_paragraphindent"
+        android:paddingRight="@dimen/fragment_stq_paragraphindent">
         <RadioButton android:id="@+id/stq_radio_choice1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

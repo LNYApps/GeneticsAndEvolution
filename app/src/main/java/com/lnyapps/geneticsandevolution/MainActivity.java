@@ -10,10 +10,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.lnyapps.geneticsandevolution.fragments.AboutFragment;
-import com.lnyapps.geneticsandevolution.fragments.ProblemGeneratorFragment;
-import com.lnyapps.geneticsandevolution.fragments.ProblemSolverFragment;
-import com.lnyapps.geneticsandevolution.fragments.SelfTestQuizFragment;
+import com.lnyapps.geneticsandevolution.problemgenerator.ProblemGeneratorFragment;
+import com.lnyapps.geneticsandevolution.problemsolver.ProblemSolverFragment;
+import com.lnyapps.geneticsandevolution.selftestquiz.SelfTestQuizFragment;
 
 
 public class MainActivity extends FragmentActivity

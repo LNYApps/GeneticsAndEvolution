@@ -46,6 +46,16 @@ public class BreederProblem extends GenEvolProblem {
     }
 
     @Override
+    public void setArguments(double[] args) {
+        randomValues();
+        for (int i = 0; i < args.length; i++) {
+            if (i < mVals.length) {
+                mVals[i] = args[i];
+            }
+        }
+    }
+
+    @Override
     public String emptyGivenString() {
         return TextUtils.join("\n", mParams);
     }

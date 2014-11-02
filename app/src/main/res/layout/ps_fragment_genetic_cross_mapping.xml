@@ -58,9 +58,5 @@
         android:inputType="number"
         android:hint="@string/abc_hint"
         android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"/>
-    <Button
-        android:id="@+id/solve_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/solve"/>
+
 </LinearLayout>

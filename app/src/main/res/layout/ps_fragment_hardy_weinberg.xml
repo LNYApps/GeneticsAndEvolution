@@ -7,44 +7,30 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/breeder_instructions"
+        android:text="@string/hardy_weinberg_instructions"
         android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"
         android:textSize="@dimen/fragment_ps_textsize"/>
 
     <EditText
-        android:id="@+id/edittext_avgstartpheno"
+        android:id="@+id/AA_count"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="@string/avg_start_phenotype"
+        android:hint="@string/AA_hint"
         android:textSize="@dimen/fragment_ps_textsize"/>
     <EditText
-        android:id="@+id/edittext_avgselectpheno"
+        android:id="@+id/Aa_count"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="@string/avg_selected_phenotype"
+        android:hint="@string/Aa_hint"
         android:textSize="@dimen/fragment_ps_textsize"/>
     <EditText
-        android:id="@+id/edittext_avgresponsepheno"
+        android:id="@+id/aa_count"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="@string/avg_response_phenotype"
+        android:hint="@string/aa_hint"
+        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"
         android:textSize="@dimen/fragment_ps_textsize"/>
-    <EditText
-        android:id="@+id/edittext_broadheritability"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/broad_heriability"
-        android:textSize="@dimen/fragment_ps_textsize"
-        android:layout_marginBottom="@dimen/fragment_ps_verticalspacing"/>
-
-    <Button
-        android:id="@+id/breeder_solve_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/solve"/>
-
 </LinearLayout>

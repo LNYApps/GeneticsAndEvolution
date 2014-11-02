@@ -9,6 +9,14 @@ public abstract class GenEvolProblem {
 
     public abstract void randomValues();
 
+    /**
+     * no error checking done--expects perfect input
+     * if too few arguments, populates the rest with random numbers
+     * if too many arguments, drops the extra ones
+     * @param args
+     */
+    public abstract void setArguments(double[] args);
+
     public abstract String emptyGivenString();
 
     public abstract String nonEmptyGivenString();

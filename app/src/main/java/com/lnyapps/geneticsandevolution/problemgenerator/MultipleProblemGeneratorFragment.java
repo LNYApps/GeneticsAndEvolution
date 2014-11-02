@@ -1,15 +1,12 @@
-package com.lnyapps.geneticsandevolution.fragments;
+package com.lnyapps.geneticsandevolution.problemgenerator;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
 import android.text.InputType;
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +26,6 @@ import com.lnyapps.geneticsandevolution.problems.PopGrowthProblem;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Jonathan Tseng on 10/31/2014.
@@ -78,7 +74,7 @@ public class MultipleProblemGeneratorFragment extends Fragment {
         mFileEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if (!b && mFileEditText.getText() != null) {
+                if (!b && !mFileEditText.getText().toString().isEmpty()) {
                     if (!validFileName(mFileEditText.getText().toString())) {
                         mFileEditText.setText(null);
                         Toast.makeText(getActivity(), "Invalid file name", Toast.LENGTH_SHORT).show();

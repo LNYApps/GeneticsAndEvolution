@@ -1,58 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical|center_horizontal"
-    android:paddingLeft="@dimen/fragment_spg_horizontalmargin"
-    android:paddingRight="@dimen/fragment_spg_horizontalmargin"
-    android:padding="@dimen/activity_horizontal_margin"
-    android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingLeft="@dimen/fragment_spg_horizontalmargin"
+        android:paddingRight="@dimen/fragment_spg_horizontalmargin"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/spg_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/spg_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spg_given"
-        android:textSize="@dimen/fragment_spg_headertextsize" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spg_given"
+            android:textSize="@dimen/fragment_spg_headertextsize" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spg_textview_given"
-        android:textSize="@dimen/fragment_spg_textsize"
-        android:layout_marginBottom="@dimen/fragment_spg_verticalspacing" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spg_textview_given"
+            android:textSize="@dimen/fragment_spg_textsize"
+            android:layout_marginBottom="@dimen/fragment_spg_verticalspacing"
+            android:paddingLeft="@dimen/fragment_spg_paragraphindent"
+            android:paddingRight="@dimen/fragment_spg_paragraphindent"/>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spg_solve"
-        android:textSize="@dimen/fragment_spg_headertextsize" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spg_solve"
+            android:textSize="@dimen/fragment_spg_headertextsize" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spg_textview_solve"
-        android:textIsSelectable="false"
-        android:textSize="@dimen/fragment_spg_textsize"
-        android:layout_marginBottom="@dimen/fragment_stq_groupspacing" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spg_textview_solve"
+            android:textIsSelectable="false"
+            android:textSize="@dimen/fragment_spg_textsize"
+            android:layout_marginBottom="@dimen/fragment_stq_groupspacing"
+            android:paddingLeft="@dimen/fragment_spg_paragraphindent"
+            android:paddingRight="@dimen/fragment_spg_paragraphindent"/>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spg_generate"
-        android:id="@+id/spg_button_generate"
-        android:textSize="@dimen/fragment_spg_textsize"
-        android:layout_marginBottom="@dimen/fragment_stq_groupspacing"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spg_generate"
+            android:id="@+id/spg_button_generate"
+            android:textSize="@dimen/fragment_spg_textsize"
+            android:layout_marginBottom="@dimen/fragment_stq_groupspacing"/>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spg_showanswer"
-        android:id="@+id/spg_button_showanswer"
-        android:textSize="@dimen/fragment_spg_textsize" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spg_showanswer"
+            android:id="@+id/spg_button_showanswer"
+            android:textSize="@dimen/fragment_spg_textsize" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

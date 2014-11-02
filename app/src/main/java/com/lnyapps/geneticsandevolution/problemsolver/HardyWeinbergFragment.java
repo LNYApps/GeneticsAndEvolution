@@ -1,6 +1,5 @@
-package com.lnyapps.geneticsandevolution.fragments.problemsolverfragments;
+package com.lnyapps.geneticsandevolution.problemsolver;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import com.lnyapps.geneticsandevolution.R;
 /**
  * Created by Alex on 10/31/2014.
  */
-public class HardyWeinbergFragment extends Fragment {
+public class HardyWeinbergFragment extends ProblemSolverInputFragment {
 
     public HardyWeinbergFragment() {
         Bundle args = new Bundle();
@@ -22,19 +21,15 @@ public class HardyWeinbergFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hardy_weinberg, container, false);
+        View rootView = inflater.inflate(R.layout.ps_fragment_hardy_weinberg, container, false);
        // EditText AA = (EditText) rootView.findViewById(R.id.AA_count);
        // EditText Aa = (EditText) rootView.findViewById(R.id.Aa_count);
        // EditText aa = (EditText) rootView.findViewById(R.id.aa_count);
         return rootView;
     }
 
-    public void destroyFragment() {
-        getChildFragmentManager().beginTransaction().hide(this).commit();
-    }
+    @Override
+    public void clearInputs() {
 
-    public void createFragment() {
-        getChildFragmentManager().beginTransaction().show(this).commit();
     }
-
 }

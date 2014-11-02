@@ -1,4 +1,4 @@
-package com.lnyapps.geneticsandevolution.fragments;
+package com.lnyapps.geneticsandevolution.problemgenerator;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
 import com.lnyapps.geneticsandevolution.R;
-
 
 
 /**

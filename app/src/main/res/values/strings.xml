@@ -30,6 +30,7 @@
     <string name="genetic_cross_mapping">Genetic Cross Mapping</string>
     <string name="pop_growth">Population Growth</string>
     <string name="breeder_eq_heritability">Breeder\'s Equation Heritability</string>
+    <string name="ps_clearinputs">Clear</string>
 
     <string-array name="problem_solver_functions_array">
         <item>@string/hardy_weinberg</item>
@@ -70,7 +71,7 @@
     <string name="stq_definition">Definition</string>
     <string name="stq_answers">Answers</string>
     <string name="stq_submit">Submit</string>
-    <string name="stq_refresh">Refresh</string>
+    <string name="stq_shuffle">Shuffle</string>
 
     <!-- Problem Generator Fragment -->
     <string name="pg_single_title">Single Problem Generator</string>
