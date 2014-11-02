@@ -69,6 +69,11 @@ public class PopGrowthProblem extends GenEvolProblem {
     }
 
     @Override
+    public void setArguments(double[] args) {
+
+    }
+
+    @Override
     public String emptyGivenString() {
         return TextUtils.join("\n", mParams);
     }

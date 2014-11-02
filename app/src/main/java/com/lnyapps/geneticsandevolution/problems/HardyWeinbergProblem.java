@@ -59,6 +59,11 @@ public class HardyWeinbergProblem extends GenEvolProblem {
     }
 
     @Override
+    public void setArguments(double[] args) {
+
+    }
+
+    @Override
     public String emptyGivenString() {
         return "AA count:\nAacount:\naacount:";
     }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lnyapps.geneticsandevolution.R;
+import com.lnyapps.geneticsandevolution.problems.CrossMappingProblem;
 
 /**
  * Created by Alex on 11/1/2014.
@@ -13,6 +14,7 @@ import com.lnyapps.geneticsandevolution.R;
 public class GeneticCrossMappingFragment extends ProblemSolverInputFragment {
 
     public GeneticCrossMappingFragment() {
+        super(new CrossMappingProblem());
         Bundle args = new Bundle();
         //args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         setArguments(args);
@@ -23,6 +25,11 @@ public class GeneticCrossMappingFragment extends ProblemSolverInputFragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.ps_fragment_genetic_cross_mapping, container, false);
         return rootView;
+    }
+
+    @Override
+    public boolean canSolve() {
+        return false;
     }
 
     @Override

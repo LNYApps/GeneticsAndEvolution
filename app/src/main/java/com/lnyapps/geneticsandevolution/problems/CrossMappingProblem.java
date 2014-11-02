@@ -39,6 +39,11 @@ public class CrossMappingProblem extends GenEvolProblem {
     }
 
     @Override
+    public void setArguments(double[] args) {
+
+    }
+
+    @Override
     public String emptyGivenString() {
         return "Gamete counts observed for heterozygous individual (AaBbCc): " +
                 "\nABC: " +

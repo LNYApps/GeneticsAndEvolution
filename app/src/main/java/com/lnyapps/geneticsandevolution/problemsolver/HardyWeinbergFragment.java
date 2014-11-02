@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lnyapps.geneticsandevolution.R;
+import com.lnyapps.geneticsandevolution.problems.HardyWeinbergProblem;
 
 /**
  * Created by Alex on 10/31/2014.
@@ -13,6 +14,7 @@ import com.lnyapps.geneticsandevolution.R;
 public class HardyWeinbergFragment extends ProblemSolverInputFragment {
 
     public HardyWeinbergFragment() {
+        super(new HardyWeinbergProblem());
         Bundle args = new Bundle();
         //args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         setArguments(args);
@@ -26,6 +28,11 @@ public class HardyWeinbergFragment extends ProblemSolverInputFragment {
        // EditText Aa = (EditText) rootView.findViewById(R.id.Aa_count);
        // EditText aa = (EditText) rootView.findViewById(R.id.aa_count);
         return rootView;
+    }
+
+    @Override
+    public boolean canSolve() {
+        return false;
     }
 
     @Override
