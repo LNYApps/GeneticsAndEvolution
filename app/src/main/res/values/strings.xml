@@ -25,6 +25,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="quiz_questions_url">https://637a199c47937e7b668851faa0c26911d586837b.googledrive.com/host/0B4PMva-Zlc8Ec0xoOUtiSXJwTUk/GenEvolTerms.json</string>
 
     <!-- About Fragment -->
     <string name="a_title">Genetics And Evolution</string>
@@ -85,6 +86,9 @@
     <string name="stq_answers">Answers</string>
     <string name="stq_submit">Submit</string>
     <string name="stq_shuffle">Shuffle</string>
+    <string name="error_message_bad_url">URL is invalid</string>
+    <string name="error_message_file_not_found">File is not found at this URL</string>
+    <string name="error_message_general">Error downloading file</string>
 
     <!-- Problem Generator Fragment -->
     <string name="pg_single_title">Single Problem Generator</string>

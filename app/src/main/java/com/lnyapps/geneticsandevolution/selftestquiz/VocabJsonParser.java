@@ -1,5 +1,7 @@
 package com.lnyapps.geneticsandevolution.selftestquiz;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,7 +18,9 @@ public class VocabJsonParser {
         byte[] buffer = new byte[jsonStream.available()];
         jsonStream.read(buffer);
         jsonStream.close();
-        JSONObject json = new JSONObject(new String(buffer, "UTF-8"));
+        String text = new String(buffer, "UTF-8");
+        Log.e("shit", "start: " + text + " end");
+        JSONObject json = new JSONObject(text);
         ArrayList<VocabTerm> terms = new ArrayList<VocabTerm>(readTerms(json));
         return terms;
     }

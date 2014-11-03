@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,12 +21,9 @@ import android.widget.Toast;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
 import com.lnyapps.geneticsandevolution.R;
-import com.lnyapps.geneticsandevolution.selftestquiz.VocabJsonParser;
-import com.lnyapps.geneticsandevolution.selftestquiz.VocabList;
-import com.lnyapps.geneticsandevolution.selftestquiz.VocabQuestion;
-import com.lnyapps.geneticsandevolution.selftestquiz.VocabTerm;
 
-import java.io.InputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 /**
@@ -91,7 +89,9 @@ public class SelfTestQuizFragment extends Fragment {
 
     private void setQuizTerms() {
         try {
-            InputStream inputStream = getActivity().getAssets().open("GenEvolTerms.json");
+            //InputStream inputStream = getActivity().getAssets().open("GenEvolTerms.json");
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + "GenEvolTerms.json");
+            FileInputStream inputStream = new FileInputStream(file);
             VocabJsonParser parser = new VocabJsonParser();
             mVocabList = new VocabList(new ArrayList<VocabTerm>(parser.parse(inputStream)));
         } catch (Exception e) {
