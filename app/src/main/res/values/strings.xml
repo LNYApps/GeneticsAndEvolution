@@ -66,6 +66,13 @@
 
     <!-- Population Growth Fragment -->
     <string name="population_growth_instructions">Please enter 3 parameters below to calculate the fourth.</string>
+    <string name="popgrowth_growthrate">1. Growth rate (r) = (b - d)/1000 OR</string>
+    <string name="popgrowth_birthsper1000">\t\tAnnual # Births per 1000 (b)</string>
+    <string name="popgrowth_deathsper1000">\t\tAnnual # Deaths per 1000 (d)</string>
+    <string name="popgrowth_initpop">2. Initial Population Size (N<sub>0</sub>)</string>
+    <string name="popgrowth_finalpop">3. Final Population Size (N<sub>t</sub>)</string>
+    <string name="popgrowth_numyears">4, Time in years (T)</string>
+
 
     <!-- Self-Test Quiz Fragment -->
     <string name="stq_definition">Definition</string>

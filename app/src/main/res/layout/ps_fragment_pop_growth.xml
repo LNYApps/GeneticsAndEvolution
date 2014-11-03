@@ -9,6 +9,55 @@
         android:layout_height="wrap_content"
         android:text="@string/population_growth_instructions"
         android:paddingBottom="@dimen/fragment_ps_verticalspacing"
-        android:textSize="@dimen/fragment_mpg_textsize"/>
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/popgrowth_edittext_growthrate"
+        android:hint="@string/popgrowth_growthrate"
+        android:inputType="numberDecimal"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/popgrowth_edittext_birthsper1000"
+        android:hint="@string/popgrowth_birthsper1000"
+        android:inputType="number"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/popgrowth_edittext_deathsper1000"
+        android:hint="@string/popgrowth_deathsper1000"
+        android:inputType="number"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/popgrowth_edittext_initialpopulation"
+        android:hint="@string/popgrowth_initpop"
+        android:inputType="number"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/popgrowth_edittext_finalpopulation"
+        android:hint="@string/popgrowth_finalpop"
+        android:inputType="number"
+        android:textSize="@dimen/fragment_ps_textsize"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/popgrowth_edittext_numberyears"
+        android:hint="@string/popgrowth_numyears"
+        android:textSize="@dimen/fragment_ps_textsize"
+        android:inputType="number"
+        android:paddingBottom="@dimen/fragment_ps_verticalspacing"/>
 
 </LinearLayout>
