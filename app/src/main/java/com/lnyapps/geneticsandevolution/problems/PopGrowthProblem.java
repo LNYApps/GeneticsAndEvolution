@@ -22,7 +22,7 @@ public class PopGrowthProblem extends GenEvolProblem {
     private int mUnknown3;
 
 
-    //nitialPopSize, double finalPopSize, double time
+    //initialPopSize, double finalPopSize, double time
     @Override
     public String solution() {
         if (mUnknown3 == 2) {
@@ -70,6 +70,27 @@ public class PopGrowthProblem extends GenEvolProblem {
 
     @Override
     public void setArguments(double[] args) {
+        randomValues();
+        for (int i = 0; i < args.length; i ++) {
+            mVals[i] = args[i];
+        }
+        if (Double.isNaN(args[0])) {
+            mUnknown1 = 0;
+            mUnknown2 = 1;
+            mUnknown3 = 2;
+        } else {
+            for (int i = 1; i < 3; i ++) {
+                if (Double.isNaN(args[i])) {
+                    mUnknown1 = i;
+                }
+            }
+            for (int i = 3; i < 6; i ++) {
+                if (Double.isNaN(args[i])) {
+                    mUnknown2 = i;
+                }
+            }
+            mUnknown3 = -1;
+        }
 
     }
 

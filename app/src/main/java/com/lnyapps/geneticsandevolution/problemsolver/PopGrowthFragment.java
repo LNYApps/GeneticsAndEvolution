@@ -51,19 +51,33 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
         mInputs.add(mInitPop);
         mInputs.add(mFinalPop);
         mInputs.add(mNumYears);
-
         setUpRatesEditTextListeners();
+        setUpOtherEditTextListeners();
         return rootView;
     }
 
     @Override
     public boolean canSolve() {
-        return false;
+        for (EditText input : mInputs) {
+            if (input.isEnabled() && input.getText().toString().isEmpty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public void loadArguments() {
-
+        double[] args = new double[6];
+        args[0] = (mGrowthRate.getText().toString().isEmpty()) ? Double.NaN : Double.parseDouble(mGrowthRate.getText().toString());
+        for (int i = 1; i < 6; i ++) {
+            if (mInputs.get(i).getText().toString().isEmpty()) {
+                args[i] = Double.NaN;
+            } else {
+                args[i] = Integer.parseInt(mInputs.get(i).getText().toString());
+            }
+        }
+        mProblem.setArguments(args);
     }
 
     @Override
@@ -80,6 +94,12 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
         }
     }
 
+    private void setUpOtherEditTextListeners() {
+        for (EditText input : mInputs.subList(3, 6)) {
+            input.addTextChangedListener(new PopGrowthTextWatcher());
+        }
+    }
+
     private void setUpRatesEditTextListeners() {
         mGrowthRate.addTextChangedListener(new TextWatcher() {
             @Override
@@ -89,9 +109,30 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                boolean enabled = editable.toString().isEmpty();
-                mBirthRate.setEnabled(enabled);
-                mDeathRate.setEnabled(enabled);
+                boolean empty = editable.toString().isEmpty();
+                if (!empty && !mBirthRate.getText().toString().isEmpty()) {
+                    mDeathRate.setEnabled(false);
+                } else if (!empty && !mDeathRate.getText().toString().isEmpty()) {
+                    mBirthRate.setEnabled(false);
+                } else {
+                    mBirthRate.setEnabled(true);
+                    mDeathRate.setEnabled(true);
+                }
+            }
+        });
+
+        mGrowthRate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b && !mGrowthRate.getText().toString().isEmpty()) {
+                    double val = Double.parseDouble(mGrowthRate.getText().toString());
+                    if (val >= 1) {
+                        val = .999;
+                    } else if (val <= 0) {
+                        val = .001;
+                    }
+                    mGrowthRate.setText(Double.toString(val));
+                }
             }
         });
 
@@ -103,7 +144,7 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                mGrowthRate.setEnabled(editable.toString().isEmpty());
+                mDeathRate.setEnabled(editable.toString().isEmpty());
             }
         });
 
@@ -115,9 +156,45 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                mGrowthRate.setEnabled(editable.toString().isEmpty());
+                mBirthRate.setEnabled(editable.toString().isEmpty());
             }
         });
+    }
+
+    private class PopGrowthTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+        @Override
+        public void afterTextChanged(Editable editable) {
+            int numEmpty = 0;
+            EditText empty = new EditText(getActivity());
+
+            if (mGrowthRate.getText().toString().isEmpty()) {
+                numEmpty++;
+                empty = mGrowthRate;
+            }
+            for (EditText input : mInputs.subList(3, 6)) {
+                if (input.getText().toString().isEmpty()) {
+                    numEmpty++;
+                    empty = input;
+                }
+            }
+            if (numEmpty == 1) {
+                empty.setEnabled(false);
+                if (empty == mGrowthRate) {
+                    mDeathRate.setEnabled(false);
+                    mBirthRate.setEnabled(false);
+                }
+            } else {
+                for (EditText input : mInputs.subList(3, 6)) {
+                    input.setEnabled(true);
+                }
+                mGrowthRate.setEnabled(true);
+            }
+        }
     }
 
 }

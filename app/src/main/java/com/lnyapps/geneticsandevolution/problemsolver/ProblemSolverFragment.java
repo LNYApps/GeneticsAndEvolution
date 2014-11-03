@@ -44,7 +44,6 @@ public class ProblemSolverFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.ps_action_clearinputs) {
-            Toast.makeText(getActivity(), "cleared", Toast.LENGTH_SHORT).show();
             mCurrentFragment.clearInputs();
             clearSolutionTextView();
         }

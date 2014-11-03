@@ -20,22 +20,26 @@
         <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.BreederFragment"
             android:id="@+id/ps_fragment_breeder"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
 
         <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.HardyWeinbergFragment"
             android:id="@+id/ps_fragment_hardyweinberg"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
 
         <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.PopGrowthFragment"
             android:id="@+id/ps_fragment_popgrowth"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
 
         <fragment android:name="com.lnyapps.geneticsandevolution.problemsolver.GeneticCrossMappingFragment"
             android:id="@+id/ps_fragment_crossmapping"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/ps_button_solve"
