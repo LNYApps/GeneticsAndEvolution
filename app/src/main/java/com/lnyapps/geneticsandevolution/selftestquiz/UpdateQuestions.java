@@ -3,8 +3,6 @@ package com.lnyapps.geneticsandevolution.selftestquiz;
 import android.app.Activity;
 import android.os.Environment;
 import android.os.Message;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.lnyapps.geneticsandevolution.R;
 
@@ -58,22 +56,18 @@ public class UpdateQuestions extends Thread{
             url = new URL(downloadUrl);
             conn = url.openConnection();
             conn.setUseCaches(false);
-            fileSize = conn.getContentLength();
 
             // get the filename
             lastSlash = url.toString().lastIndexOf('/');
-            fileName = "GenEvolTerms.json";
+            fileName = parentActivity.getString(R.string.quiz_questions_file_name);
             if(lastSlash >=0)
             {
                 fileName = url.toString().substring(lastSlash + 1);
             }
             if(fileName.equals(""))
             {
-                fileName = "GenEvolTerms.json";
+                fileName = parentActivity.getString(R.string.quiz_questions_file_name);
             }
-
-            // notify download start
-
 
             // start download
             inStream = new BufferedInputStream(conn.getInputStream());
@@ -94,19 +88,14 @@ public class UpdateQuestions extends Thread{
         catch(MalformedURLException e)
         {
             String errMsg = parentActivity.getString(R.string.error_message_bad_url);
-            Toast.makeText(parentActivity, errMsg, Toast.LENGTH_SHORT).show();
-            Log.e("1st exception", "3");
         }
         catch(FileNotFoundException e)
         {
             String errMsg = parentActivity.getString(R.string.error_message_file_not_found);
-            Toast.makeText(parentActivity, errMsg, Toast.LENGTH_SHORT).show();
-            Log.e("2rd exception", "3");
         }
         catch(Exception e)
         {
             String errMsg = parentActivity.getString(R.string.error_message_general);
-            Log.e("3rd exception", "3", e);
         }
     }
 }

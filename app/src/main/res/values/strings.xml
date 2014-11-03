@@ -26,6 +26,7 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="quiz_questions_url">https://637a199c47937e7b668851faa0c26911d586837b.googledrive.com/host/0B4PMva-Zlc8Ec0xoOUtiSXJwTUk/GenEvolTerms.json</string>
+    <string name="quiz_questions_file_name">GenEvolTerms.json</string>
 
     <!-- About Fragment -->
     <string name="a_title">Genetics And Evolution</string>
