@@ -1,7 +1,6 @@
 package com.lnyapps.geneticsandevolution.selftestquiz;
 
 import android.app.Activity;
-import android.os.Environment;
 import android.os.Message;
 
 import com.lnyapps.geneticsandevolution.R;
@@ -19,7 +18,7 @@ import java.net.URLConnection;
  * Created by Alex on 11/2/2014.
  */
 public class UpdateQuestions extends Thread{
-    private Activity parentActivity;
+    private Activity mParentActivity;
     private String downloadUrl;
     private static final int DOWNLOAD_BUFFER_SIZE = 4096;
 
@@ -31,7 +30,7 @@ public class UpdateQuestions extends Thread{
         {
             downloadUrl = inUrl;
         }
-        parentActivity = activity;
+        mParentActivity = activity;
     }
     /**
      * Connects to the URL of the file, begins the download, and notifies the
@@ -59,19 +58,19 @@ public class UpdateQuestions extends Thread{
 
             // get the filename
             lastSlash = url.toString().lastIndexOf('/');
-            fileName = parentActivity.getString(R.string.quiz_questions_file_name);
+            fileName = mParentActivity.getString(R.string.quiz_questions_file_name);
             if(lastSlash >=0)
             {
                 fileName = url.toString().substring(lastSlash + 1);
             }
             if(fileName.equals(""))
             {
-                fileName = parentActivity.getString(R.string.quiz_questions_file_name);
+                fileName = mParentActivity.getString(R.string.quiz_questions_file_name);
             }
 
             // start download
             inStream = new BufferedInputStream(conn.getInputStream());
-            outFile = new File(Environment.getExternalStorageDirectory() + "/" + fileName);
+            outFile = new File(mParentActivity.getFilesDir() + "/" + fileName);
             fileStream = new FileOutputStream(outFile);
             outStream = new BufferedOutputStream(fileStream, DOWNLOAD_BUFFER_SIZE);
             byte[] data = new byte[DOWNLOAD_BUFFER_SIZE];
@@ -87,15 +86,15 @@ public class UpdateQuestions extends Thread{
         }
         catch(MalformedURLException e)
         {
-            String errMsg = parentActivity.getString(R.string.error_message_bad_url);
+            String errMsg = mParentActivity.getString(R.string.error_message_bad_url);
         }
         catch(FileNotFoundException e)
         {
-            String errMsg = parentActivity.getString(R.string.error_message_file_not_found);
+            String errMsg = mParentActivity.getString(R.string.error_message_file_not_found);
         }
         catch(Exception e)
         {
-            String errMsg = parentActivity.getString(R.string.error_message_general);
+            String errMsg = mParentActivity.getString(R.string.error_message_general);
         }
     }
 }

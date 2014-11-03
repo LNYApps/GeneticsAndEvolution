@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,8 +88,7 @@ public class SelfTestQuizFragment extends Fragment {
 
     private void setQuizTerms() {
         try {
-            //InputStream inputStream = getActivity().getAssets().open("GenEvolTerms.json");
-            File file = new File(Environment.getExternalStorageDirectory() + "/" + "GenEvolTerms.json");
+            File file = new File(getActivity().getFilesDir() + "/" + "GenEvolTerms.json");
             FileInputStream inputStream = new FileInputStream(file);
             VocabJsonParser parser = new VocabJsonParser();
             mVocabList = new VocabList(new ArrayList<VocabTerm>(parser.parse(inputStream)));

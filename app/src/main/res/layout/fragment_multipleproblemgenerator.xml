@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_vertical|center_horizontal"
+    android:gravity="center_horizontal"
+    android:paddingTop="@dimen/fragment_mpg_horizontalmargin"
     android:paddingLeft="@dimen/fragment_mpg_horizontalmargin"
     android:paddingRight="@dimen/fragment_mpg_horizontalmargin">
 
