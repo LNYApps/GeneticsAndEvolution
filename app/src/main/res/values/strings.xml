@@ -73,7 +73,6 @@
     <string name="popgrowth_finalpop">3. Final Population Size (N<sub>t</sub>)</string>
     <string name="popgrowth_numyears">4, Time in years (T)</string>
 
-
     <!-- Self-Test Quiz Fragment -->
     <string name="stq_definition">Definition</string>
     <string name="stq_answers">Answers</string>
