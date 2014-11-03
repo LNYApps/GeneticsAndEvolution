@@ -26,12 +26,12 @@ public class PopGrowthProblem extends GenEvolProblem {
     @Override
     public String solution() {
         if (mUnknown3 == 2) {
-            return mParams[0] + calcPopGrowthRate(mVals[3], mVals[4], mVals[5]);
+            return mParams[0] + String.format("%.3f", calcPopGrowthRate(mVals[3], mVals[4], mVals[5]));
         } else {
             StringBuilder sb = new StringBuilder();
             double rateAnswer = (mUnknown1 == 1) ?
                     1000 * mVals[0] + mVals[2] : mVals[1] - 1000 *mVals[0];
-            sb.append(mParams[mUnknown1] + rateAnswer + "\n");
+            sb.append(mParams[mUnknown1] + String.format("%.3f", rateAnswer) + "\n");
             double otherAnswer;
             if (mUnknown2 == 3) {
                 otherAnswer = calcInitialPop(mVals[0], mVals[4], mVals[5]);
@@ -40,7 +40,7 @@ public class PopGrowthProblem extends GenEvolProblem {
             } else {
                 otherAnswer = calcTime(mVals[0], mVals[3], mVals[4]);
             }
-            sb.append(mParams[mUnknown2] + otherAnswer);
+            sb.append(mParams[mUnknown2] + String.format("%.3f", otherAnswer));
             return sb.toString();
         }
     }
@@ -63,9 +63,9 @@ public class PopGrowthProblem extends GenEvolProblem {
         mVals[0] = mVals[0];
         mVals[2] = mVals[2] * 90;
         mVals[1] = mVals[2] + mVals[1] * 90;
-        mVals[3] = ((int)(mVals[3] * 50)) * 1000000;
+        mVals[3] = ((int)(mVals[3] * 50) + 1) * 1000000;
         mVals[4] = mVals[3] + ((int)(mVals[4] * 50)) * 1000000;
-        mVals[5] = mVals[5] * 200;
+        mVals[5] = ((int) mVals[5] * 200);
     }
 
     @Override
@@ -107,12 +107,12 @@ public class PopGrowthProblem extends GenEvolProblem {
             if (mUnknown3 == 2) {
                 if (i == 1 || i == 2) {
                     sb.append("n/a");
-                } else {
-                    sb.append(mVals[i]);
+                } else if (i != 0) {
+                    sb.append(String.format("%.3f", mVals[i]));
                 }
             } else {
                 if (i != mUnknown1 && i != mUnknown2) {
-                    sb.append(mVals[i]);
+                    sb.append(String.format("%.3f", mVals[i]));
                 }
             }
             sb.append("\n");

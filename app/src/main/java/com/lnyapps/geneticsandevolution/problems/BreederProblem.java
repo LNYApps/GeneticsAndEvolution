@@ -28,7 +28,7 @@ public class BreederProblem extends GenEvolProblem {
         } else if (mUnknown == 3) {
             mSolution = calcHeritability(mVals[0], mVals[1], mVals[2]);
         }
-        return mParams[mUnknown] + mSolution;
+        return mParams[mUnknown] + String.format("%.3f", mSolution);
     }
 
     @Override
@@ -68,7 +68,11 @@ public class BreederProblem extends GenEvolProblem {
         for (int i = 0; i < 4; i ++) {
             sb.append(mParams[i]);
             if (i != mUnknown) {
-                sb.append(mVals[i]);
+                if (i == 3) {
+                    sb.append(String.format("%.3f", mVals[i]));
+                } else {
+                    sb.append(mVals[i]);
+                }
             }
             if (i != 3) {
                 sb.append("\n");

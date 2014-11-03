@@ -19,9 +19,9 @@ public class CrossMappingProblem extends GenEvolProblem {
                 //TODO: Calculate the predicated linkage
                 /*"Predicted phase, order & linkage:" +
                 "\na--c--B//A--C--b" +*/
-                "\nAB rec fraction: " + solution[0] +
-                "\nBC rec fraction: " + solution[2] +
-                "\nAC rec fraction: " + solution[1];
+                "\nAB rec fraction: " + String.format("%.3f", solution[0]) +
+                "\nBC rec fraction: " + String.format("%.3f", solution[2]) +
+                "\nAC rec fraction: " + String.format("%.3f", solution[1]);
     }
 
     @Override
