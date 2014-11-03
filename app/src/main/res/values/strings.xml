@@ -19,7 +19,6 @@
         <item>@drawable/nav_image2</item>
         <item>@drawable/nav_image3</item>
         <item>@drawable/nav_image4</item>
-        <item>@drawable/nav_image5</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
