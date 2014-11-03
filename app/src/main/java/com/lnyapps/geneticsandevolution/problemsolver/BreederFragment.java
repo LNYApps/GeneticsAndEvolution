@@ -1,6 +1,8 @@
 package com.lnyapps.geneticsandevolution.problemsolver;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +62,9 @@ public class BreederFragment extends ProblemSolverInputFragment {
         mInputs.add(mAvgSelectPhen);
         mInputs.add(mAvgRespPhen);
         mInputs.add(mBroadHeritability);
+        for (EditText input : mInputs) {
+            input.addTextChangedListener(new BreederTextWatcher());
+        }
         return rootView;
     }
 
@@ -102,4 +107,31 @@ public class BreederFragment extends ProblemSolverInputFragment {
             input.clearFocus();
         }
     }
+
+    private class BreederTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+        @Override
+        public void afterTextChanged(Editable editable) {
+            int numEmpty = 0;
+            EditText empty = new EditText(getActivity());
+            for (EditText input : mInputs) {
+                if (input.getText().toString().isEmpty()) {
+                    numEmpty++;
+                    empty = input;
+                }
+            }
+            if (numEmpty == 1) {
+                empty.setEnabled(false);
+            } else {
+                for (EditText input : mInputs) {
+                    input.setEnabled(true);
+                }
+            }
+        }
+    }
+
 }
