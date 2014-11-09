@@ -60,12 +60,12 @@ public class PopGrowthProblem extends GenEvolProblem {
         for (int i = 0; i < mParams.length; i++) {
             mVals[i] = Math.random();
         }
-        mVals[0] = mVals[0];
-        mVals[2] = mVals[2] * 90;
-        mVals[1] = mVals[2] + mVals[1] * 90;
-        mVals[3] = ((int)(mVals[3] * 50) + 1) * 1000000;
-        mVals[4] = mVals[3] + ((int)(mVals[4] * 50)) * 1000000;
-        mVals[5] = ((int) mVals[5] * 200);
+        mVals[0] = mVals[0]*0.2; //rate
+        mVals[2] = mVals[2] * 300; //death rate
+        mVals[1] = mVals[2] + mVals[1] * 300; //birth rate
+        mVals[3] = ((int)(mVals[3] * 50) + 1) * 1000000; //initial pop
+        mVals[4] = mVals[3] + ((int)(mVals[4] * 50)) * 1000000; //final pop
+        mVals[5] = (int) (mVals[5] * 150); //time
     }
 
     @Override
