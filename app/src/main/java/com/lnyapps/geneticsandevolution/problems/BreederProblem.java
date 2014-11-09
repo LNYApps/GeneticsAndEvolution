@@ -37,11 +37,38 @@ public class BreederProblem extends GenEvolProblem {
         mUnknown = (int) (Math.random() * 4);
         for (int i = 0; i < 3; i++) {
             if (i != mUnknown) {
-                mVals[i] = (int) (Math.random() * 100);
+                if(i==0) {
+                   mVals[i] = 20 + (int) (Math.random() * 80);
+                }
+                else if(i==1) {
+                    if(mUnknown ==0 ){
+                        mVals[i] = mVals[i-1] + 30 + (int) (Math.random()*20);
+                    }
+                    else if(mUnknown==3){
+                        mVals[i] = mVals[i-1] - 10 - (int) (Math.random()*20);
+                    }
+                    else {
+                        mVals[i] = mVals[i-1] - 10 - (int) (Math.random()*10);
+                    }
+                }
+                else if(i==2) {
+                    if(mUnknown ==0){
+                        mVals[i] = mVals[i-1] + 10 + (int) (Math.random()*20);
+                    }
+                    else if(mUnknown ==1){
+                        mVals[i] = mVals[i-2] + 10 + (int) (Math.random()*20);
+                    }
+                    else if(mUnknown ==2){
+                        mVals[i] = mVals[i-1] - 10 - (int) (Math.random()*20);
+                    }
+                    else{
+                        mVals[i] = mVals[i-1] + (int) (Math.random()*10);
+                    }
+                }
             }
         }
         if (mUnknown != 3) {
-            mVals[3] = Math.random();
+            mVals[3] = Math.random()*0.8 + 0.2;
         }
     }
 
