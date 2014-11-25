@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.lnyapps.geneticsandevolution.allelefreak.AlleleFreakFragment;
+import com.lnyapps.geneticsandevolution.crosssimulator.CrossSimulatorFragment;
 import com.lnyapps.geneticsandevolution.problemgenerator.ProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.problemsolver.ProblemSolverFragment;
 import com.lnyapps.geneticsandevolution.selftestquiz.SelfTestQuizFragment;
@@ -72,6 +74,10 @@ public class MainActivity extends FragmentActivity
             fragment = new ProblemGeneratorFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.self_test_quiz))) {
             fragment = new SelfTestQuizFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.allele_freak))) {
+            fragment = new AlleleFreakFragment();
+        } else if (fragmentName.equals(getResources().getString(R.string.cross_simulator))) {
+            fragment = new CrossSimulatorFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.about))) {
             fragment = new AboutFragment();
         }

@@ -5,12 +5,16 @@
     <string name="problem_solver">Problem Solver</string>
     <string name="problem_generator">Problem Generator</string>
     <string name="self_test_quiz">Self-Test Quiz</string>
+    <string name="allele_freak">Allele Freak</string>
+    <string name="cross_simulator">Cross Simulator</string>
     <string name="about">About</string>
 
     <string-array name="navigation_drawer_strings">
         <item>@string/problem_solver</item>
         <item>@string/problem_generator</item>
         <item>@string/self_test_quiz</item>
+        <item>@string/allele_freak</item>
+        <item>@string/cross_simulator</item>
         <item>@string/about</item>
     </string-array>
 
@@ -116,5 +120,7 @@
     <string name="mpg_crossmappinghint">@string/genetic_cross_mapping</string>
     <string name="mpg_breederhint">@string/breeder_eq_heritability</string>
     <string name="send_to">Send problems via...</string>
+
+    <!-- Allele Freak -->
 
 </resources>
