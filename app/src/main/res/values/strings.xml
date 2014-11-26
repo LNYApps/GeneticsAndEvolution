@@ -4,16 +4,16 @@
     <string name="app_name">Genetics And Evolution</string>
     <string name="problem_solver">Problem Solver</string>
     <string name="problem_generator">Problem Generator</string>
-    <string name="allele_freak">Allele Freak</string>
     <string name="cross_simulator">Cross Simulator</string>
+    <string name="allele_freak">Allele Freak</string>
     <string name="self_test_quiz">Self-Test Quiz</string>
     <string name="about">About</string>
 
     <string-array name="navigation_drawer_strings">
         <item>@string/problem_solver</item>
         <item>@string/problem_generator</item>
-        <item>@string/allele_freak</item>
         <item>@string/cross_simulator</item>
+        <item>@string/allele_freak</item>
         <item>@string/self_test_quiz</item>
         <item>@string/about</item>
     </string-array>
@@ -21,6 +21,8 @@
     <string-array name="navigation_drawer_images">
         <item>@drawable/nav_problem_solver_image</item>
         <item>@drawable/nav_problem_generator_image</item>
+        <item>@drawable/nav_cross_simulator_image</item>
+        <item>@drawable/nav_allele_freak_image</item>
         <item>@drawable/nav_self_test_quiz_image</item>
         <item>@drawable/nav_about_image</item>
     </string-array>
