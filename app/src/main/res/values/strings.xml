@@ -88,6 +88,15 @@
     <string name="popgrowth_finalpop">3. Final Population Size (N<sub>t</sub>)</string>
     <string name="popgrowth_numyears">4, Time in years (T)</string>
 
+    <!-- Allele Freak -->
+    <string name="allele_graph_page">Allele Graphing</string>
+    <string name="allele_parameters_page">Graph Parameters</string>
+
+
+    <!-- Cross Simulator -->
+    <string name="cross_sim_page">Cross Simulator</string>
+    <string name="cross_sim_parameters">Parameters</string>
+
     <!-- Self-Test Quiz Fragment -->
     <string name="stq_definition">Definition</string>
     <string name="stq_answers">Answers</string>
@@ -123,6 +132,5 @@
     <string name="mpg_breederhint">@string/breeder_eq_heritability</string>
     <string name="send_to">Send problems via...</string>
 
-    <!-- Allele Freak -->
 
 </resources>
