@@ -27,6 +27,8 @@ public class AlleleFreakFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_allelefreak, container, false);
+        ViewPager pager = (ViewPager)rootView.findViewById(R.id.pg_pager);
+        pager.setAdapter(new SectionsPagerAdapter(getActivity(), getChildFragmentManager()));
         return rootView;
     }
 
