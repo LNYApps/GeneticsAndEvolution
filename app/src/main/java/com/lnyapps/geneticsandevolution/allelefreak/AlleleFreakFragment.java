@@ -53,18 +53,18 @@ public class AlleleFreakFragment extends Fragment {
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
             if (position == 0) {
-                return new AlleleGraphFragment();
-            } else {
                 return new AlleleGraphInputsFragment();
+            } else {
+                return new AlleleGraphFragment();
             }
         }
 
         @Override
         public String getPageTitle(int position) {
             if (position == 0) {
-                return getString(R.string.allele_graph_page);
-            } else {
                 return getString(R.string.allele_parameters_page);
+            } else {
+                return getString(R.string.allele_graph_page);
             }
         }
     }

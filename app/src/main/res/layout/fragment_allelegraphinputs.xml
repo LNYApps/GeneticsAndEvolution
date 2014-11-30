@@ -119,6 +119,11 @@
                 android:inputType="number"
                 android:textSize="@dimen/fragment_ps_textsize"/>
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/allele_freak_button_graph"
+            android:text="@string/allele_param_graph"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

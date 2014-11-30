@@ -1,11 +1,12 @@
 package com.lnyapps.geneticsandevolution.allelefreak;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
@@ -22,6 +23,7 @@ public class AlleleGraphInputsFragment extends Fragment {
     private EditText alleleFitaa;
     private EditText allelePop;
     private EditText alleleInbreeding;
+    private Button alleleGraphButton;
 
     public AlleleGraphInputsFragment() {
         Bundle args = new Bundle();
@@ -39,6 +41,8 @@ public class AlleleGraphInputsFragment extends Fragment {
         alleleFitaa = (EditText) rootView.findViewById(R.id.allele_freak_edittext_fit_aa);
         allelePop = (EditText) rootView.findViewById(R.id.allele_freak_edittext_pop);
         alleleInbreeding = (EditText) rootView.findViewById(R.id.allele_freak_edittext_inbreeding);
+        alleleGraphButton = (Button) rootView.findViewById(R.id.allele_freak_button_graph);
+        setUpGenerateButton();
         return rootView;
     }
 
@@ -47,5 +51,15 @@ public class AlleleGraphInputsFragment extends Fragment {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.allele_freak));
     }
+
+    private void setUpGenerateButton() {
+        alleleGraphButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //graph the stuff based off the params
+            }
+        });
+    }
+
 
 }
