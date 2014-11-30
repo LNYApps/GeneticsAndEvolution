@@ -11,9 +11,9 @@ public class HardyWeinbergProblem extends GenEvolProblem {
 
     @Override
     public String emptySolveString() {
-        return "1) observed genotype frequencies, " +
-                "\n2) genotype frequencies expected, " +
-                "\n3) the resulting value of F";
+        return "1) Observed genotype frequencies " +
+                "\n2) Expected genotype frequencies " +
+                "\n3) Resulting value of F";
     }
 
     @Override
@@ -74,13 +74,13 @@ public class HardyWeinbergProblem extends GenEvolProblem {
 
     @Override
     public String emptyGivenString() {
-        return "AA count:\nAacount:\naacount:";
+        return "AA count:\nAa count:\naa count:";
     }
 
     @Override
     public String nonEmptyGivenString() {
         return "AA count: " + mAAcount +
-               "\nAacount: " + mAacount +
-               "\naacount: " + maacount;
+               "\nAa count: " + mAacount +
+               "\naa count: " + maacount;
     }
 }
