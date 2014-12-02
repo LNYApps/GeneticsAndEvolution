@@ -148,6 +148,13 @@
             android:gravity="center"
             android:text="@string/allele_param_graph"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/allele_freak_button_clear"
+            android:gravity="center"
+            android:text="@string/allele_param_clear"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

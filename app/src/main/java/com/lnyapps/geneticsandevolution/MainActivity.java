@@ -152,4 +152,11 @@ public class MainActivity extends FragmentActivity
         frag.graphFrag.addLine(line);
         frag.graphFrag.graph();
     }
+
+    public void onClearSelected(){
+        FragmentManager manager = getSupportFragmentManager();
+        AlleleFreakFragment frag =
+                (AlleleFreakFragment)manager.findFragmentByTag("tag");
+        frag.graphFrag.clear();
+    }
 }

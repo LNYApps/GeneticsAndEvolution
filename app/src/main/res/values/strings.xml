@@ -103,6 +103,7 @@
         <string name="allele_param_inbreeding">Inbreeding (F):</string>
         <string name="allele_param_generations">Generations: </string>
         <string name="allele_param_graph">Graph!</string>
+        <string name="allele_param_clear">Clear!</string>
 
         <string name="allele_param_about">About: \n\nSimulates and plots evolution of two Alleles ("a" and "A") at a single locus over multiple generations, taking into account relative genotype fitness, population size, genetic drift, and level of inbreeding.</string>
         <string name="allele_param_guide">Quick start guide: \n\n1. Select the initial frequency of the "a" allele (from 0.0 to 1.0) \n\n2. Select the relative fitness of the homozygote (AA, aa) and heterozygote (Aa) genotypes and the inbreeding coefficient (F) \n\n3. Select the population size (or 0 for infinite population) \n\n4. Press Graph!</string>

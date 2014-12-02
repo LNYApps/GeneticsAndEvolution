@@ -28,11 +28,14 @@ public class AlleleGraphInputsFragment extends Fragment {
     private EditText alleleInbreeding;
     private EditText alleleGenerations;
     private Button alleleGraphButton;
+    private Button alleleClearButton;
 
     OnGraphSelectedListener mListener;
 
     public interface OnGraphSelectedListener {
         public void onGraphSelected(ArrayList<Entry> line);
+
+        public void onClearSelected();
     }
 
     public AlleleGraphInputsFragment() {
@@ -53,6 +56,7 @@ public class AlleleGraphInputsFragment extends Fragment {
         alleleInbreeding = (EditText) rootView.findViewById(R.id.allele_freak_edittext_inbreeding);
         alleleGenerations = (EditText) rootView.findViewById(R.id.allele_freak_edittext_generations);
         alleleGraphButton = (Button) rootView.findViewById(R.id.allele_freak_button_graph);
+        alleleClearButton = (Button) rootView.findViewById(R.id.allele_freak_button_clear);
 
 
         //setting default values of inputs
@@ -64,6 +68,7 @@ public class AlleleGraphInputsFragment extends Fragment {
         alleleInbreeding.setText("0.0");
         alleleGenerations.setText("1000");
         setUpGenerateButton();
+        setUpClearButton();
         return rootView;
     }
 
@@ -93,8 +98,16 @@ public class AlleleGraphInputsFragment extends Fragment {
 
                 GraphLine allele = new GraphLine(initFreq, AAfit, Aafit, aafit, pop, inbreed, gens);
                 ArrayList<Entry> line = allele.createData();
-                //line is not null
                 mListener.onGraphSelected(line);
+            }
+        });
+    }
+
+    private void setUpClearButton() {
+        alleleClearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onClearSelected();
             }
         });
     }

@@ -74,7 +74,8 @@ public class AlleleGraphFragment extends Fragment {
         for(int i = 0; i<lines.size(); i++){
             //Entry entry = new Entry(lines.get(i), i);
             ArrayList<Entry> entries = lines.get(i);
-            LineDataSet ds = new LineDataSet(entries, "Allele " + i);
+            int lineNumber = i+1;
+            LineDataSet ds = new LineDataSet(entries, "Allele " + lineNumber);
             ds.setLineWidth(2f);
             ds.setDrawCircles(false);
             sets.add(ds);
@@ -87,6 +88,7 @@ public class AlleleGraphFragment extends Fragment {
 
     public void clear(){
         lines.clear();
+        mChart.clear();
     }
 
     public int findMaxEntries(ArrayList<LineDataSet> list){
