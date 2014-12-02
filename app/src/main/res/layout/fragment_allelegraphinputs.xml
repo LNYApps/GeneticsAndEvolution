@@ -23,7 +23,7 @@
                 android:id="@+id/allele_freak_edittext_intial_freq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="@dimen/fragment_ps_textsize"/>
 
         </LinearLayout>
@@ -42,7 +42,7 @@
                 android:id="@+id/allele_freak_edittext_fit_AA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="@dimen/fragment_ps_textsize"/>
 
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:id="@+id/allele_freak_edittext_fit_Aa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="@dimen/fragment_ps_textsize"/>
 
         </LinearLayout>
@@ -80,7 +80,7 @@
                 android:id="@+id/allele_freak_edittext_fit_aa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="@dimen/fragment_ps_textsize"/>
 
         </LinearLayout>
@@ -118,7 +118,7 @@
                 android:id="@+id/allele_freak_edittext_inbreeding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="@dimen/fragment_ps_textsize"/>
 
         </LinearLayout>

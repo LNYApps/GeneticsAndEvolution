@@ -74,7 +74,7 @@ public class PopGrowthFragment extends ProblemSolverInputFragment {
             if (mInputs.get(i).getText().toString().isEmpty()) {
                 args[i] = Double.NaN;
             } else {
-                args[i] = Integer.parseInt(mInputs.get(i).getText().toString());
+                args[i] = Double.parseDouble(mInputs.get(i).getText().toString());
             }
         }
         mProblem.setArguments(args);
