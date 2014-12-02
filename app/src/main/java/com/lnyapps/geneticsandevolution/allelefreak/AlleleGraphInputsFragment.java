@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.github.mikephil.charting.data.Entry;
 import com.lnyapps.geneticsandevolution.MainActivity;
 import com.lnyapps.geneticsandevolution.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by Alex on 11/30/2014.
@@ -23,7 +26,14 @@ public class AlleleGraphInputsFragment extends Fragment {
     private EditText alleleFitaa;
     private EditText allelePop;
     private EditText alleleInbreeding;
+    private EditText alleleGenerations;
     private Button alleleGraphButton;
+
+    OnGraphSelectedListener mListener;
+
+    public interface OnGraphSelectedListener {
+        public void onGraphSelected(ArrayList<Entry> line);
+    }
 
     public AlleleGraphInputsFragment() {
         Bundle args = new Bundle();
@@ -41,7 +51,18 @@ public class AlleleGraphInputsFragment extends Fragment {
         alleleFitaa = (EditText) rootView.findViewById(R.id.allele_freak_edittext_fit_aa);
         allelePop = (EditText) rootView.findViewById(R.id.allele_freak_edittext_pop);
         alleleInbreeding = (EditText) rootView.findViewById(R.id.allele_freak_edittext_inbreeding);
+        alleleGenerations = (EditText) rootView.findViewById(R.id.allele_freak_edittext_generations);
         alleleGraphButton = (Button) rootView.findViewById(R.id.allele_freak_button_graph);
+
+
+        //setting default values of inputs
+        alleleInitFreq.setText("0.5");
+        alleleFitAA.setText("1.0");
+        alleleFitAa.setText("1.0");
+        alleleFitaa.setText("1.0");
+        allelePop.setText("0");
+        alleleInbreeding.setText("0.0");
+        alleleGenerations.setText("1000");
         setUpGenerateButton();
         return rootView;
     }
@@ -50,6 +71,11 @@ public class AlleleGraphInputsFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.allele_freak));
+        try {
+            mListener = (OnGraphSelectedListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnGraphSelectedListener");
+        }
     }
 
     private void setUpGenerateButton() {
@@ -57,6 +83,18 @@ public class AlleleGraphInputsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //graph the stuff based off the params
+                float initFreq = Float.parseFloat(alleleInitFreq.getText().toString());
+                float AAfit = Float.parseFloat(alleleFitAA.getText().toString());
+                float Aafit = Float.parseFloat(alleleFitAa.getText().toString());
+                float aafit = Float.parseFloat(alleleFitaa.getText().toString());
+                int pop = Integer.parseInt(allelePop.getText().toString());
+                float inbreed = Float.parseFloat(alleleInbreeding.getText().toString());
+                int gens = Integer.parseInt(alleleGenerations.getText().toString());
+
+                GraphLine allele = new GraphLine(initFreq, AAfit, Aafit, aafit, pop, inbreed, gens);
+                ArrayList<Entry> line = allele.createData();
+                //line is not null
+                mListener.onGraphSelected(line);
             }
         });
     }

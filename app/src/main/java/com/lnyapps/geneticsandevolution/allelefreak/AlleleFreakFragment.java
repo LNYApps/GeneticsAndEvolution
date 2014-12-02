@@ -20,6 +20,9 @@ public class AlleleFreakFragment extends Fragment {
 
     ViewPager mViewPager;
     FragmentPagerAdapter mFragmentPagerAdapter;
+    public AlleleGraphFragment graphFrag;
+    public AlleleGraphInputsFragment graphInputsFrag;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,9 +56,11 @@ public class AlleleFreakFragment extends Fragment {
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
             if (position == 0) {
-                return new AlleleGraphInputsFragment();
+                graphInputsFrag = new AlleleGraphInputsFragment();
+                return graphInputsFrag;
             } else {
-                return new AlleleGraphFragment();
+                graphFrag = new AlleleGraphFragment();
+                return graphFrag;
             }
         }
 

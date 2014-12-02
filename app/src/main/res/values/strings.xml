@@ -92,13 +92,13 @@
     <string name="allele_graph_page">Allele Graph</string>
     <string name="allele_parameters_page">Parameters</string>
         <!-- Graph page -->
-
+        <string name="allele_graph_no_data">Add alleles to graph in the left tab!</string>
 
         <!-- Params page -->
         <string name="allele_param_initial_freq">Initial Frequency (a):</string>
-        <string name="allele_param_fit_AA">Fit (AA):</string>
-        <string name="allele_param_fit_Aa">Fit (Aa):</string>
-        <string name="allele_param_fit_aa">Fit (aa):</string>
+        <string name="allele_param_fit_AA">Relative Fitness (AA):</string>
+        <string name="allele_param_fit_Aa">Relative Fitness (Aa):</string>
+        <string name="allele_param_fit_aa">Relative Fitness (aa):</string>
         <string name="allele_param_pop">Population:</string>
         <string name="allele_param_inbreeding">Inbreeding (F):</string>
         <string name="allele_param_generations">Generations: </string>
@@ -106,6 +106,7 @@
 
         <string name="allele_param_about">About: \n\nSimulates and plots evolution of two Alleles ("a" and "A") at a single locus over multiple generations, taking into account relative genotype fitness, population size, genetic drift, and level of inbreeding.</string>
         <string name="allele_param_guide">Quick start guide: \n\n1. Select the initial frequency of the "a" allele (from 0.0 to 1.0) \n\n2. Select the relative fitness of the homozygote (AA, aa) and heterozygote (Aa) genotypes and the inbreeding coefficient (F) \n\n3. Select the population size (or 0 for infinite population) \n\n4. Press Graph!</string>
+
     <!-- Cross Simulator -->
     <string name="cross_sim_page">Cross Simulator</string>
     <string name="cross_sim_parameters">Parameters</string>

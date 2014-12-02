@@ -12,16 +12,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.mikephil.charting.data.Entry;
 import com.lnyapps.geneticsandevolution.allelefreak.AlleleFreakFragment;
+import com.lnyapps.geneticsandevolution.allelefreak.AlleleGraphInputsFragment;
 import com.lnyapps.geneticsandevolution.crosssimulator.CrossSimulatorFragment;
 import com.lnyapps.geneticsandevolution.problemgenerator.ProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.problemsolver.ProblemSolverFragment;
 import com.lnyapps.geneticsandevolution.selftestquiz.SelfTestQuizFragment;
 import com.lnyapps.geneticsandevolution.selftestquiz.UpdateQuestions;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends FragmentActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, AlleleGraphInputsFragment.OnGraphSelectedListener{
 
     public static final int MESSAGE_DOWNLOAD_STARTED = 1000;
     public static final int MESSAGE_DOWNLOAD_COMPLETE = 1001;
@@ -29,6 +33,7 @@ public class MainActivity extends FragmentActivity
     public static final int MESSAGE_CONNECTING_STARTED = 1004;
 
     private Thread downloaderThread;
+    public ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -84,7 +89,7 @@ public class MainActivity extends FragmentActivity
 
         if (fragment != null) {
             fragmentManager.beginTransaction()
-                    .replace(R.id.container, fragment)
+                    .replace(R.id.container, fragment, "tag")
                     .commit();
         } else {
             // error in creating fragment
@@ -140,4 +145,11 @@ public class MainActivity extends FragmentActivity
         }
     };
 
+    public void onGraphSelected(ArrayList<Entry> line){
+        FragmentManager manager = getSupportFragmentManager();
+        AlleleFreakFragment frag =
+                (AlleleFreakFragment)manager.findFragmentByTag("tag");
+        frag.graphFrag.addLine(line);
+        frag.graphFrag.graph();
+    }
 }
