@@ -47,7 +47,7 @@ public class AlleleGraphFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.allele_freak_guide) {
-            //TODO: insert pop-up dialog
+            //TODO: Test
             AlleleFreakHelpDialog dialog = new AlleleFreakHelpDialog();
             dialog.show(getActivity().getSupportFragmentManager(), "allele freak dialog");
         }
@@ -127,7 +127,7 @@ public class AlleleGraphFragment extends Fragment {
     /**
      * Implementing dialog box sub-class
      */
-    public class AlleleFreakHelpDialog extends DialogFragment {
+    public static class AlleleFreakHelpDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the Builder class for convenient dialog construction
