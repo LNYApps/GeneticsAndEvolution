@@ -91,6 +91,7 @@
     <!-- Allele Freak -->
     <string name="allele_graph_page">Allele Graph</string>
     <string name="allele_parameters_page">Parameters</string>
+    <string name="allele_freak_help">Help</string>
         <!-- Graph page -->
         <string name="allele_graph_no_data">Add alleles to graph in the left tab!</string>
 

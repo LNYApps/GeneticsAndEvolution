@@ -2,8 +2,8 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/ps_action_clearinputs"
-        android:title="@string/ps_clearinputs"
+    <item android:id="@+id/allele_freak_guide"
+        android:title="@string/allele_freak_help"
         android:showAsAction="always" />
 
 </menu>
