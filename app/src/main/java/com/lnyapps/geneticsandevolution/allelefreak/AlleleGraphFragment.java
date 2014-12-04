@@ -1,7 +1,10 @@
 package com.lnyapps.geneticsandevolution.allelefreak;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -45,6 +48,8 @@ public class AlleleGraphFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.allele_freak_guide) {
             //TODO: insert pop-up dialog
+            AlleleFreakHelpDialog dialog = new AlleleFreakHelpDialog();
+            dialog.show(getActivity().getSupportFragmentManager(), "allele freak dialog");
         }
         return super.onOptionsItemSelected(item);
     }
@@ -116,5 +121,21 @@ public class AlleleGraphFragment extends Fragment {
             }
         }
         return max;
+    }
+
+
+    /**
+     * Implementing dialog box sub-class
+     */
+    public class AlleleFreakHelpDialog extends DialogFragment {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.allele_freak_help)
+                    .setTitle(R.string.allele_param_about);
+            // Create the AlertDialog object and return it
+            return builder.create();
+        }
     }
 }
