@@ -40,7 +40,7 @@ public class PopGrowthProblem extends GenEvolProblem {
             } else {
                 otherAnswer = calcTime(mVals[0], mVals[3], mVals[4]);
             }
-            sb.append(mParams[mUnknown2] + String.format("%.3f", otherAnswer));
+            sb.append(mParams[mUnknown2] + String.format("%.0f", otherAnswer));
             return sb.toString();
         }
     }
@@ -60,9 +60,9 @@ public class PopGrowthProblem extends GenEvolProblem {
         for (int i = 0; i < mParams.length; i++) {
             mVals[i] = Math.random();
         }
-        mVals[0] = mVals[0]*0.2; //rate
-        mVals[2] = mVals[2] * 300; //death rate
-        mVals[1] = mVals[2] + mVals[1] * 300; //birth rate
+        mVals[0] = ((int) (1000 * mVals[0] * 0.2)) / 1000.0; //rate
+        mVals[2] = (int) (mVals[2] * 300); //death rate
+        mVals[1] = (int) (mVals[2] + mVals[1] * 300); //birth rate
         mVals[3] = ((int)(mVals[3] * 50) + 1) * 1000000; //initial pop
         mVals[4] = mVals[3] + ((int)(mVals[4] * 50)) * 1000000; //final pop
         mVals[5] = (int) (mVals[5] * 150); //time
@@ -104,15 +104,20 @@ public class PopGrowthProblem extends GenEvolProblem {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < mParams.length; i ++) {
             sb.append(mParams[i]);
+            if (i == 0 && mUnknown1 != 0) {
+                sb.append(String.format("%.3f", mVals[0]));
+                sb.append("\n");
+                continue;
+            }
             if (mUnknown3 == 2) {
                 if (i == 1 || i == 2) {
                     sb.append("n/a");
                 } else if (i != 0) {
-                    sb.append(String.format("%.3f", mVals[i]));
+                    sb.append(String.format("%.0f", mVals[i]));
                 }
             } else {
                 if (i != mUnknown1 && i != mUnknown2) {
-                    sb.append(String.format("%.3f", mVals[i]));
+                    sb.append(String.format("%.0f", mVals[i]));
                 }
             }
             sb.append("\n");
@@ -136,7 +141,7 @@ public class PopGrowthProblem extends GenEvolProblem {
     }
 
     private double calcFinalPop(double growthRate, double initialPopSize, double time){
-        double output = initialPopSize*Math.exp(growthRate*time);
+        double output = (int) initialPopSize*Math.exp(growthRate*time);
         return output;
     }
 
