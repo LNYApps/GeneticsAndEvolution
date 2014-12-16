@@ -70,6 +70,7 @@ public class GraphLine {
             output.add(entry);
         }
 */
+
         //assuming no genetic drift
         for(int i=1; i<this.generationsNumber; i++){
             tempGen.qfreq = outputfreq;
