@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import com.github.mikephil.charting.data.Entry;
 import com.lnyapps.geneticsandevolution.allelefreak.AlleleFreakFragment;
 import com.lnyapps.geneticsandevolution.allelefreak.AlleleGraphInputsFragment;
-import com.lnyapps.geneticsandevolution.crosssimulator.CrossSimulatorFragment;
+import com.lnyapps.geneticsandevolution.crosssimulator.CrossSimulatorParentFragment;
 import com.lnyapps.geneticsandevolution.problemgenerator.ProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.problemsolver.ProblemSolverFragment;
 import com.lnyapps.geneticsandevolution.selftestquiz.SelfTestQuizFragment;
@@ -82,7 +82,7 @@ public class MainActivity extends FragmentActivity
         } else if (fragmentName.equals(getResources().getString(R.string.allele_freak))) {
             fragment = new AlleleFreakFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.cross_simulator))) {
-            fragment = new CrossSimulatorFragment();
+            fragment = new CrossSimulatorParentFragment();
         } else if (fragmentName.equals(getResources().getString(R.string.about))) {
             fragment = new AboutFragment();
         }

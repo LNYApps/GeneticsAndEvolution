@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:paddingLeft="@dimen/fragment_spg_horizontalmargin"
+    android:paddingRight="@dimen/fragment_spg_horizontalmargin"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+
+    <fragment android:name="com.lnyapps.geneticsandevolution.crosssimulator.CrossSetUpFragment"
+        android:id="@+id/cs_fragment_setup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+
+    <fragment android:name="com.lnyapps.geneticsandevolution.crosssimulator.CrossSimulatorFragment"
+        android:id="@+id/cs_fragment_simulator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+
+</LinearLayout>
