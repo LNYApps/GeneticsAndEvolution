@@ -70,28 +70,52 @@ public class GraphLine {
             output.add(entry);
         }
 */
-
         //assuming no genetic drift
-        for(int i=1; i<this.generationsNumber; i++){
-            tempGen.qfreq = outputfreq;
-            //calculate initial frequencies
-            fAa = calcAafreq(this.inbreeding, this.qfreq);
-            fAA = calcAAfreq(fAa, tempGen.qfreq);
-            faa = calcaafreq(fAa, tempGen.qfreq);
+        if(tempGen.pop ==0){
+            for(int i=1; i<this.generationsNumber; i++){
+                tempGen.qfreq = outputfreq;
+                //calculate initial frequencies
+                fAa = calcAafreq(this.inbreeding, tempGen.qfreq);
+                fAA = calcAAfreq(fAa, tempGen.qfreq);
+                faa = calcaafreq(fAa, tempGen.qfreq);
 
-            //apply fitness
-            fAa = adjustFreq(fAa, this.fitAa);
-            fAA = adjustFreq(fAA, this.fitAA);
-            faa = adjustFreq(faa, this.fitaa);
+                //apply fitness
+                fAa = adjustFreq(fAa, this.fitAa);
+                fAA = adjustFreq(fAA, this.fitAA);
+                faa = adjustFreq(faa, this.fitaa);
 
-            //renormalize adjusted frequencies so they add up to 1
-            totalFreq = fAa + fAA + faa;
-            fAa = fAa/totalFreq;
-            fAA = fAA/totalFreq;
-            faa = faa/totalFreq;
-            outputfreq = faa + 0.5f*fAa;
-            entry = new Entry(outputfreq, i);
-            output.add(entry);
+                //renormalize adjusted frequencies so they add up to 1
+                totalFreq = fAa + fAA + faa;
+                fAa = fAa/totalFreq;
+                fAA = fAA/totalFreq;
+                faa = faa/totalFreq;
+                outputfreq = faa + 0.5f*fAa;
+                entry = new Entry(outputfreq, i);
+                output.add(entry);
+            }
+        }
+        else{
+            for(int i=1; i<this.generationsNumber; i++){
+                tempGen.qfreq = outputfreq;
+                //calculate initial frequencies
+                fAa = calcAafreq(this.inbreeding, tempGen.qfreq);
+                fAA = calcAAfreq(fAa, tempGen.qfreq);
+                faa = calcaafreq(fAa, tempGen.qfreq);
+
+                //apply fitness
+                fAa = adjustFreq(fAa, this.fitAa);
+                fAA = adjustFreq(fAA, this.fitAA);
+                faa = adjustFreq(faa, this.fitaa);
+
+                //renormalize adjusted frequencies so they add up to 1
+                totalFreq = fAa + fAA + faa;
+                fAa = fAa/totalFreq;
+                fAA = fAA/totalFreq;
+                faa = faa/totalFreq;
+                outputfreq = faa + 0.5f*fAa;
+                entry = new Entry(outputfreq, i);
+                output.add(entry);
+            }
         }
 
         return output;
