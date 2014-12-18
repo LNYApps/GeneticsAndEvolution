@@ -15,6 +15,14 @@ public class Genotype {
         mChromosome2 = chromosome2;
     }
 
+    public Chromosome getChromosome1() {
+        return mChromosome1;
+    }
+
+    public Chromosome getChromosome2() {
+        return mChromosome2;
+    }
+
     @Override
     public String toString() {
         return String.format("%s %s", mChromosome1.toString(), mChromosome2.toString());

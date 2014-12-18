@@ -39,8 +39,9 @@ public class CrossSimulatorParentFragment extends Fragment {
         mSimulatorFragment.destroyFragment();
     }
 
-    public void switchToSimulator() {
+    public void switchToSimulator(CrossSimulatorArgs args) {
         mSetUpFragment.destroyFragment();
+        mSimulatorFragment.loadCrossSimulatorArgs(args);
         mSimulatorFragment.createFragment();
     }
 

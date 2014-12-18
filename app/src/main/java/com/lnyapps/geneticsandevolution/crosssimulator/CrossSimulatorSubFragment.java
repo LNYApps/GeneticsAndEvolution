@@ -11,10 +11,10 @@ import com.lnyapps.geneticsandevolution.R;
  */
 public abstract class CrossSimulatorSubFragment extends Fragment {
 
-    protected CrossSimulatorParentFragment myParent;
+    protected CrossSimulatorParentFragment mParent;
 
     public void attachParent(CrossSimulatorParentFragment parent) {
-        myParent = parent;
+        mParent = parent;
     }
 
     public void destroyFragment() {

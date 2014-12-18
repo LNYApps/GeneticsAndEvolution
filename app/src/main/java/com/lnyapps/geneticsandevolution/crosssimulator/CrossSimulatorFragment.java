@@ -21,10 +21,15 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment{
         t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myParent.switchToSetup();
+                mParent.switchToSetup();
             }
         });
         return rootView;
+    }
+
+    // TODO initialize the view based on the argument wrapper
+    public void loadCrossSimulatorArgs(CrossSimulatorArgs args) {
+
     }
 
 }

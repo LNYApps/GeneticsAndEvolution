@@ -133,6 +133,9 @@
     <string name="cs_two">Two Traits</string>
     <string name="cs_xlinked">X-link</string>
     <string name="cs_autosomal">Autosomal</string>
+    <string name="cs_male">Male</string>
+    <string name="cs_female">Female</string>
+    <string name="cs_cross">X</string>
 
     <!-- Self-Test Quiz Fragment -->
     <string name="stq_definition">Definition</string>
