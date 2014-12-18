@@ -68,7 +68,7 @@ public class BreederProblem extends GenEvolProblem {
             }
         }
         if (mUnknown != 3) {
-            mVals[3] = Math.random()*0.8 + 0.2;
+            mVals[3] = ((int) (Math.random()*0.8*1000))/1000.0 + 0.2;
         }
     }
 
@@ -98,7 +98,7 @@ public class BreederProblem extends GenEvolProblem {
                 if (i == 3) {
                     sb.append(String.format("%.3f", mVals[i]));
                 } else {
-                    sb.append(mVals[i]);
+                    sb.append(String.format("%.0f", mVals[i]));
                 }
             }
             if (i != 3) {
