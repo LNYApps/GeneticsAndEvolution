@@ -146,7 +146,7 @@ public class CrossMappingProblem extends GenEvolProblem {
             }
         }
         int secondMaxIndex = 0;
-        secondMaxIndex = secondHighest(values);
+        secondMaxIndex = secondHighest(values, maxIndex);
 
         //calculating the recombinants and determining recombinant gamete frequency
         double AtoB = 0;
@@ -194,21 +194,23 @@ public class CrossMappingProblem extends GenEvolProblem {
 
     /**
      * @param nums an array of ints
+     * @param max the first max of the array of values
      * @return returns the index of the second highest int in the array
      */
-    static int secondHighest(int[] nums) {
-        int high1 = 0;
-        int high2 = 0;
-        for(int i = 0; i<nums.length; i++){
-            if(nums[i] >= nums[high1]){
-                high2 = high1;
-                high1 = i;
-            }
-            else if(nums[i] > nums[high2]){
-                high2 = i;
+    static int secondHighest(int[] nums, int max) {
+        int secondMax;
+        if(max == 0){
+            secondMax = 1;
+        }
+        else{
+            secondMax = 0;
+        }
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] < nums[max] && nums[i] > nums[secondMax]){
+                secondMax = i;
             }
         }
-        return high2;
+        return secondMax;
     }
 
 }
