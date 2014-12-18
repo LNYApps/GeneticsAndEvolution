@@ -1,15 +1,9 @@
 package com.lnyapps.geneticsandevolution.allelefreak;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -52,21 +46,6 @@ public class AlleleGraphInputsFragment extends Fragment {
         setArguments(args);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_allelefreak, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.allele_freak_guide) {
-            //TODO: Test
-            AlleleFreakHelpDialog dialog = new AlleleFreakHelpDialog();
-            dialog.show(getActivity().getSupportFragmentManager(), "allele freak dialog");
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -134,21 +113,6 @@ public class AlleleGraphInputsFragment extends Fragment {
                 mListener.onClearSelected();
             }
         });
-    }
-
-    /**
-     * Implementing dialog box sub-class
-     */
-    public static class AlleleFreakHelpDialog extends DialogFragment {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the Builder class for convenient dialog construction
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.allele_freak_help)
-                    .setTitle(R.string.allele_param_about);
-            // Create the AlertDialog object and return it
-            return builder.create();
-        }
     }
 
 }
