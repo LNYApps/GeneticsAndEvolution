@@ -136,7 +136,8 @@
     <string name="cs_male">Male</string>
     <string name="cs_female">Female</string>
     <string name="cs_cross">X</string>
-    <string name="cs_setup_help_dialog">Quick start guide: \n\n 1. Spin picker wheel to select cross type. \n\n2. Select type of organism. \n\n 3. Select number of traits to be examined within the cross. \n\nToggle inheritance pattern to study (autosomal vs X-linked). \n\n5. Press NEXT to go to Cross Simulator main screen and perform selected cross.</string>
+    <string name="cs_setup_help">Help</string>
+    <string name="cs_setup_help_dialog">Quick start guide: \n\n 1. Spin picker wheel to select cross type. \n\n2. Select type of organism. \n\n 3. Select number of traits to be examined within the cross. \n\n4. Toggle inheritance pattern to study (autosomal vs X-linked). \n\n5. Press NEXT to go to Cross Simulator main screen and perform selected cross.</string>
 
 
     <!-- Self-Test Quiz Fragment -->

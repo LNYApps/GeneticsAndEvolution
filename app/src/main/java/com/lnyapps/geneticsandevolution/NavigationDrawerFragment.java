@@ -238,7 +238,9 @@ public class NavigationDrawerFragment extends Fragment {
             inflater.inflate(R.menu.global, menu);
             showGlobalContextActionBar();
         }
-
+        if(mCurrentSelectedPosition==2){
+            inflater.inflate(R.menu.menu_crosssimsetup, menu);
+        }
         if(mCurrentSelectedPosition==3){
             inflater.inflate(R.menu.menu_allelefreak, menu);
         }
@@ -248,9 +250,13 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.allele_freak_guide) {
-            //TODO: Test
             AlleleFreakHelpDialog dialog = new AlleleFreakHelpDialog();
             dialog.show(getFragmentManager(), "allele freak dialog");
+            return true;
+        }
+        if (item.getItemId() == R.id.crosssim_setup_guide){
+            CrossSimHelpDialog dialog = new CrossSimHelpDialog();
+            dialog.show(getActivity().getFragmentManager(), "cross-sim setup dialog");
             return true;
         }
         if (mDrawerToggle.onOptionsItemSelected(item)) {
@@ -285,20 +291,27 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     /**
-     * Implementing dialog box sub-class
+     * Implementing Allele Freak dialog box sub-class
      */
     public static class AlleleFreakHelpDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the Builder class for convenient dialog construction
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-            //builder.setMessage(R.string.allele_freak_help)
-            //        .setTitle(R.string.allele_param_about);
             LayoutInflater inflater = getActivity().getLayoutInflater();
             builder.setView(inflater.inflate(R.layout.dialog_allelefreak, null));
+            return builder.create();
+        }
+    }
 
-            // Create the AlertDialog object and return it
+    /**
+     * Implementing CrossSim dialog box sub-class
+     */
+    public static class CrossSimHelpDialog extends DialogFragment {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+            builder.setView(inflater.inflate(R.layout.dialog_crosssimsetup, null));
             return builder.create();
         }
     }
