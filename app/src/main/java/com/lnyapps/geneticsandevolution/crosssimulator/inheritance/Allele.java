@@ -15,4 +15,16 @@ public class Allele {
     public String toString() {
         return mAllele;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Allele allele = (Allele) o;
+        return mAllele.equals(allele.mAllele);
+    }
+
+    @Override
+    public int hashCode() {
+        return mAllele != null ? mAllele.hashCode() : 0;
+    }
 }

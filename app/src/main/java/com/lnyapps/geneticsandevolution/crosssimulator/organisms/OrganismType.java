@@ -9,10 +9,10 @@ import com.lnyapps.geneticsandevolution.crosssimulator.inheritance.Trait;
  */
 public enum OrganismType {
 
-    PEA(new Trait("Shape", 'a'), new Trait("Color", 'b'), "pea"),
-    CLOVER(new Trait("Color", 'p'), new Trait("Stamen size", 'l'), "clover"),
-    SNOWMAN(new Trait("Antennae", 't'), new Trait("Eyes", 'n'), "snowman"),
-    BEARDED_DRAGON(new Trait("Hypo", 'h'), new Trait("Trans", 't'), "beardeddragon");
+    PEA(new Trait("Shape", "Round", "Wrinkled", 'a'), new Trait("Color", "Yellow", "Green", 'b'), "pea"),
+    CLOVER(new Trait("Color", "Purple", "Green", 'p'), new Trait("Stamen size", "Small", "Large", 'l'), "clover"),
+    SNOWMAN(new Trait("Antennae", "No antennae", "Antennae", 't'), new Trait("Eyes", "Eyes", "No eyes", 'n'), "snowman"),
+    BEARDED_DRAGON(new Trait("Hypo", "Normal", "Hypo", 'h'), new Trait("Trans", "Normal", "Trans", 't'), "beardeddragon");
 
     private Trait mTrait1, mTrait2;
     private String mImageName;

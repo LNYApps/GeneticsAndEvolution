@@ -6,11 +6,23 @@
     android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
 
-    <!--TODO FINISH-->
+    <!--TODO FINISH currently all garbage temp code-->
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/hi"
-        android:text="HELLO WORLD! TODO STILL"/>
+        android:text="HELLO WORLD! TODO STILL, but here are the two chosen organisms"/>
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
 
 </LinearLayout>

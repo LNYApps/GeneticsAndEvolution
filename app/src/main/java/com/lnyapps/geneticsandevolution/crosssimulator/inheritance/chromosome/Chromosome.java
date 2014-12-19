@@ -4,7 +4,6 @@ import com.lnyapps.geneticsandevolution.crosssimulator.inheritance.Allele;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,12 +13,20 @@ public class Chromosome {
 
     protected List<Allele> mAlleles;
 
-    public Chromosome(Allele... alleles) {
-        mAlleles = new ArrayList<Allele>(Arrays.asList(alleles));
+    public Chromosome(List<Allele> alleles) {
+        mAlleles = alleles;
     }
 
-    public List<Allele> getAlleles() {
-        return Collections.unmodifiableList(mAlleles);
+    public Chromosome(Allele... alleles) {
+        this(new ArrayList<Allele>(Arrays.asList(alleles)));
+    }
+
+    public List<Boolean> getAlleleDominances() {
+        List<Boolean> dominances = new ArrayList<Boolean>();
+        for (Allele a : mAlleles) {
+            dominances.add((a.toString().equals(a.toString().toUpperCase())) ? true : false);
+        }
+        return dominances;
     }
 
     @Override

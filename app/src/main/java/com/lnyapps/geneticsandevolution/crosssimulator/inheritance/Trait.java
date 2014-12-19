@@ -6,19 +6,31 @@ package com.lnyapps.geneticsandevolution.crosssimulator.inheritance;
 public class Trait {
 
     private String mDescription;
+    private String mDominant;
+    private String mRecessive;
     private String mCharacter;
 
-    public Trait(String description, char character) {
+    public Trait(String description, String dominant, String recessive, char character) {
         mDescription = description;
+        mDominant = dominant;
+        mRecessive = recessive;
         mCharacter = Character.toString(Character.toLowerCase(character));
     }
 
-    public String getDominant() {
-        return mCharacter.toUpperCase();
+    public Allele getDominant() {
+        return new Allele(mCharacter.toUpperCase());
     }
 
-    public String getRecessive() {
-        return mCharacter.toLowerCase();
+    public Allele getRecessive() {
+        return new Allele(mCharacter.toLowerCase());
+    }
+
+    public String getDominantDescription() {
+        return mDominant;
+    }
+
+    public String getRecessiveDescription() {
+        return mRecessive;
     }
 
     @Override

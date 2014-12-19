@@ -15,14 +15,12 @@ public class Organism {
         this.mGenotype = mGenotype;
     }
 
-    // TODO update Chromosome 1 based on alleles
-    public void updateChromosome1(String alleles) {
-
+    public OrganismType getType() {
+        return mType;
     }
 
-    // TODO update Chromosome 1 based on alleles
-    public void updateChromosome2(String alleles) {
-
+    public Genotype getGenotype() {
+        return mGenotype;
     }
 
 }
