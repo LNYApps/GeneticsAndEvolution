@@ -146,7 +146,7 @@ public class CrossMappingProblem extends GenEvolProblem {
             }
         }
         int secondMaxIndex = 0;
-        secondMaxIndex = secondHighest(values, maxIndex);
+        secondMaxIndex = secondParental(values, maxIndex);
 
         //calculating the recombinants and determining recombinant gamete frequency
         double AtoB = 0;
@@ -211,6 +211,39 @@ public class CrossMappingProblem extends GenEvolProblem {
             }
         }
         return secondMax;
+    }
+
+    static int secondParental(int[] nums, int max){
+        int secondParentalIndex;
+        ArrayList<String> genotypes = new ArrayList<String>();
+        genotypes.add("ABC");
+        genotypes.add("ABc");
+        genotypes.add("AbC");
+        genotypes.add("Abc");
+        genotypes.add("aBC");
+        genotypes.add("aBc");
+        genotypes.add("abC");
+        genotypes.add("abc");
+        String firstParental = genotypes.get(max);
+        char[] firstParentalgenotype = new char[3];
+        char[] secondParentalgenotype = new char[3];
+        for(int i=0; i<firstParental.length(); i++){
+            firstParentalgenotype[i] = firstParental.charAt(i);
+        }
+        for(int i=0; i<firstParentalgenotype.length; i++){
+            if(Character.isUpperCase(firstParentalgenotype[i])){
+                secondParentalgenotype[i] = Character.toLowerCase(firstParentalgenotype[i]);
+            }
+            if(Character.isLowerCase(firstParentalgenotype[i])){
+                secondParentalgenotype[i] = Character.toUpperCase(firstParentalgenotype[i]);
+            }
+        }
+        String secondParentalString = "";
+        for(int i=0; i<secondParentalgenotype.length; i++){
+            secondParentalString += secondParentalgenotype[i];
+        }
+        secondParentalIndex = genotypes.indexOf(secondParentalString);
+        return secondParentalIndex;
     }
 
 }
