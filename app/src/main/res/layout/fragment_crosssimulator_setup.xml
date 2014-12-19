@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cs_setup"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"/>
+
+    <Spinner
+        android:id="@+id/cs_setup_spinner_organisms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
+        android:stretchColumns="*">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/cs_numbertraits" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/cs_inheritance" />
+        </TableRow>
+
+        <TableRow>
+
+            <Switch
+                android:id="@+id/cs_setup_switch_numtraits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textOff="@string/cs_two"
+                android:textOn="@string/cs_one" />
+
+            <Switch
+                android:id="@+id/cs_setup_switch_inheritance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textOff="@string/cs_xlinked"
+                android:textOn="@string/cs_autosomal" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:text="@string/cs_traits" />
+            <TextView android:text="@string/cs_dominant" />
+            <TextView android:text="@string/cs_recessive" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:id="@+id/cs_setup_text_trait1name" />
+            <TextView android:id="@+id/cs_setup_text_trait1dominant"/>
+            <TextView android:id="@+id/cs_setup_text_trait1recessive"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView android:id="@+id/cs_setup_text_trait2name" />
+            <TextView android:id="@+id/cs_setup_text_trait2dominant"/>
+            <TextView android:id="@+id/cs_setup_text_trait2recessive"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/fragment_cs_setup_imagesidepadding"
+        android:paddingRight="@dimen/fragment_cs_setup_imagesidepadding"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
+        android:stretchColumns="1">
+
+        <TableRow>
+            <TextView android:text="@string/cs_female" android:gravity="center"/>
+            <TextView android:text=""/>
+            <TextView android:text="@string/cs_male" android:gravity="center"/>
+        </TableRow>
+        <TableRow>
+            <ImageView
+                android:id="@+id/cs_setup_imageview1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+            <TextView android:text=""/>
+            <ImageView
+                android:id="@+id/cs_setup_imageview2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+        </TableRow>
+        <TableRow>
+            <Spinner android:id="@+id/cs_setup_genotype1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"/>
+            <TextView android:text="@string/cs_cross"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"/>
+            <Spinner android:id="@+id/cs_setup_genotype2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/cs_setup_button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cs_next" />
+
+</LinearLayout>

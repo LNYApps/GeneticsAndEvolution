@@ -39,4 +39,7 @@
     <dimen name="fragment_ps_textsize">18sp</dimen>
     <dimen name="fragment_ps_verticalspacing">18dp</dimen>
 
+    <!-- Cross Simulator Setup Fragment -->
+    <dimen name="fragment_cs_setup_imagesidepadding">50dp</dimen>
+
 </resources>
