@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cs_organisms"
+        android:text="@string/cs_setup"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:paddingBottom="@dimen/fragment_mpg_verticalspacing"/>
 
@@ -107,15 +107,15 @@
         <TableRow>
             <ImageView
                 android:id="@+id/cs_setup_imageview1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:scaleType="fitXY" />
             <TextView android:text=""/>
             <ImageView
                 android:id="@+id/cs_setup_imageview2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:scaleType="fitXY" />
         </TableRow>

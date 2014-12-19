@@ -31,4 +31,5 @@ public abstract class CrossSimulatorSubFragment extends Fragment {
         ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.cross_simulator));
     }
 
+
 }

@@ -36,7 +36,8 @@
 
     <!-- About Fragment -->
     <string name="a_title">Genetics And Evolution</string>
-    <string name="a_about">This app was developed by Jonathan Tseng and Alex Dao to supplement the Duke University Introduction to Genetics and Evolution course taught by Prof. Mohamed Noor. The iOS version was developed by Russell Myers and Brandon Millman. \n\nIt allows users to solve problems covered in the course, including three-point genetic cross mapping, heritability from the breeder\'s equation, population growth and testing for Hardy Weinberg equilibrium.</string>    <string name="a_coursewebsite">Course Webpage</string>
+    <string name="a_about">This app was developed by Jonathan Tseng and Alex Dao to supplement the Duke University Introduction to Genetics and Evolution course taught by Prof. Mohamed Noor. The iOS version was developed by Russell Myers and Brandon Millman. \n\nIt allows users to solve problems covered in the course, including three-point genetic cross mapping, heritability from the breeder\'s equation, population growth and testing for Hardy Weinberg equilibrium.</string>
+    <string name="a_coursewebsite">Course Webpage</string>
     <string name="a_onlinedocumentation">Online Manual</string>
 
     <!-- Problem Solver Fragment -->
@@ -111,7 +112,6 @@
     <!-- Cross Simulator -->
     <string name="cs_page">Cross Simulator</string>
     <string name="cs_parameters">Parameters</string>
-    <string name="cs_organisms">Organisms</string>
     <string-array name="cs_organisms_array">
         <item>@string/cs_pea</item>
         <item>@string/cs_clover</item>
@@ -135,7 +135,9 @@
     <string name="cs_male">Male</string>
     <string name="cs_female">Female</string>
     <string name="cs_cross">X</string>
-    <string name="cs_setup_help_dialog">Quick start guide: \n\n 1. Spin picker wheel to select cross type. \n\n2. Select type of organism. \n\n 3. Select number of traits to be examined within the cross. \n\nToggle inheritance pattern to study (autosomal vs X-linked). \n\n5. Press NEXT to go to Cross Simulator main screen and perform selected cross.</string>
+    <string name="cs_setup">Setup</string>
+    <string name="cs_setup_help">Help</string>
+    <string name="cs_setup_help_dialog">Quick start guide: \n\n 1. Spin picker wheel to select cross type. \n\n2. Select type of organism. \n\n 3. Select number of traits to be examined within the cross. \n\n4. Toggle inheritance pattern to study (autosomal vs X-linked). \n\n5. Press NEXT to go to Cross Simulator main screen and perform selected cross.</string>
 
 
     <!-- Self-Test Quiz Fragment -->

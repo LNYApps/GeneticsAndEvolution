@@ -248,4 +248,5 @@ public class CrossSetUpFragment extends CrossSimulatorSubFragment {
         mTrait2Recessive = (TextView) root.findViewById(R.id.cs_setup_text_trait2recessive);
     }
 
+
 }

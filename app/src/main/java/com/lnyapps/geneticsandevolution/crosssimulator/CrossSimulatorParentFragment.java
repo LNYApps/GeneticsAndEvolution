@@ -50,4 +50,6 @@ public class CrossSimulatorParentFragment extends Fragment {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.cross_simulator));
     }
+
+
 }
