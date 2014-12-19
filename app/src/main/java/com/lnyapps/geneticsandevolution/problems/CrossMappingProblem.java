@@ -15,10 +15,45 @@ public class CrossMappingProblem extends GenEvolProblem {
     public String solution() {
         double[] solution = calculateCrossMapping(mParams[0], mParams[1], mParams[2], mParams[3],
                 mParams[4], mParams[5], mParams[6], mParams[7]);
+
+        ArrayList<String> genotypes = new ArrayList<String>();
+        genotypes.add("ABC");
+        genotypes.add("ABc");
+        genotypes.add("AbC");
+        genotypes.add("Abc");
+        genotypes.add("aBC");
+        genotypes.add("aBc");
+        genotypes.add("abC");
+        genotypes.add("abc");
+
+        int firstParentalIndex = (int) solution[3];
+        int secondParentalIndex = (int) solution[4];
+
+        String firstParental = genotypes.get(firstParentalIndex);
+        String secondParental = genotypes.get(secondParentalIndex);
+
+        String linkage = "";
+        if(solution[0]<0.45f && solution[1]<0.45f && solution[2]<0.45f){
+            linkage = firstParental + "//" + secondParental;
+        }
+        else if(solution[0]<0.45f && solution[2]>0.45f && solution[1]>0.45f){
+            linkage = firstParental.substring(0,2) + "//" + secondParental.substring(0,2) + " ; " + firstParental.substring(2) + "//" + secondParental.substring(2);
+        }
+        else if(solution[0]>0.45f && solution[2]<0.45f && solution[1]>0.45f){
+            linkage = firstParental.substring(0,1) + "//" + secondParental.substring(0,1) + " ; " + firstParental.substring(1) + "//" + secondParental.substring(1);
+        }
+        else if(solution[0]>0.45f && solution[2]>0.45f && solution[1]<0.45f){
+            linkage = firstParental.substring(0,1) + firstParental.substring(2) + "//" + secondParental.substring(0,1) + secondParental.substring(2) +
+                    " ; " + firstParental.substring(1,2) + "//" + secondParental.substring(1,2);
+        }
+        else if(solution[0]>0.45f && solution[1]>0.45f && solution[2]>0.45f){
+            linkage = firstParental.substring(0,1) + "//" + secondParental.substring(0,1) +
+                    " ; " + firstParental.substring(1,2) + "//" + secondParental.substring(1,2) +
+                    " ; " + firstParental.substring(2) + "//" + secondParental.substring(2);
+        }
         return
-                //TODO: Calculate the predicated linkage
-                /*"Predicted phase, order & linkage:" +
-                "\na--c--B//A--C--b" +*/
+                "Predicted phase, order, and linkage:\n" +
+                linkage +
                 "\nAB rec fraction: " + String.format("%.3f", solution[0]) +
                 "\nBC rec fraction: " + String.format("%.3f", solution[2]) +
                 "\nAC rec fraction: " + String.format("%.3f", solution[1]);
@@ -185,10 +220,12 @@ public class CrossMappingProblem extends GenEvolProblem {
         double aToBfreq = AtoB/total;
         double aToCfreq = AtoC/total;
         double bToCfreq = BtoC/total;
-        double[] output = new double[3];
+        double[] output = new double[5];
         output[0] = aToBfreq;
         output[1] = aToCfreq;
         output[2] = bToCfreq;
+        output[3] = maxIndex;
+        output[4] = secondMaxIndex;
         return output;
     }
 
