@@ -9,9 +9,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
         android:text="@string/cs_setup"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"/>
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
         android:id="@+id/cs_setup_spinner_organisms"
@@ -23,7 +23,9 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
         android:stretchColumns="*">
+
         <TableRow>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,25 +72,35 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView android:text="@string/cs_traits" />
+
             <TextView android:text="@string/cs_dominant" />
+
             <TextView android:text="@string/cs_recessive" />
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView android:id="@+id/cs_setup_text_trait1name" />
-            <TextView android:id="@+id/cs_setup_text_trait1dominant"/>
-            <TextView android:id="@+id/cs_setup_text_trait1recessive"/>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView android:id="@+id/cs_setup_text_trait2name" />
-            <TextView android:id="@+id/cs_setup_text_trait2dominant"/>
-            <TextView android:id="@+id/cs_setup_text_trait2recessive"/>
+
+            <TextView android:id="@+id/cs_setup_text_trait1dominant" />
+
+            <TextView android:id="@+id/cs_setup_text_trait1recessive" />
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/cs_setup_text_trait2name" />
+
+            <TextView android:id="@+id/cs_setup_text_trait2dominant" />
+
+            <TextView android:id="@+id/cs_setup_text_trait2recessive" />
+        </TableRow>
     </TableLayout>
 
     <TableLayout
@@ -96,22 +108,32 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/fragment_cs_setup_imagesidepadding"
         android:paddingRight="@dimen/fragment_cs_setup_imagesidepadding"
-        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
         android:stretchColumns="1">
 
         <TableRow>
-            <TextView android:text="@string/cs_female" android:gravity="center"/>
-            <TextView android:text=""/>
-            <TextView android:text="@string/cs_male" android:gravity="center"/>
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/cs_female" />
+
+            <TextView android:text="" />
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/cs_male" />
         </TableRow>
+
         <TableRow>
+
             <ImageView
                 android:id="@+id/cs_setup_imageview1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:scaleType="fitXY" />
-            <TextView android:text=""/>
+
+            <TextView android:text="" />
+
             <ImageView
                 android:id="@+id/cs_setup_imageview2"
                 android:layout_width="70dp"
@@ -119,18 +141,36 @@
                 android:layout_gravity="center"
                 android:scaleType="fitXY" />
         </TableRow>
-        <TableRow>
-            <Spinner android:id="@+id/cs_setup_genotype1"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="center"/>
-            <TextView android:text="@string/cs_cross"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="center"/>
-            <Spinner android:id="@+id/cs_setup_genotype2"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="center"/>
-        </TableRow>
     </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
+        android:paddingLeft="@dimen/fragment_cs_setup_imagesidepadding"
+        android:paddingRight="@dimen/fragment_cs_setup_imagesidepadding"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <Spinner
+                android:id="@+id/cs_setup_genotype1"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/cs_cross"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Spinner
+                android:id="@+id/cs_setup_genotype2"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+    </TableLayout>
+
 
     <Button
         android:id="@+id/cs_setup_button_next"

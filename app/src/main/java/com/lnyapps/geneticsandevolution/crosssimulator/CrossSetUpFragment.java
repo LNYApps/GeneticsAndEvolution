@@ -207,7 +207,7 @@ public class CrossSetUpFragment extends CrossSimulatorSubFragment {
     }
 
     private CrossSimulatorArgs gatherInputs() {
-        return new CrossSimulatorArgs(new Organism(mOrganismType, mMaleGenotype), new Organism(mOrganismType, mFemaleGenotype));
+        return new CrossSimulatorArgs(new Organism(mOrganismType, mMaleGenotype), new Organism(mOrganismType, mFemaleGenotype), mInheritanceType);
     }
 
     private void setUpNumTraitsSwitch() {

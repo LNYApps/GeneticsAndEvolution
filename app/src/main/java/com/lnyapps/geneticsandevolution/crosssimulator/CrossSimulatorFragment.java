@@ -6,40 +6,62 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lnyapps.geneticsandevolution.R;
+import com.lnyapps.geneticsandevolution.crosssimulator.inheritance.InheritanceType;
+import com.lnyapps.geneticsandevolution.crosssimulator.organisms.Organism;
 import com.lnyapps.geneticsandevolution.crosssimulator.organisms.OrganismManager;
 
 /**
  * Created by jonathantseng on 12/17/14.
  */
-public class CrossSimulatorFragment extends CrossSimulatorSubFragment{
+public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
 
-    private ImageView image1;
-    private ImageView image2;
+    private TextView mGenotypeFemale;
+    private TextView mGenotypeMale;
+    private ImageView mImageFemale;
+    private ImageView mImageMale;
+
+    private Organism mMale;
+    private Organism mFemale;
+    private InheritanceType mInheritanceType;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_crosssimulator_simulator, container, false);
-        TextView t = (TextView) rootView.findViewById(R.id.hi);
-        t.setOnClickListener(new View.OnClickListener() {
+        initViewReferences(rootView);
+
+        Button backButton = (Button) rootView.findViewById(R.id.cs_sim_button_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mParent.switchToSetup();
             }
         });
-        image1 = (ImageView) rootView.findViewById(R.id.image1);
-        image2 = (ImageView) rootView.findViewById(R.id.image2);
         return rootView;
+    }
+
+    private void initViewReferences(View root) {
+        mGenotypeFemale = (TextView) root.findViewById(R.id.cs_sim_text_genotype_female);
+        mGenotypeMale = (TextView) root.findViewById(R.id.cs_sim_text_genotype_male);
+        mImageFemale = (ImageView) root.findViewById(R.id.cs_sim_image_female);
+        mImageMale = (ImageView) root.findViewById(R.id.cs_sim_image_male);
     }
 
     // TODO initialize the view based on the argument wrapper
     public void loadCrossSimulatorArgs(CrossSimulatorArgs args) {
-        image1.setImageDrawable(OrganismManager.getDrawableOrganism(args.getMale()));
-        image2.setImageDrawable(OrganismManager.getDrawableOrganism(args.getFemale()));
+        mInheritanceType = args.getInheritanceType();
+        mMale = args.getMale();
+        mFemale = args.getFemale();
+
+        mImageMale.setImageDrawable(OrganismManager.getDrawableOrganism(mMale));
+        mImageFemale.setImageDrawable(OrganismManager.getDrawableOrganism(mFemale));
+        mGenotypeMale.setText(mMale.getGenotype().toString());
+        mGenotypeFemale.setText(mFemale.getGenotype().toString());
     }
 
     @Override
@@ -47,8 +69,6 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment{
         inflater.inflate(R.menu.menu_crosssimsetup, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
-
-
 
 
 }
