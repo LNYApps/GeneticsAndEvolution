@@ -324,109 +324,88 @@ public class CrossMappingProblem extends GenEvolProblem {
 
         //case where A, B, and C are all linked
         double allLinked = Math.random();
+        String parentalA = "";
+        String parentalB = "";
         if(allLinked <= 0.8464) {
 
-            double chooseParentals = Math.random();
-            
-
-            /**
             for(int k = 0; k<mParams.length; k++){
                 mParams[k] = 0;
             }
-            recAB = Math.random()*0.2;
-            recAC = Math.random()*0.2;
-            recBC = Math.random()*0.2;
-            for(int i=0; i<1000; i++){
-                String genotypeA = startPhaseString.substring(0,3);
-                String genotypeB = startPhaseString.substring(3);
-                double chooseFirst = Math.random();
-                String startingGenotype;
-                String startingOtherGenotype;
-                String finalGenotype = "";
-                int currentGeneIndex;
 
-                //determining the first allele
-                if(chooseFirst <= 0.5){
-                    startingGenotype = genotypeA;
-                    startingOtherGenotype = genotypeB;
-                    currentGeneIndex = -1;
-                }
-                else{
-                    startingGenotype = genotypeB;
-                    startingOtherGenotype = genotypeA;
-                    currentGeneIndex = 1;
-                }
-                finalGenotype += startingGenotype.substring(0,1);
+            int firstParentalCount = 250 + (int)(200*Math.random());
+            int secondParentalCount = 250 + (int)(200*Math.random());
 
-                //determining second allele
-                double crossoverSecond = Math.random();
-                if(crossoverSecond < recAB){
-                    finalGenotype += startingOtherGenotype.substring(1,2);
-                    currentGeneIndex = currentGeneIndex* (-1);
-                }
-                else{
-                    finalGenotype += startingGenotype.substring(1,2);
-                }
+            int restOfCount = 1000 - firstParentalCount - secondParentalCount;
+            int nextValues = restOfCount/6;
+            int thirdParentalCount = (int)(nextValues*Math.random());
+            int fourthParentalCount = (int)(nextValues*Math.random());
+            restOfCount = restOfCount - thirdParentalCount - fourthParentalCount;
+            nextValues = restOfCount/4;
+            int fifthParentalCount = (int)(nextValues*Math.random());
+            int sixthParentalCount = (int)(nextValues*Math.random());
+            restOfCount = restOfCount - fifthParentalCount - sixthParentalCount;
+            nextValues = restOfCount/2;
+            int seventhParentalCount = (int)(nextValues*Math.random());
+            int eigthParentalCount = restOfCount - seventhParentalCount;
 
-                //determining third allele
 
-                double chooseThird = Math.random();
-                double crossoverThird = Math.random();
-                if(chooseThird <= 0.5){
-                    if(crossoverThird < recBC){
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                    }
-                    else{
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                    }
+            ArrayList<String> genotypes = new ArrayList<String>();
+            genotypes.add("ABC");
+            genotypes.add("ABc");
+            genotypes.add("AbC");
+            genotypes.add("Abc");
+            genotypes.add("aBC");
+            genotypes.add("aBc");
+            genotypes.add("abC");
+            genotypes.add("abc");
+
+            String firstParental = startPhaseString.substring(0,3);
+            String secondParental = startPhaseString.substring(3);
+            for(int i=0; i<genotypes.size(); i++){
+                if(firstParental.equals(genotypes.get(i))){
+                    mParams[i] = firstParentalCount;
                 }
-                else{
-                    if(crossoverThird < recAC){
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                    }
-                    else{
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                    }
-                }
-
-                //updating outputs
-                ArrayList<String> genotypes = new ArrayList<String>();
-                genotypes.add("ABC");
-                genotypes.add("ABc");
-                genotypes.add("AbC");
-                genotypes.add("Abc");
-                genotypes.add("aBC");
-                genotypes.add("aBc");
-                genotypes.add("abC");
-                genotypes.add("abc");
-
-                for(int j = 0; j<genotypes.size(); j++){
-                    if(finalGenotype.equals(genotypes.get(j))){
-                        mParams[j]++;
-                    }
+                if(secondParental.equals(genotypes.get(i))){
+                    mParams[i] = secondParentalCount;
                 }
             }
-        */}
+            for(int i=genotypes.size()-1; i>=0; i--){
+                if(mParams[i] ==0){
+                    mParams[i] = thirdParentalCount;
+                    break;
+                }
+            }
+            for(int i=0; i<genotypes.size(); i++){
+                if(mParams[i] ==0){
+                    mParams[i] = fourthParentalCount;
+                    break;
+                }
+            }
+            for(int i=genotypes.size()-1; i>=0; i--){
+                if(mParams[i] ==0){
+                    mParams[i] = fifthParentalCount;
+                    break;
+                }
+            }
+            for(int i=0; i<genotypes.size(); i++){
+                if(mParams[i] ==0){
+                    mParams[i] = sixthParentalCount;
+                    break;
+                }
+            }
+            for(int i=0; i<genotypes.size(); i++){
+                if(mParams[i] ==0){
+                    mParams[i] = seventhParentalCount;
+                    break;
+                }
+            }
+            for(int i=genotypes.size()-1; i>=0; i--){
+                if(mParams[i] ==0){
+                    mParams[i] = eigthParentalCount;
+                    break;
+                }
+            }
+        }
     }
 
     @Override
