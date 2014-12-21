@@ -324,7 +324,12 @@ public class CrossMappingProblem extends GenEvolProblem {
 
         //case where A, B, and C are all linked
         double allLinked = Math.random();
-        if(allLinked <= 0.8464){
+        if(allLinked <= 0.8464) {
+
+            double chooseParentals = Math.random();
+            
+
+            /**
             for(int k = 0; k<mParams.length; k++){
                 mParams[k] = 0;
             }
@@ -421,7 +426,7 @@ public class CrossMappingProblem extends GenEvolProblem {
                     }
                 }
             }
-        }
+        */}
     }
 
     @Override
