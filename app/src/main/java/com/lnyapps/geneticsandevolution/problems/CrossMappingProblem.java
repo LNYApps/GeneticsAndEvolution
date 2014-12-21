@@ -62,7 +62,92 @@ public class CrossMappingProblem extends GenEvolProblem {
     @Override
     public void randomValues() {
         mParams = new int[8];
-        int sum = 0;
+        double startPhaseRandomVal = Math.random();
+        int startPhase;
+        if(startPhaseRandomVal < 0.25){
+            startPhase = 0;
+        }
+        else if(startPhaseRandomVal <0.5){
+            startPhase = 1;
+        }
+        else if(startPhaseRandomVal < 0.75){
+            startPhase = 2;
+        }
+        else{
+            startPhase = 3;
+        }
+
+        ArrayList<String> phases = new ArrayList<String>();
+        phases.add("ABCabc");
+        phases.add("ABcabC");
+        phases.add("AbCaBc");
+        phases.add("aBCAbc");
+
+        String startPhaseString = phases.get(startPhase);
+        double randomAllocateA = Math.random();
+        double randomAllocateB = Math.random();
+        double randomAllocateC = Math.random();
+        ArrayList<String> chromo1 = new ArrayList<String>();
+        ArrayList<String> chromo2 = new ArrayList<String>();
+        ArrayList<String> chromo3 = new ArrayList<String>();
+
+        if(randomAllocateA <= 0.92){
+            chromo1.add("a");
+        }
+        else if(randomAllocateA <= 0.96){
+            chromo2.add("a");
+        }
+        else{
+            chromo3.add("a");
+        }
+        if(randomAllocateB <= 0.92){
+            chromo1.add("b");
+        }
+        else if(randomAllocateB <= 0.96){
+            chromo2.add("b");
+        }
+        else{
+            chromo3.add("b");
+        }
+        if(randomAllocateC <= 0.92){
+            chromo1.add("c");
+        }
+        else if(randomAllocateC <= 0.96){
+            chromo2.add("c");
+        }
+        else{
+            chromo3.add("c");
+        }
+
+        //calculating the recombination fractions for AB, BC, and AC
+        double recAB = 0.0;
+        double recBC = 0.0;
+        double recAC = 0.0;
+        if(chromo1.size() == 2 || chromo2.size() == 2 || chromo3.size() ==2){
+            recAB = 0.2 * Math.random();
+            recBC = 0.2 * Math.random();
+            recAC = 0.2 * Math.random();
+        }
+
+        for(int i = 0; i<mParams.length; i++){
+            mParams[i] = 0;
+        }
+
+        for(int i = 0; i<1000; i++){
+            String genotypeA = startPhaseString.substring(0,3);
+            String genotypeB = startPhaseString.substring(3);
+            double chooseFirst = Math.random();
+            String startingGenotype;
+            if(chooseFirst <= 0.5){
+                startingGenotype = genotypeA;
+            }
+            else{
+                startingGenotype = genotypeB;
+            }
+
+
+        }
+        /**int sum = 0;
         for (int i = 0; i < mParams.length; i ++) {
             double scale = 1.5 * (Math.min(Math.abs(i), Math.abs(8 - i))) + 1;
             mParams[i] = (int) (Math.random() * 1000 * scale);
@@ -70,7 +155,7 @@ public class CrossMappingProblem extends GenEvolProblem {
         }
         for (int i = 0; i < mParams.length; i ++) {
             mParams[i] = (int) Math.round(mParams[i] * 1000 / sum);
-        }
+        }*/
     }
 
     @Override
