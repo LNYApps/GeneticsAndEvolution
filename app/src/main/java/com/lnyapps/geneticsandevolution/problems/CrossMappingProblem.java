@@ -84,6 +84,8 @@ public class CrossMappingProblem extends GenEvolProblem {
         phases.add("aBCAbc");
 
         String startPhaseString = phases.get(startPhase);
+        String startFirstParental = "";
+        String startSecondParental = "";
         double randomAllocateA = Math.random();
         double randomAllocateB = Math.random();
         double randomAllocateC = Math.random();
@@ -165,15 +167,20 @@ public class CrossMappingProblem extends GenEvolProblem {
             changedBC = true;
         }
 
-        //cases where the alleles are unlinked
-        if(!changedAB){
-            recAB = Math.random();
-        }
-        if(!changedAC){
-            recAC = Math.random();
-        }
-        if(!changedBC){
-            recBC = Math.random();
+        //calculating the genotypes
+        /**if(chromo1.size()==3){
+            double choose
+            startFirstParental +=
+        }*/
+        if(chromo1.contains("a") && chromo1.contains("b")){
+            double chooseFirst = Math.random();
+            if(chooseFirst <= 0.5){
+                startFirstParental += startPhaseString.substring(0,2);
+            }
+            else{
+                startFirstParental += startPhaseString.substring(1,2);
+                startFirstParental += startPhaseString.substring(0,1);
+            }
         }
         //at this point, recombinant fractions are calculated
         //now need to generate offspring genotypes one by one up to the sample size
@@ -209,10 +216,31 @@ public class CrossMappingProblem extends GenEvolProblem {
                 double crossover = Math.random();
                 if(crossover < recAB){
                     finalGenotype += startingOtherGenotype.substring(1,2);
-                    currentGeneIndex = currentGeneIndex * -1;
+                    currentGeneIndex = currentGeneIndex * (-1);
                 }
                 else{
                     finalGenotype += startingGenotype.substring(1,2);
+                }
+
+                //determining the third allele
+                if(changedBC){
+                    double crossover2 = Math.random();
+                    if(crossover2 < recBC){
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                    }
+                    else{
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                    }
                 }
             }
             else{
@@ -220,32 +248,59 @@ public class CrossMappingProblem extends GenEvolProblem {
                 if(crossover <= 0.5){
                     finalGenotype += startingOtherGenotype.substring(1,2);
                     currentGeneIndex = currentGeneIndex * -1;
+
                 }
                 else{
                     finalGenotype += startingGenotype.substring(1,2);
                 }
+
+                //check to see if A and C are linked if A and B are not linked
+                if(changedAC){
+                    double crossover3 = Math.random();
+                    if(crossover3 <= recAC){
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                    }
+                    else{
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                    }
+                }
+
+                //if A and C are not linked, then go to this step and check if B and C are linked
+                else {
+                    //determining the third allele
+                    if (changedBC) {
+                        double crossover2 = Math.random();
+                        if (crossover2 < recBC) {
+                            if (currentGeneIndex == -1) {
+                                finalGenotype += startingOtherGenotype.substring(2);
+                            }
+                            else {
+                                finalGenotype += startingGenotype.substring(2);
+                            }
+                        }
+                        else {
+                            if (currentGeneIndex == -1) {
+                                finalGenotype += startingGenotype.substring(2);
+                            }
+                            else {
+                                finalGenotype += startingOtherGenotype.substring(2);
+                            }
+                        }
+                    }
+                }
             }
 
-            //determining the third allele
-            if(changedBC){
-                double crossover = Math.random();
-                if(crossover < recBC){
-                    if(currentGeneIndex == -1){
-                        finalGenotype += startingOtherGenotype.substring(2);
-                    }
-                    else{
-                        finalGenotype += startingGenotype.substring(2);
-                    }
-                }
-                else{
-                    if(currentGeneIndex == -1){
-                        finalGenotype += startingGenotype.substring(2);
-                    }
-                    else{
-                        finalGenotype += startingOtherGenotype.substring(2);
-                    }
-                }
-            }
+
 
             //genotype of one sample is now calculated
             //update the counts of the output
@@ -262,6 +317,108 @@ public class CrossMappingProblem extends GenEvolProblem {
             for(int j = 0; j<genotypes.size(); j++){
                 if(finalGenotype.equals(genotypes.get(j))){
                     mParams[j]++;
+                }
+            }
+        }
+
+
+        //case where A, B, and C are all linked
+        double allLinked = Math.random();
+        if(allLinked <= 0.8464){
+            for(int k = 0; k<mParams.length; k++){
+                mParams[k] = 0;
+            }
+            recAB = Math.random()*0.2;
+            recAC = Math.random()*0.2;
+            recBC = Math.random()*0.2;
+            for(int i=0; i<1000; i++){
+                String genotypeA = startPhaseString.substring(0,3);
+                String genotypeB = startPhaseString.substring(3);
+                double chooseFirst = Math.random();
+                String startingGenotype;
+                String startingOtherGenotype;
+                String finalGenotype = "";
+                int currentGeneIndex;
+
+                //determining the first allele
+                if(chooseFirst <= 0.5){
+                    startingGenotype = genotypeA;
+                    startingOtherGenotype = genotypeB;
+                    currentGeneIndex = -1;
+                }
+                else{
+                    startingGenotype = genotypeB;
+                    startingOtherGenotype = genotypeA;
+                    currentGeneIndex = 1;
+                }
+                finalGenotype += startingGenotype.substring(0,1);
+
+                //determining second allele
+                double crossoverSecond = Math.random();
+                if(crossoverSecond < recAB){
+                    finalGenotype += startingOtherGenotype.substring(1,2);
+                    currentGeneIndex = currentGeneIndex* (-1);
+                }
+                else{
+                    finalGenotype += startingGenotype.substring(1,2);
+                }
+
+                //determining third allele
+
+                double chooseThird = Math.random();
+                double crossoverThird = Math.random();
+                if(chooseThird <= 0.5){
+                    if(crossoverThird < recBC){
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                    }
+                    else{
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                    }
+                }
+                else{
+                    if(crossoverThird < recAC){
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                    }
+                    else{
+                        if(currentGeneIndex == -1){
+                            finalGenotype += startingGenotype.substring(2);
+                        }
+                        else{
+                            finalGenotype += startingOtherGenotype.substring(2);
+                        }
+                    }
+                }
+
+                //updating outputs
+                ArrayList<String> genotypes = new ArrayList<String>();
+                genotypes.add("ABC");
+                genotypes.add("ABc");
+                genotypes.add("AbC");
+                genotypes.add("Abc");
+                genotypes.add("aBC");
+                genotypes.add("aBc");
+                genotypes.add("abC");
+                genotypes.add("abc");
+
+                for(int j = 0; j<genotypes.size(); j++){
+                    if(finalGenotype.equals(genotypes.get(j))){
+                        mParams[j]++;
+                    }
                 }
             }
         }
