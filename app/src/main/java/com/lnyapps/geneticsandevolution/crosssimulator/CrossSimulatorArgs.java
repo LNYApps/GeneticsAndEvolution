@@ -15,6 +15,7 @@ public class CrossSimulatorArgs {
     public CrossSimulatorArgs(Organism male, Organism female, InheritanceType inheritanceType) {
         mMale = male;
         mFemale = female;
+        mInheritanceType = inheritanceType;
     }
 
     public Organism getMale() {
