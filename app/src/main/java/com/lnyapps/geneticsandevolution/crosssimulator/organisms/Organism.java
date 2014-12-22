@@ -33,6 +33,19 @@ public class Organism {
         return mGenotype;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Organism organism = (Organism) o;
+        return (this.mGenotype.genotypicDominance().equals(organism.mGenotype.genotypicDominance()));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 31 * mGenotype.genotypicDominance().hashCode();
+        return result;
+    }
+
     // TODO maybe clean up entier hierarchy for genotype algorithms; currently pretty hardcoded
     public List<Chromosome> getPossibleChromosomes() {
         if (mInheritanceType instanceof AutosomalInheritance) {

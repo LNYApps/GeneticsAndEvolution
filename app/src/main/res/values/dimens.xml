@@ -42,5 +42,9 @@
 
     <!-- Cross Simulator Setup Fragment -->
     <dimen name="fragment_cs_setup_imagesidepadding">50dp</dimen>
+    <dimen name="fragment_cs_setup_image_size">70dp</dimen>
+
+    <!-- Cross Simulator Simulator Fragment -->
+    <dimen name="fragment_cs_sim_ratio_imagesize">25dp</dimen>
 
 </resources>

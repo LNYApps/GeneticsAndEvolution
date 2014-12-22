@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -21,7 +22,9 @@ import com.lnyapps.geneticsandevolution.crosssimulator.organisms.Organism;
 import com.lnyapps.geneticsandevolution.crosssimulator.organisms.OrganismManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jonathantseng on 12/17/14.
@@ -58,6 +61,7 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
 
     private void updatePunnettTable() {
         mPunnettTable.removeAllViews();
+        mRatiosTable.removeAllViews();
         calculatePunnett();
         createPunnettView();
     }
@@ -105,7 +109,38 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
     }
 
     private void updateRatioTable() {
+        TextView title = new TextView(getActivity());
+        title.setText("Ratios");
+        mRatiosTable.addView(title);
+        Map<Organism, Integer> ratioMap = countPunnettRatios();
+        for (Organism organism : ratioMap.keySet()) {
+            LinearLayout row = new LinearLayout(getActivity());
+            row.setOrientation(LinearLayout.HORIZONTAL);
+            ImageView view = new ImageView(getActivity());
+            view.setImageDrawable(OrganismManager.getDrawableOrganism(organism));
+            view.setScaleType(ImageView.ScaleType.FIT_XY);
+            int sideLength = (int) getResources().getDimension(R.dimen.fragment_cs_sim_ratio_imagesize);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(sideLength, sideLength);
+            view.setLayoutParams(layoutParams);
+            row.addView(view);
+            TextView label = new TextView(getActivity());
+            label.setText(String.format("%d/%d", ratioMap.get(organism), mPunnett.size() * mPunnett.get(0).size()));
+            row.addView(label);
+            mRatiosTable.addView(row);
+        }
+    }
 
+    private Map<Organism, Integer> countPunnettRatios() {
+        Map<Organism, Integer> ratioMap = new HashMap<Organism, Integer>();
+        for (List<Organism> organismList : mPunnett) {
+            for (Organism organism : organismList) {
+                if (!ratioMap.containsKey(organism)) {
+                    ratioMap.put(organism, 0);
+                }
+                ratioMap.put(organism, ratioMap.get(organism) + 1);
+            }
+        }
+        return ratioMap;
     }
 
     private void initViewReferences(View root) {

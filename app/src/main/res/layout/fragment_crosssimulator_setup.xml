@@ -127,8 +127,8 @@
 
             <ImageView
                 android:id="@+id/cs_setup_imageview1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="@dimen/fragment_cs_setup_image_size"
+                android:layout_height="@dimen/fragment_cs_setup_image_size"
                 android:layout_gravity="center"
                 android:scaleType="fitXY" />
 
@@ -136,8 +136,8 @@
 
             <ImageView
                 android:id="@+id/cs_setup_imageview2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="@dimen/fragment_cs_setup_image_size"
+                android:layout_height="@dimen/fragment_cs_setup_image_size"
                 android:layout_gravity="center"
                 android:scaleType="fitXY" />
         </TableRow>
