@@ -72,19 +72,200 @@
 
     </TableLayout>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-
-    </TableLayout>
+    <Button
+        android:id="@+id/cs_sim_button_fertilize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cs_sim_fertilize" />
 
     <Button
         android:id="@+id/cs_sim_button_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cs_sim_clear" />
+
+    <!-- Punnett square layout-->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/fragment_mpg_verticalspacing"
+        android:stretchColumns="*">
+        <!-- Horizontal labels-->
+        <TableRow>
+
+            <TextView android:text="" />
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_female_first_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_female_second_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_female_third_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_female_fourth_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        </TableRow>
+
+        <!--Vertical labels-->
+        <TableRow>
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_male_first_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <ImageView
+                android:id="@+id/cs_sim_image_1_1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_1_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_1_3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_1_4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_male_second_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <ImageView
+                android:id="@+id/cs_sim_image_2_1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_2_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_2_3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_2_4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_male_third_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <ImageView
+                android:id="@+id/cs_sim_image_3_1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_3_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_3_3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_3_4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/cs_sim_text_genotype_male_fourth_trait"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <ImageView
+                android:id="@+id/cs_sim_image_4_1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_4_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_4_3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/cs_sim_image_4_4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

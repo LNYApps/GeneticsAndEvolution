@@ -22,8 +22,13 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
 
     private TextView mGenotypeFemale;
     private TextView mGenotypeMale;
+    private TextView mGenotypeFemaleFirstTrait;
+    private TextView mGenotypeFemaleSecondTrait;
+    private TextView mGenotypeMaleFirstTrait;
+    private TextView mGenotypeMaleSecondTrait;
     private ImageView mImageFemale;
     private ImageView mImageMale;
+
 
     private Organism mMale;
     private Organism mFemale;
@@ -50,6 +55,10 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
         mGenotypeMale = (TextView) root.findViewById(R.id.cs_sim_text_genotype_male);
         mImageFemale = (ImageView) root.findViewById(R.id.cs_sim_image_female);
         mImageMale = (ImageView) root.findViewById(R.id.cs_sim_image_male);
+        mGenotypeFemaleFirstTrait = (TextView) root.findViewById(R.id.cs_sim_text_genotype_female_first_trait);
+        mGenotypeFemaleSecondTrait = (TextView) root.findViewById(R.id.cs_sim_text_genotype_female_second_trait);
+        mGenotypeMaleFirstTrait = (TextView) root.findViewById(R.id.cs_sim_text_genotype_male_first_trait);
+        mGenotypeMaleSecondTrait = (TextView) root.findViewById(R.id.cs_sim_text_genotype_male_second_trait);
     }
 
     // TODO initialize the view based on the argument wrapper
@@ -62,6 +71,11 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
         mImageFemale.setImageDrawable(OrganismManager.getDrawableOrganism(mFemale));
         mGenotypeMale.setText(mMale.getGenotype().toString());
         mGenotypeFemale.setText(mFemale.getGenotype().toString());
+        mGenotypeFemaleFirstTrait.setText(mFemale.getGenotype().toString().substring(0,1));
+        mGenotypeFemaleSecondTrait.setText(mFemale.getGenotype().toString().substring(2,3));
+        mGenotypeMaleFirstTrait.setText(mMale.getGenotype().toString().substring(0,1));
+        mGenotypeMaleSecondTrait.setText(mMale.getGenotype().toString().substring(2,3));
+
     }
 
     @Override
