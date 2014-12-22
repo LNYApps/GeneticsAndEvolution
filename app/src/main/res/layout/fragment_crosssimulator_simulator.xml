@@ -10,7 +10,7 @@
         android:id="@+id/cs_sim_button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back" />
+        android:text="@string/cs_sim_back" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -80,5 +80,11 @@
 
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/cs_sim_button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cs_sim_clear" />
 
 </LinearLayout>
