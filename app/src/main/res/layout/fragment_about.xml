@@ -49,7 +49,8 @@
             android:id="@+id/about_button_onlinedocumentation"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/fragment_about_spacing"
-            android:textSize="@dimen/fragment_about_textsize" />
+            android:textSize="@dimen/fragment_about_textsize"
+            android:textColor="@color/text_white"/>
 
         <Button
             android:layout_width="fill_parent"
@@ -57,6 +58,7 @@
             android:text="@string/a_coursewebsite"
             android:id="@+id/about_button_coursewebsite"
             android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/fragment_about_textsize" />
+            android:textSize="@dimen/fragment_about_textsize"
+            android:textColor="@color/text_white"/>
     </LinearLayout>
 </ScrollView>
