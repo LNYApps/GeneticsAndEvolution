@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:paddingTop="@dimen/fragment_stq_horizontalmargin"
     android:paddingLeft="@dimen/fragment_stq_horizontalmargin"
-    android:paddingRight="@dimen/fragment_stq_horizontalmargin">
+    android:paddingRight="@dimen/fragment_stq_horizontalmargin"
+    android:background="@color/background_main">
 
     <TextView
         android:layout_width="fill_parent"
@@ -14,7 +15,8 @@
         android:id="@+id/stq_textview_definition"
         android:layout_gravity="center_horizontal"
         android:textIsSelectable="false"
-        android:textSize="@dimen/fragment_stq_headertextsize" />
+        android:textSize="@dimen/fragment_stq_headertextsize"
+        android:textColor="@color/text_white"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -23,7 +25,8 @@
         android:layout_gravity="center_horizontal"
         android:paddingLeft="@dimen/fragment_stq_paragraphindent"
         android:paddingRight="@dimen/fragment_stq_paragraphindent"
-        android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+        android:textSize="@dimen/fragment_stq_subgrouptextsize"
+        android:textColor="@color/text_white"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -31,7 +34,8 @@
         android:text="@string/stq_answers"
         android:id="@+id/stq_textview_answers"
         android:layout_gravity="center_horizontal"
-        android:textSize="@dimen/fragment_stq_headertextsize" />
+        android:textSize="@dimen/fragment_stq_headertextsize"
+        android:textColor="@color/text_white"/>
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/stq_radiogroup_multiplechoice"
@@ -44,19 +48,23 @@
         <RadioButton android:id="@+id/stq_radio_choice1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+            android:textSize="@dimen/fragment_stq_subgrouptextsize"
+            android:textColor="@color/text_white"/>
         <RadioButton android:id="@+id/stq_radio_choice2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+            android:textSize="@dimen/fragment_stq_subgrouptextsize"
+            android:textColor="@color/text_white"/>
         <RadioButton android:id="@+id/stq_radio_choice3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+            android:textSize="@dimen/fragment_stq_subgrouptextsize"
+            android:textColor="@color/text_white"/>
         <RadioButton android:id="@+id/stq_radio_choice4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/fragment_stq_subgrouptextsize" />
+            android:textSize="@dimen/fragment_stq_subgrouptextsize"
+            android:textColor="@color/text_white"/>
     </RadioGroup>
 
     <Button

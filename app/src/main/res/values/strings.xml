@@ -8,6 +8,7 @@
     <string name="allele_freak">Allele Freak</string>
     <string name="self_test_quiz">Self-Test Quiz</string>
     <string name="about">About</string>
+    <string name="background_color">#045FB4</string>
 
     <string-array name="navigation_drawer_strings">
         <item>@string/problem_solver</item>
