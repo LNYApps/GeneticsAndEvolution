@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.lnyapps.geneticsandevolution.R;
@@ -22,9 +23,11 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
 
     private TextView mGenotypeFemale;
     private TextView mGenotypeMale;
-
     private ImageView mImageFemale;
     private ImageView mImageMale;
+
+    private TableLayout mPunnettTable;
+    private TableLayout mRatiosTable;
 
     private Organism mMale;
     private Organism mFemale;
@@ -51,9 +54,10 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
         mGenotypeMale = (TextView) root.findViewById(R.id.cs_sim_text_genotype_male);
         mImageFemale = (ImageView) root.findViewById(R.id.cs_sim_image_female);
         mImageMale = (ImageView) root.findViewById(R.id.cs_sim_image_male);
+        mPunnettTable = (TableLayout) root.findViewById(R.id.cs_sim_table_punnett);
+        mRatiosTable = (TableLayout) root.findViewById(R.id.cs_sim_table_ratios);
     }
 
-    // TODO initialize the view based on the argument wrapper
     public void loadCrossSimulatorArgs(CrossSimulatorArgs args) {
         mInheritanceType = args.getInheritanceType();
         mMale = args.getMale();

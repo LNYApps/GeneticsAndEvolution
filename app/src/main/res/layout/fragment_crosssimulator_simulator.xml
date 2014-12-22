@@ -6,12 +6,6 @@
     android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/cs_sim_button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cs_sim_back" />
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,5 +65,32 @@
         </TableRow>
 
     </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TableLayout
+            android:id="@+id/cs_sim_table_punnett"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/cs_sim_table_ratios"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TableLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cs_sim_button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cs_sim_back" />
 
 </LinearLayout>

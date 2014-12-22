@@ -112,7 +112,6 @@ public class CrossSetUpFragment extends CrossSimulatorSubFragment {
         updateImage();
     }
 
-    // TODO actually get correct list of genotypes (currently has duplicates, need to get rid of repeats)
     private void updateGenotypeSpinners() {
         mGenotypeAdapter1 = new ArrayAdapter<Spanned>(this.getActivity(), android.R.layout.simple_spinner_item);
         mGenotypeAdapter2 = new ArrayAdapter<Spanned>(this.getActivity(), android.R.layout.simple_spinner_item);

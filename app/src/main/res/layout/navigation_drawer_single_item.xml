@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- TODO: Take out the hardcoded dp values -->
     <TableRow>
         <ImageView
             android:id="@+id/img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/navigation_image_size"
+            android:layout_height="@dimen/navigation_image_size"
             android:src="@drawable/nav_self_test_quiz_image"/>
 
         <TextView
