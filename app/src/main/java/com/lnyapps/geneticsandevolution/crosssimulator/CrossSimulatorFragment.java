@@ -1,6 +1,7 @@
 package com.lnyapps.geneticsandevolution.crosssimulator;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -85,18 +86,18 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
         header.addView(new TextView(getActivity()));
         for (Chromosome c : mMaleChromosomes) {
             TextView cell = new TextView(getActivity());
-            cell.setText(c.toString());
+            cell.setText(Html.fromHtml(c.toString()));
             header.addView(cell);
         }
         mPunnettTable.addView(header);
         for (int i = 0; i < mFemaleChromosomes.size(); i++) {
             TableRow row = new TableRow(getActivity());
             TextView label = new TextView(getActivity());
-            label.setText(mFemaleChromosomes.get(i).toString());
+            label.setText(Html.fromHtml(mFemaleChromosomes.get(i).toString()));
             row.addView(label);
             for (Organism organism : mPunnett.get(i)) {
                 TextView cell = new TextView(getActivity());
-                cell.setText(organism.getGenotype().toString());
+                cell.setText(Html.fromHtml(organism.getGenotype().toString()));
                 row.addView(cell);
             }
             mPunnettTable.addView(row);
@@ -123,8 +124,8 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
 
         mImageMale.setImageDrawable(OrganismManager.getDrawableOrganism(mMale));
         mImageFemale.setImageDrawable(OrganismManager.getDrawableOrganism(mFemale));
-        mGenotypeMale.setText(mMale.getGenotype().toString());
-        mGenotypeFemale.setText(mFemale.getGenotype().toString());
+        mGenotypeMale.setText(Html.fromHtml(mMale.getGenotype().toString()));
+        mGenotypeFemale.setText(Html.fromHtml(mFemale.getGenotype().toString()));
 
         updatePunnettTable();
         updateRatioTable();

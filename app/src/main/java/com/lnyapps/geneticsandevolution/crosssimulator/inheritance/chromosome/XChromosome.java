@@ -19,6 +19,6 @@ public class XChromosome extends Chromosome {
 
     @Override
     public String toString() {
-        return String.format("X%s", super.toString());
+        return String.format("X<sup><small>%s</small></sup>", super.toString());
     }
 }
