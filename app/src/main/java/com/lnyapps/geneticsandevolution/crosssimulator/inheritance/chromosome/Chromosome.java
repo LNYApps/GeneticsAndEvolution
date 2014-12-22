@@ -17,6 +17,14 @@ public class Chromosome {
         mAlleles = alleles;
     }
 
+    public Allele getAllele(int index) {
+        return mAlleles.get(index);
+    }
+
+    public int numAlleles() {
+        return mAlleles.size();
+    }
+
     public Chromosome(Allele... alleles) {
         this(new ArrayList<Allele>(Arrays.asList(alleles)));
     }
