@@ -70,5 +70,4 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-
 }
