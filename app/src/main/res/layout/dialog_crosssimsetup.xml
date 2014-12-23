@@ -6,6 +6,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:text="@string/cs_setup_help_dialog"
         android:id="@+id/cs_setup_dialog_text"
         android:layout_gravity="center_horizontal"
