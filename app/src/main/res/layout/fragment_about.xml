@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/background_main">
+    android:layout_height="fill_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,8 +27,7 @@
             android:textIsSelectable="false"
             android:textSize="@dimen/fragment_about_titletextsize"
             android:textStyle="bold"
-            android:layout_marginBottom="@dimen/fragment_about_spacing"
-            android:textColor="@color/text_white"/>
+            android:layout_marginBottom="@dimen/fragment_about_spacing"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,8 +37,7 @@
             android:layout_gravity="center_horizontal"
             android:textIsSelectable="false"
             android:textSize="@dimen/fragment_about_textsize"
-            android:layout_marginBottom="@dimen/fragment_about_spacing"
-            android:textColor="@color/text_white"/>
+            android:layout_marginBottom="@dimen/fragment_about_spacing"/>
 
         <Button
             android:layout_width="fill_parent"
@@ -49,8 +46,7 @@
             android:id="@+id/about_button_onlinedocumentation"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/fragment_about_spacing"
-            android:textSize="@dimen/fragment_about_textsize"
-            android:textColor="@color/text_white"/>
+            android:textSize="@dimen/fragment_about_textsize"/>
 
         <Button
             android:layout_width="fill_parent"
@@ -58,7 +54,6 @@
             android:text="@string/a_coursewebsite"
             android:id="@+id/about_button_coursewebsite"
             android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/fragment_about_textsize"
-            android:textColor="@color/text_white"/>
+            android:textSize="@dimen/fragment_about_textsize"/>
     </LinearLayout>
 </ScrollView>

@@ -4,7 +4,7 @@
 
     <!-- Main app theme -->
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        
+
         <item name="android:actionBarItemBackground">@drawable/selectable_background_generatedstyle</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Generatedstyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Generatedstyle</item>
