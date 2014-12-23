@@ -114,7 +114,6 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
                 label.setText(Html.fromHtml(organism.getGenotype().toString()));
                 ImageView image = new ImageView(getActivity());
                 image.setImageDrawable(OrganismManager.getDrawableOrganism(organism));
-                image.setImageDrawable(getResources().getDrawable(R.drawable.beardeddragon_rr));
                 image.setScaleType(ImageView.ScaleType.FIT_XY);
                 int sideLength = (mPunnett.get(0).size() == 4) ? (int) getResources().getDimension(R.dimen.fragment_cs_sim_punnett_imagesize_small) :
                         (int) getResources().getDimension(R.dimen.fragment_cs_sim_punnett_imagesize_large);
