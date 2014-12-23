@@ -29,21 +29,80 @@ public class CrossMappingProblem extends GenEvolProblem {
         int firstParentalIndex = (int) solution[3];
         int secondParentalIndex = (int) solution[4];
 
+        //TODO: In the future, make the dashes indicating distance optional (via a settings on/off switch)
+        int dashesAB = 0;
+        int dashesBC = 0;
+        int dashesAC = 0;
+        double recAB = solution[0];
+        double recAC = solution[1];
+        double recBC = solution[2];
+
+        while(recAB > 0.05){
+            dashesAB++;
+            recAB = recAB - 0.05;
+        }
+        while(recAC > 0.05){
+            dashesAC++;
+            recAC = recAC - 0.05;
+        }
+        while(recBC > 0.05){
+            dashesBC++;
+            recBC = recBC - 0.05;
+        }
+
         String firstParental = genotypes.get(firstParentalIndex);
         String secondParental = genotypes.get(secondParentalIndex);
 
         String linkage = "";
         if(solution[0]<0.45f && solution[1]<0.45f && solution[2]<0.45f){
-            linkage = firstParental + "//" + secondParental;
+            String tempFirst = firstParental.substring(0,1);
+            String tempSecond = secondParental.substring(0,1);
+            for(int i=0; i<dashesAB; i++){
+                tempFirst += "-";
+                tempSecond += "-";
+            }
+            tempFirst+= firstParental.substring(1,2);
+            tempSecond+= secondParental.substring(1,2);
+            for(int i=0; i<dashesBC; i++){
+                tempFirst += "-";
+                tempSecond += "-";
+            }
+            tempFirst += firstParental.substring(2);
+            tempSecond += secondParental.substring(2);
+            linkage = tempFirst + "//" + tempSecond;
         }
         else if(solution[0]<0.45f && solution[2]>0.45f && solution[1]>0.45f){
-            linkage = firstParental.substring(0,2) + "//" + secondParental.substring(0,2) + " ; " + firstParental.substring(2) + "//" + secondParental.substring(2);
+            String tempFirst = firstParental.substring(0,1);
+            String tempSecond = secondParental.substring(0,1);
+            for(int i=0; i<dashesAB; i++){
+                tempFirst += "-";
+                tempSecond += "-";
+            }
+            tempFirst += firstParental.substring(1,2);
+            tempSecond += secondParental.substring(1,2);
+            linkage = tempFirst + "//" + tempSecond + " ; " + firstParental.substring(2) + "//" + secondParental.substring(2);
         }
         else if(solution[0]>0.45f && solution[2]<0.45f && solution[1]>0.45f){
-            linkage = firstParental.substring(0,1) + "//" + secondParental.substring(0,1) + " ; " + firstParental.substring(1) + "//" + secondParental.substring(1);
+            String tempFirst = firstParental.substring(1,2);
+            String tempSecond = secondParental.substring(1,2);
+            for(int i=0; i<dashesBC; i++){
+                tempFirst += "-";
+                tempSecond += "-";
+            }
+            tempFirst += firstParental.substring(2);
+            tempSecond += secondParental.substring(2);
+            linkage = firstParental.substring(0,1) + "//" + secondParental.substring(0,1) + " ; " + tempFirst + "//" + tempSecond;
         }
         else if(solution[0]>0.45f && solution[2]>0.45f && solution[1]<0.45f){
-            linkage = firstParental.substring(0,1) + firstParental.substring(2) + "//" + secondParental.substring(0,1) + secondParental.substring(2) +
+            String tempFirst = firstParental.substring(0,1);
+            String tempSecond = secondParental.substring(0,1);
+            for(int i=0; i<dashesAC; i++){
+                tempFirst += "-";
+                tempSecond += "-";
+            }
+            tempFirst += firstParental.substring(2);
+            tempSecond += secondParental.substring(2);
+            linkage = tempFirst + "//" + tempSecond +
                     " ; " + firstParental.substring(1,2) + "//" + secondParental.substring(1,2);
         }
         else if(solution[0]>0.45f && solution[1]>0.45f && solution[2]>0.45f){
