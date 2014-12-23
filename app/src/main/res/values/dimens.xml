@@ -46,5 +46,7 @@
 
     <!-- Cross Simulator Simulator Fragment -->
     <dimen name="fragment_cs_sim_ratio_imagesize">25dp</dimen>
+    <dimen name="fragment_cs_sim_punnett_imagesize_small">35dp</dimen>
+    <dimen name="fragment_cs_sim_punnett_imagesize_large">55dp</dimen>
 
 </resources>

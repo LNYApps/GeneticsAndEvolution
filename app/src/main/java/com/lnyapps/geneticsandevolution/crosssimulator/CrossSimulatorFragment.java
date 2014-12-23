@@ -1,7 +1,9 @@
 package com.lnyapps.geneticsandevolution.crosssimulator;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -91,43 +93,75 @@ public class CrossSimulatorFragment extends CrossSimulatorSubFragment {
         for (Chromosome c : mMaleChromosomes) {
             TextView cell = new TextView(getActivity());
             cell.setText(Html.fromHtml(c.toString()));
+            cell.setGravity(Gravity.CENTER_HORIZONTAL);
+            cell.setTypeface(null, Typeface.BOLD);
             header.addView(cell);
         }
         mPunnettTable.addView(header);
         for (int i = 0; i < mFemaleChromosomes.size(); i++) {
             TableRow row = new TableRow(getActivity());
-            TextView label = new TextView(getActivity());
-            label.setText(Html.fromHtml(mFemaleChromosomes.get(i).toString()));
-            row.addView(label);
+            TextView rowLabel = new TextView(getActivity());
+            rowLabel.setText(Html.fromHtml(mFemaleChromosomes.get(i).toString()));
+            rowLabel.setGravity(Gravity.CENTER);
+            rowLabel.setTypeface(null, Typeface.BOLD);
+            row.addView(rowLabel);
             for (Organism organism : mPunnett.get(i)) {
-                TextView cell = new TextView(getActivity());
-                cell.setText(Html.fromHtml(organism.getGenotype().toString()));
+                LinearLayout cell = new LinearLayout(getActivity());
+                cell.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+                cell.setOrientation(LinearLayout.VERTICAL);
+                TextView label = new TextView(getActivity());
+                label.setGravity(Gravity.CENTER_HORIZONTAL);
+                label.setText(Html.fromHtml(organism.getGenotype().toString()));
+                ImageView image = new ImageView(getActivity());
+                image.setImageDrawable(OrganismManager.getDrawableOrganism(organism));
+                image.setImageDrawable(getResources().getDrawable(R.drawable.beardeddragon_rr));
+                image.setScaleType(ImageView.ScaleType.FIT_XY);
+                int sideLength = (mPunnett.get(0).size() == 4) ? (int) getResources().getDimension(R.dimen.fragment_cs_sim_punnett_imagesize_small) :
+                        (int) getResources().getDimension(R.dimen.fragment_cs_sim_punnett_imagesize_large);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(sideLength, sideLength);
+                layoutParams.gravity = Gravity.CENTER_HORIZONTAL;
+                image.setLayoutParams(layoutParams);
+                cell.addView(image);
+                cell.addView(label);
                 row.addView(cell);
             }
             mPunnettTable.addView(row);
         }
+        mPunnettTable.setColumnStretchable(0, false);
     }
 
     private void updateRatioTable() {
         TextView title = new TextView(getActivity());
         title.setText("Ratios");
+        title.setTypeface(null, Typeface.BOLD);
         mRatiosTable.addView(title);
         Map<Organism, Integer> ratioMap = countPunnettRatios();
-        for (Organism organism : ratioMap.keySet()) {
-            LinearLayout row = new LinearLayout(getActivity());
-            row.setOrientation(LinearLayout.HORIZONTAL);
-            ImageView view = new ImageView(getActivity());
-            view.setImageDrawable(OrganismManager.getDrawableOrganism(organism));
-            view.setScaleType(ImageView.ScaleType.FIT_XY);
-            int sideLength = (int) getResources().getDimension(R.dimen.fragment_cs_sim_ratio_imagesize);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(sideLength, sideLength);
-            view.setLayoutParams(layoutParams);
-            row.addView(view);
-            TextView label = new TextView(getActivity());
-            label.setText(String.format("%d/%d", ratioMap.get(organism), mPunnett.size() * mPunnett.get(0).size()));
-            row.addView(label);
-            mRatiosTable.addView(row);
+        String[] order = new String[] {
+                "dd",
+                "dr",
+                "rd",
+                "rr"
+        };
+        for (String type : order) {
+            for (Organism organism : ratioMap.keySet()) {
+                if (organism.getGenotype().genotypicDominance().equals(type)) {
+                    LinearLayout row = new LinearLayout(getActivity());
+                    row.setOrientation(LinearLayout.HORIZONTAL);
+                    ImageView view = new ImageView(getActivity());
+                    view.setImageDrawable(OrganismManager.getDrawableOrganism(organism));
+                    view.setScaleType(ImageView.ScaleType.FIT_XY);
+                    int sideLength = (int) getResources().getDimension(R.dimen.fragment_cs_sim_ratio_imagesize);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(sideLength, sideLength);
+                    view.setLayoutParams(layoutParams);
+                    row.addView(view);
+                    TextView label = new TextView(getActivity());
+                    label.setText(String.format("%d/%d", ratioMap.get(organism), mPunnett.size() * mPunnett.get(0).size()));
+                    row.addView(label);
+                    mRatiosTable.addView(row);
+                }
+            }
         }
+
     }
 
     private Map<Organism, Integer> countPunnettRatios() {

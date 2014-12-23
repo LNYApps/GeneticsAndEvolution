@@ -73,18 +73,17 @@
 
         <TableLayout
             android:id="@+id/cs_sim_table_punnett"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-        </TableLayout>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:stretchColumns="*" />
 
         <TableLayout
             android:id="@+id/cs_sim_table_ratios"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-        </TableLayout>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:stretchColumns="*"/>
 
     </LinearLayout>
 

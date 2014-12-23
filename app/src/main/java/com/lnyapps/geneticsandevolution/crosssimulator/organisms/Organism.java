@@ -53,9 +53,9 @@ public class Organism {
             if (mGenotype.getChromosome1().numAlleles() == 2) {
                 return new ArrayList<Chromosome>(Arrays.asList(new Chromosome[]{
                         mGenotype.getChromosome1(),
-                        mGenotype.getChromosome2(),
+                        new Chromosome(mGenotype.getChromosome2().getAllele(0), mGenotype.getChromosome1().getAllele(1)),
                         new Chromosome(mGenotype.getChromosome1().getAllele(0), mGenotype.getChromosome2().getAllele(1)),
-                        new Chromosome(mGenotype.getChromosome2().getAllele(0), mGenotype.getChromosome1().getAllele(1))
+                        mGenotype.getChromosome2()
                 }));
             } else { // no crossing over
                 return new ArrayList<Chromosome>(Arrays.asList(new Chromosome[]{
@@ -68,9 +68,9 @@ public class Organism {
             if (mGenotype.getChromosome1().numAlleles() == 2 && mGenotype.getChromosome2() instanceof XChromosome) {
                 return new ArrayList<Chromosome>(Arrays.asList(new Chromosome[]{
                         mGenotype.getChromosome1(),
-                        mGenotype.getChromosome2(),
+                        new XChromosome(mGenotype.getChromosome2().getAllele(0), mGenotype.getChromosome1().getAllele(1)),
                         new XChromosome(mGenotype.getChromosome1().getAllele(0), mGenotype.getChromosome2().getAllele(1)),
-                        new XChromosome(mGenotype.getChromosome2().getAllele(0), mGenotype.getChromosome1().getAllele(1))
+                        mGenotype.getChromosome2()
                 }));
             } else {
                 return new ArrayList<Chromosome>(Arrays.asList(new Chromosome[]{
