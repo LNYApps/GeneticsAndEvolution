@@ -1,7 +1,10 @@
 package com.lnyapps.geneticsandevolution.problems;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Jonathan Tseng on 11/1/2014.
@@ -382,89 +385,83 @@ public class CrossMappingProblem extends GenEvolProblem {
 
 
         //case where A, B, and C are all linked
-        double allLinked = Math.random();
+/**        double allLinked = Math.random();
         String parentalA = "";
         String parentalB = "";
-        if(allLinked <= 0.8464) {
-
-            for(int k = 0; k<mParams.length; k++){
-                mParams[k] = 0;
-            }
-
-            int firstParentalCount = 250 + (int)(200*Math.random());
-            int secondParentalCount = 250 + (int)(200*Math.random());
-
-            int restOfCount = 1000 - firstParentalCount - secondParentalCount;
-            int nextValues = restOfCount/6;
-            int thirdParentalCount = (int)(nextValues*Math.random());
-            int fourthParentalCount = (int)(nextValues*Math.random());
-            restOfCount = restOfCount - thirdParentalCount - fourthParentalCount;
-            nextValues = restOfCount/4;
-            int fifthParentalCount = (int)(nextValues*Math.random());
-            int sixthParentalCount = (int)(nextValues*Math.random());
-            restOfCount = restOfCount - fifthParentalCount - sixthParentalCount;
-            nextValues = restOfCount/2;
-            int seventhParentalCount = (int)(nextValues*Math.random());
-            int eigthParentalCount = restOfCount - seventhParentalCount;
+            if(allLinked <= 0.8464) {*/
 
 
-            ArrayList<String> genotypes = new ArrayList<String>();
-            genotypes.add("ABC");
-            genotypes.add("ABc");
-            genotypes.add("AbC");
-            genotypes.add("Abc");
-            genotypes.add("aBC");
-            genotypes.add("aBc");
-            genotypes.add("abC");
-            genotypes.add("abc");
 
-            String firstParental = startPhaseString.substring(0,3);
-            String secondParental = startPhaseString.substring(3);
-            for(int i=0; i<genotypes.size(); i++){
-                if(firstParental.equals(genotypes.get(i))){
-                    mParams[i] = firstParentalCount;
+                mParams = new int[8];
+            /* pairings:
+                ABC-abc
+                ABc-abC
+                AbC-aBc
+                Abc-aBC
+             */
+                ArrayList<String> pairs = new ArrayList<String>(Arrays.asList(new String[]{
+                        "ABC",
+                        "ABc",
+                        "AbC",
+                        "Abc"
+                }));
+                int firstParentalCount = 300 + (int) ((Math.random() > .5) ? Math.random() * 150 : Math.random() * -50);
+                int secondParentalCount = firstParentalCount + (int)((Math.random() > .5) ? Math.random() * 20 : Math.random() * -20);
+
+                int restOfCount = 1000 - firstParentalCount - secondParentalCount;
+                int nextValues = restOfCount / 5;
+                int thirdParentalCount = (int) (nextValues * ((Math.random() > .5) ?
+                        1 + (Math.random() * 10) / 100 :
+                        1 - (Math.random() * 10)/100));
+                int fourthParentalCount = (int) (nextValues * ((Math.random() > .5) ?
+                        1 + (Math.random() * 10) / 100 :
+                        1 - (Math.random() * 10)/100));
+                restOfCount = restOfCount - thirdParentalCount - fourthParentalCount;
+                nextValues = restOfCount / 3;
+                int fifthParentalCount = (int) (nextValues * ((Math.random() > .5) ?
+                        1 + (Math.random() * 10) / 100 :
+                        1 - (Math.random() * 10)/100));
+                int sixthParentalCount = (int) (nextValues * ((Math.random() > .5) ?
+                        1 + (Math.random() * 10) / 100 :
+                        1 - (Math.random() * 10)/100));
+                restOfCount = restOfCount - fifthParentalCount - sixthParentalCount;
+                nextValues = restOfCount / 2;
+                int seventhParentalCount = (int) (nextValues * ((Math.random() > .5) ?
+                        1 + (Math.random() * 10) / 100 :
+                        1 - (Math.random() * 10)/100));
+                int eighthParentalCount = restOfCount - seventhParentalCount;
+
+                List<Integer> values = new ArrayList<Integer>(Arrays.asList(new Integer[] {
+                        firstParentalCount, secondParentalCount,
+                        thirdParentalCount, fourthParentalCount,
+                        fifthParentalCount, sixthParentalCount,
+                        seventhParentalCount, eighthParentalCount
+                }));
+
+                Collections.shuffle(pairs);
+                for (int i = 0; i < pairs.size(); i++) {
+                    String genotype = pairs.get(i);
+                    if (genotype.equals("ABC")) {
+                        mParams[0] = values.get(2*i);
+                        mParams[7] = values.get(2*i+1);
+                    } else if (genotype.equals("ABc")) {
+                        mParams[1] = values.get(2*i);
+                        mParams[6] = values.get(2*i+1);
+                    } else if (genotype.equals("AbC")) {
+                        mParams[2] = values.get(2*i);
+                        mParams[5] = values.get(2*i+1);
+                    } else {
+                        mParams[3] = values.get(2*i);
+                        mParams[4] = values.get(2*i+1);
+                    }
                 }
-                if(secondParental.equals(genotypes.get(i))){
-                    mParams[i] = secondParentalCount;
-                }
-            }
-            for(int i=genotypes.size()-1; i>=0; i--){
-                if(mParams[i] ==0){
-                    mParams[i] = thirdParentalCount;
-                    break;
-                }
-            }
-            for(int i=0; i<genotypes.size(); i++){
-                if(mParams[i] ==0){
-                    mParams[i] = fourthParentalCount;
-                    break;
-                }
-            }
-            for(int i=genotypes.size()-1; i>=0; i--){
-                if(mParams[i] ==0){
-                    mParams[i] = fifthParentalCount;
-                    break;
-                }
-            }
-            for(int i=0; i<genotypes.size(); i++){
-                if(mParams[i] ==0){
-                    mParams[i] = sixthParentalCount;
-                    break;
-                }
-            }
-            for(int i=0; i<genotypes.size(); i++){
-                if(mParams[i] ==0){
-                    mParams[i] = seventhParentalCount;
-                    break;
-                }
-            }
-            for(int i=genotypes.size()-1; i>=0; i--){
-                if(mParams[i] ==0){
-                    mParams[i] = eigthParentalCount;
-                    break;
-                }
-            }
-        }
+
+
+
+
+
+
+        //}
     }
 
     @Override
