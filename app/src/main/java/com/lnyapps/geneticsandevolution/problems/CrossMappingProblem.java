@@ -123,7 +123,7 @@ public class CrossMappingProblem extends GenEvolProblem {
 
     @Override
     public void randomValues() {
-        mParams = new int[8];
+    /**    mParams = new int[8];
         double startPhaseRandomVal = Math.random();
         int startPhase;
         if(startPhaseRandomVal < 0.25){
@@ -233,7 +233,7 @@ public class CrossMappingProblem extends GenEvolProblem {
         /**if(chromo1.size()==3){
             double choose
             startFirstParental +=
-        }*/
+        }
         if(chromo1.contains("a") && chromo1.contains("b")){
             double chooseFirst = Math.random();
             if(chooseFirst <= 0.5){
@@ -383,7 +383,7 @@ public class CrossMappingProblem extends GenEvolProblem {
             }
         }
 
-
+*/
         //case where A, B, and C are all linked
 /**        double allLinked = Math.random();
         String parentalA = "";
