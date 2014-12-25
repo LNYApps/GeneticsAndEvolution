@@ -71,6 +71,12 @@ public class CrossMappingProblem extends GenEvolProblem {
             tempSecond += secondParental.substring(2);
             linkage = tempFirst + "//" + tempSecond;
         }
+        else if((solution[0]<0.45f && solution[1]<0.45f && solution[2]>0.45f)
+                || (solution[0]<0.45f && solution[1]>0.45f && solution[2]<0.45f)
+                || (solution[0]>0.45f && solution[1]<0.45f && solution[2]<0.45f)){
+            linkage = "The threshold fraction for unlinked genes is 0.45. There must be at least 2 values greater than 0.45 " +
+                    "in order for the genetic cross-mapping to be calculated. Please re-generate or enter different values.";
+        }
         else if(solution[0]<0.45f && solution[2]>0.45f && solution[1]>0.45f){
             String tempFirst = firstParental.substring(0,1);
             String tempSecond = secondParental.substring(0,1);
