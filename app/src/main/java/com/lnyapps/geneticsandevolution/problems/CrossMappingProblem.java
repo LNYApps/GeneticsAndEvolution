@@ -1,10 +1,8 @@
 package com.lnyapps.geneticsandevolution.problems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Jonathan Tseng on 11/1/2014.
@@ -12,7 +10,6 @@ import java.util.List;
 public class CrossMappingProblem extends GenEvolProblem {
 
     private int[] mParams;
-    private int mPopulation = 1000;
 
     @Override
     public String solution() {
@@ -121,9 +118,10 @@ public class CrossMappingProblem extends GenEvolProblem {
                 "\nAC rec fraction: " + String.format("%.3f", solution[1]);
     }
 
+
     @Override
     public void randomValues() {
-    /**    mParams = new int[8];
+        mParams = new int[8];
         double startPhaseRandomVal = Math.random();
         int startPhase;
         if(startPhaseRandomVal < 0.25){
@@ -146,224 +144,144 @@ public class CrossMappingProblem extends GenEvolProblem {
         phases.add("aBCAbc");
 
         String startPhaseString = phases.get(startPhase);
-        String startFirstParental = "";
-        String startSecondParental = "";
         double randomAllocateA = Math.random();
         double randomAllocateB = Math.random();
         double randomAllocateC = Math.random();
         ArrayList<String> chromo1 = new ArrayList<String>();
         ArrayList<String> chromo2 = new ArrayList<String>();
         ArrayList<String> chromo3 = new ArrayList<String>();
+        ArrayList<String> chromo1Parental1 = new ArrayList<String>();
+        ArrayList<String> chromo2Parental1 = new ArrayList<String>();
+        ArrayList<String> chromo3Parental1 = new ArrayList<String>();
+
 
         if(randomAllocateA <= 0.92){
             chromo1.add("a");
+            chromo1Parental1.add(startPhaseString.substring(0, 1));
         }
         else if(randomAllocateA <= 0.96){
             chromo2.add("a");
+            chromo2Parental1.add(startPhaseString.substring(0, 1));
         }
         else{
             chromo3.add("a");
+            chromo3Parental1.add(startPhaseString.substring(0, 1));
         }
         if(randomAllocateB <= 0.92){
             chromo1.add("b");
+            chromo1Parental1.add(startPhaseString.substring(1, 2));
         }
         else if(randomAllocateB <= 0.96){
             chromo2.add("b");
+            chromo2Parental1.add(startPhaseString.substring(1, 2));
         }
         else{
             chromo3.add("b");
+            chromo3Parental1.add(startPhaseString.substring(1, 2));
         }
         if(randomAllocateC <= 0.92){
             chromo1.add("c");
+            chromo1Parental1.add(startPhaseString.substring(2, 3));
         }
         else if(randomAllocateC <= 0.96){
             chromo2.add("c");
+            chromo2Parental1.add(startPhaseString.substring(2, 3));
         }
         else{
             chromo3.add("c");
+            chromo3Parental1.add(startPhaseString.substring(2, 3));
         }
 
     //calculating the recombination fractions for AB, BC, and AC
         double recAB = 0.0;
-        boolean changedAB = false;
         double recBC = 0.0;
-        boolean changedBC = false;
         double recAC = 0.0;
-        boolean changedAC = false;
 
         //cases where the alleles are linked
         if(chromo1.contains("a") && chromo1.contains("b")){
             recAB = 0.2 * Math.random();
-            changedAB = true;
         }
         if(chromo1.contains("a") && chromo1.contains("c")){
             recAC = 0.2 * Math.random();
-            changedAC = true;
         }
         if(chromo1.contains("b") && chromo1.contains("c")){
             recBC = 0.2 * Math.random();
-            changedBC = true;
         }
         if(chromo2.contains("a") && chromo2.contains("b")){
             recAB = 0.2 * Math.random();
-            changedAB = true;
         }
         if(chromo2.contains("a") && chromo2.contains("c")){
             recAC = 0.2 * Math.random();
-            changedAC = true;
         }
         if(chromo2.contains("b") && chromo2.contains("c")){
             recBC = 0.2 * Math.random();
-            changedBC = true;
         }
         if(chromo3.contains("a") && chromo3.contains("b")){
             recAB = 0.2 * Math.random();
-            changedAB = true;
         }
         if(chromo3.contains("a") && chromo3.contains("c")){
             recAC = 0.2 * Math.random();
-            changedAC = true;
         }
         if(chromo3.contains("b") && chromo3.contains("c")){
             recBC = 0.2 * Math.random();
-            changedBC = true;
         }
 
-        //calculating the genotypes
-        /**if(chromo1.size()==3){
-            double choose
-            startFirstParental +=
-        }
-        if(chromo1.contains("a") && chromo1.contains("b")){
-            double chooseFirst = Math.random();
-            if(chooseFirst <= 0.5){
-                startFirstParental += startPhaseString.substring(0,2);
+        //randomizing the order of alleles on the genes
+        Collections.shuffle(chromo1Parental1);
+        Collections.shuffle(chromo2Parental1);
+        Collections.shuffle(chromo3Parental1);
+        ArrayList<String> chromo1Parental2 = new ArrayList<String>();
+        ArrayList<String> chromo2Parental2 = new ArrayList<String>();
+        ArrayList<String> chromo3Parental2 = new ArrayList<String>();
+        for(String s: chromo1Parental1){
+            String add = "";
+            char c = s.toCharArray()[0];
+            if(Character.isUpperCase(c)){
+                c = Character.toLowerCase(c);
             }
             else{
-                startFirstParental += startPhaseString.substring(1,2);
-                startFirstParental += startPhaseString.substring(0,1);
+                c = Character.toUpperCase(c);
             }
+            add += c;
+            chromo1Parental2.add(add);
         }
-        //at this point, recombinant fractions are calculated
-        //now need to generate offspring genotypes one by one up to the sample size
+        for(String s: chromo2Parental1){
+            String add = "";
+            char c = s.toCharArray()[0];
+            if(Character.isUpperCase(c)){
+                c = Character.toLowerCase(c);
+            }
+            else{
+                c = Character.toUpperCase(c);
+            }
+            add += c;
+            chromo2Parental2.add(add);
+        }
+        for(String s: chromo3Parental1){
+            String add = "";
+            char c = s.toCharArray()[0];
+            if(Character.isUpperCase(c)){
+                c = Character.toLowerCase(c);
+            }
+            else{
+                c = Character.toUpperCase(c);
+            }
+            add += c;
+            chromo3Parental2.add(add);
+        }
 
+        //at this point, recombinant fractions are calculated and the alleles in randomized order are in the chromosomes (implemented as arraylists)
+        //now need to generate offspring genotypes one by one up to the sample size
         for(int i = 0; i<mParams.length; i++){
             mParams[i] = 0;
         }
 
         for(int i = 0; i<1000; i++){
-            String genotypeA = startPhaseString.substring(0,3);
-            String genotypeB = startPhaseString.substring(3);
-            double chooseFirst = Math.random();
-            String startingGenotype;
-            String startingOtherGenotype;
-            String finalGenotype = "";
-            int currentGeneIndex;
 
-            //determining the first allele
-            if(chooseFirst <= 0.5){
-                startingGenotype = genotypeA;
-                startingOtherGenotype = genotypeB;
-                currentGeneIndex = -1;
-            }
-            else{
-                startingGenotype = genotypeB;
-                startingOtherGenotype = genotypeA;
-                currentGeneIndex = 1;
-            }
-            finalGenotype += startingGenotype.substring(0,1);
+            String finalGenotype = simulateOneSample(chromo1Parental1, chromo2Parental1, chromo3Parental1,
+                    chromo1Parental2, chromo2Parental2, chromo3Parental2, recAB, recBC, recAC);
 
-            //determining the second allele
-            if(changedAB){
-                double crossover = Math.random();
-                if(crossover < recAB){
-                    finalGenotype += startingOtherGenotype.substring(1,2);
-                    currentGeneIndex = currentGeneIndex * (-1);
-                }
-                else{
-                    finalGenotype += startingGenotype.substring(1,2);
-                }
-
-                //determining the third allele
-                if(changedBC){
-                    double crossover2 = Math.random();
-                    if(crossover2 < recBC){
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                    }
-                    else{
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                    }
-                }
-            }
-            else{
-                double crossover = Math.random();
-                if(crossover <= 0.5){
-                    finalGenotype += startingOtherGenotype.substring(1,2);
-                    currentGeneIndex = currentGeneIndex * -1;
-
-                }
-                else{
-                    finalGenotype += startingGenotype.substring(1,2);
-                }
-
-                //check to see if A and C are linked if A and B are not linked
-                if(changedAC){
-                    double crossover3 = Math.random();
-                    if(crossover3 <= recAC){
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                    }
-                    else{
-                        if(currentGeneIndex == -1){
-                            finalGenotype += startingGenotype.substring(2);
-                        }
-                        else{
-                            finalGenotype += startingOtherGenotype.substring(2);
-                        }
-                    }
-                }
-
-                //if A and C are not linked, then go to this step and check if B and C are linked
-                else {
-                    //determining the third allele
-                    if (changedBC) {
-                        double crossover2 = Math.random();
-                        if (crossover2 < recBC) {
-                            if (currentGeneIndex == -1) {
-                                finalGenotype += startingOtherGenotype.substring(2);
-                            }
-                            else {
-                                finalGenotype += startingGenotype.substring(2);
-                            }
-                        }
-                        else {
-                            if (currentGeneIndex == -1) {
-                                finalGenotype += startingGenotype.substring(2);
-                            }
-                            else {
-                                finalGenotype += startingOtherGenotype.substring(2);
-                            }
-                        }
-                    }
-                }
-            }
-
-
-
+            finalGenotype = reOrderGenes(finalGenotype);
             //genotype of one sample is now calculated
             //update the counts of the output
             ArrayList<String> genotypes = new ArrayList<String>();
@@ -382,86 +300,194 @@ public class CrossMappingProblem extends GenEvolProblem {
                 }
             }
         }
+    }
 
-*/
-        //case where A, B, and C are all linked
-/**        double allLinked = Math.random();
-        String parentalA = "";
-        String parentalB = "";
-            if(allLinked <= 0.8464) {*/
+    /**
+     * Simulates a single sample of the cross between two parentals
+     * @param chromo1Parental1 alleles on the 1st chromosome of the 1st Parental
+     * @param chromo2Parental1 alleles on the 2nd chromosome of the 1st Parental
+     * @param chromo3Parental1 alleles on the 3rd chromosome of the 1st Parental
+     * @param chromo1Parental2 alleles on the 1st chromosome of the 2nd Parental
+     * @param chromo2Parental2 alleles on the 2nd chromosome of the 2nd Parental
+     * @param chromo3Parental2 alleles on the 3rd chromosome of the 2nd Parental
+     * @param recAB fraction of AB
+     * @param recBC fraction of BC
+     * @param recAC fraction of AC
+     * @return genotype of the simulated cross for one sample
+     */
+    private String simulateOneSample(ArrayList<String> chromo1Parental1, ArrayList<String> chromo2Parental1, ArrayList<String> chromo3Parental1,
+                                     ArrayList<String> chromo1Parental2, ArrayList<String> chromo2Parental2, ArrayList<String> chromo3Parental2,
+                                     double recAB, double recBC, double recAC){
+        String output = "";
+        String parental1 = "";
+        String parental2 = "";
+        String unspacedParental1 = "";
+        for(String s: chromo1Parental1){
+            parental1 += s;
+            unspacedParental1 += s.toLowerCase();
+        }
+        parental1 += " ";
+        for(String s: chromo2Parental1){
+            parental1 += s;
+            unspacedParental1 += s.toLowerCase();
+        }
+        parental1 += " ";
+        for(String s: chromo3Parental1){
+            parental1 += s;
+            unspacedParental1 += s.toLowerCase();
+        }
 
+        for(String s: chromo1Parental2){
+            parental2 += s;
+        }
+        parental2 += " ";
+        for(String s: chromo2Parental2){
+            parental2 += s;
+        }
+        parental2 += " ";
+        for(String s: chromo3Parental2){
+            parental2 += s;
+        }
 
+        int currentChromo = 1;
+        //parentals are written, with spaces between chromosomes
 
-                mParams = new int[8];
-            /* pairings:
-                ABC-abc
-                ABc-abC
-                AbC-aBc
-                Abc-aBC
-             */
-                ArrayList<String> pairs = new ArrayList<String>(Arrays.asList(new String[]{
-                        "ABC",
-                        "ABc",
-                        "AbC",
-                        "Abc"
-                }));
-                int firstParentalCount = 300 + (int) ((Math.random() > .5) ? Math.random() * 150 : Math.random() * -50);
-                int secondParentalCount = firstParentalCount + (int)((Math.random() > .5) ? Math.random() * 20 : Math.random() * -20);
+        int indexOfFirst = 0;
+        for(int i = 0; i<parental1.length(); i++){
+            String s = parental1.substring(i, i+1);
+            if(!s.equals(" ")){
+                indexOfFirst = i;
+                break;
+            }
+        }
 
-                int restOfCount = 1000 - firstParentalCount - secondParentalCount;
-                int nextValues = restOfCount / 5;
-                int thirdParentalCount = (int) (nextValues * ((Math.random() > .5) ?
-                        1 + (Math.random() * 10) / 100 :
-                        1 - (Math.random() * 10)/100));
-                int fourthParentalCount = (int) (nextValues * ((Math.random() > .5) ?
-                        1 + (Math.random() * 10) / 100 :
-                        1 - (Math.random() * 10)/100));
-                restOfCount = restOfCount - thirdParentalCount - fourthParentalCount;
-                nextValues = restOfCount / 3;
-                int fifthParentalCount = (int) (nextValues * ((Math.random() > .5) ?
-                        1 + (Math.random() * 10) / 100 :
-                        1 - (Math.random() * 10)/100));
-                int sixthParentalCount = (int) (nextValues * ((Math.random() > .5) ?
-                        1 + (Math.random() * 10) / 100 :
-                        1 - (Math.random() * 10)/100));
-                restOfCount = restOfCount - fifthParentalCount - sixthParentalCount;
-                nextValues = restOfCount / 2;
-                int seventhParentalCount = (int) (nextValues * ((Math.random() > .5) ?
-                        1 + (Math.random() * 10) / 100 :
-                        1 - (Math.random() * 10)/100));
-                int eighthParentalCount = restOfCount - seventhParentalCount;
+        if(Math.random() > 0.5){
+            output += parental1.substring(indexOfFirst, indexOfFirst+1);
+        }
+        else{
+            output += parental2.substring(indexOfFirst, indexOfFirst+1);
+            currentChromo = -1;
+        }
 
-                List<Integer> values = new ArrayList<Integer>(Arrays.asList(new Integer[] {
-                        firstParentalCount, secondParentalCount,
-                        thirdParentalCount, fourthParentalCount,
-                        fifthParentalCount, sixthParentalCount,
-                        seventhParentalCount, eighthParentalCount
-                }));
-
-                Collections.shuffle(pairs);
-                for (int i = 0; i < pairs.size(); i++) {
-                    String genotype = pairs.get(i);
-                    if (genotype.equals("ABC")) {
-                        mParams[0] = values.get(2*i);
-                        mParams[7] = values.get(2*i+1);
-                    } else if (genotype.equals("ABc")) {
-                        mParams[1] = values.get(2*i);
-                        mParams[6] = values.get(2*i+1);
-                    } else if (genotype.equals("AbC")) {
-                        mParams[2] = values.get(2*i);
-                        mParams[5] = values.get(2*i+1);
-                    } else {
-                        mParams[3] = values.get(2*i);
-                        mParams[4] = values.get(2*i+1);
-                    }
+        int indexOfSecond = 0;
+        for(int i=indexOfFirst+1; i<parental1.length(); i++){
+            String s = parental1.substring(i, i+1);
+            if(!s.equals(" ")){
+                indexOfSecond = i;
+                break;
+            }
+        }
+        //case where second is unlinked
+        if((indexOfSecond - indexOfFirst) > 1){
+            if(Math.random() > 0.5){
+                output += parental1.substring(indexOfSecond, indexOfSecond+1);
+                currentChromo = 1;
+            }
+            else{
+                output += parental2.substring(indexOfSecond, indexOfSecond+1);
+            }
+        }
+        //case where second is linked
+        else{
+            String gene = unspacedParental1.substring(0,2);
+            double compareRec = getCorrectRec(gene, recAB, recAC, recBC);
+            if(Math.random() < compareRec){
+                if(currentChromo==1){
+                    output += parental2.substring(indexOfSecond, indexOfSecond+1);
+                    currentChromo = -1;
                 }
+                else{
+                    output += parental1.substring(indexOfSecond, indexOfSecond+1);
+                    currentChromo = 1;
+                }
+            }
+            else{
+                if(currentChromo==1){
+                    output += parental1.substring(indexOfSecond, indexOfSecond+1);
+                }
+                else{
+                    output += parental2.substring(indexOfSecond, indexOfSecond+1);
+                }
+            }
+        }
+        int indexOfThird = 0;
+        for(int i=indexOfSecond+1; i<parental1.length(); i++){
+            String s = parental1.substring(i, i+1);
+            if(!s.equals(" ")){
+                indexOfThird = i;
+                break;
+            }
+        }
 
+        //case where third is unlinked
+        if((indexOfThird - indexOfSecond) > 1){
+            if(Math.random() > 0.5){
+                output += parental1.substring(indexOfThird, indexOfThird+1);
+            }
+            else{
+                output += parental2.substring(indexOfThird, indexOfThird+1);
+            }
+        }
+        //case where third is linked
+        else{
+            String gene = unspacedParental1.substring(1);
+            double compareRec = getCorrectRec(gene, recAB, recAC, recBC);
+            if(Math.random() < compareRec){
+                if(currentChromo==1){
+                    output += parental2.substring(indexOfThird, indexOfThird+1);
+                }
+                else{
+                    output += parental1.substring(indexOfThird, indexOfThird+1);
+                }
+            }
+            else{
+                if(currentChromo==1){
+                    output += parental1.substring(indexOfThird, indexOfThird+1);
+                }
+                else{
+                    output += parental2.substring(indexOfThird, indexOfThird+1);
+                }
+            }
+        }
+        return output;
+    }
 
+    private double getCorrectRec(String genes, double recAB, double recAC, double recBC){
+        if(genes.equals("ab") || genes.equals("ba")){
+            return recAB;
+        }
+        else if(genes.equals("ac") || genes.equals("ca")){
+            return recAC;
+        }
+        else if(genes.equals("bc") || genes.equals("cb")){
+            return recBC;
+        }
+        else{
+            return 0.0;
+        }
+    }
 
-
-
-
-        //}
+    private String reOrderGenes(String gene){
+        char[] test = gene.toCharArray();
+        for(int i=0; i<test.length; i++){
+            if(test[i] == 'a' || test[i] =='A'){
+                char temp = test[0];
+                test[0] = test[i];
+                test[i] = temp;
+            }
+        }
+        for(int i=0; i<test.length; i++){
+            if(test[i] == 'b' || test[i] == 'B'){
+                char temp = test[1];
+                test[1] = test[i];
+                test[i] = temp;
+            }
+        }
+        String output = "";
+        for(int i=0; i<test.length; i++){
+            output+= test[i];
+        }
+        return output;
     }
 
     @Override
@@ -620,26 +646,6 @@ public class CrossMappingProblem extends GenEvolProblem {
         return output;
     }
 
-    /**
-     * @param nums an array of ints
-     * @param max the first max of the array of values
-     * @return returns the index of the second highest int in the array
-     */
-    static int secondHighest(int[] nums, int max) {
-        int secondMax;
-        if(max == 0){
-            secondMax = 1;
-        }
-        else{
-            secondMax = 0;
-        }
-        for(int i=0; i<nums.length; i++){
-            if(nums[i] < nums[max] && nums[i] > nums[secondMax]){
-                secondMax = i;
-            }
-        }
-        return secondMax;
-    }
 
     static int secondParental(int[] nums, int max){
         int secondParentalIndex;
