@@ -72,7 +72,7 @@
     <string name="aBc_hint">aBc</string>
     <string name="abC_hint">abC</string>
     <string name="abc_hint">abc</string>
-    
+
     <!-- Breeder's Equation Fragment -->
     <string name="breeder_instructions">Please enter any 3 parameters below for the 4th to be solved</string>
     <string name="avg_start_phenotype">Average Starting Phenotype</string>

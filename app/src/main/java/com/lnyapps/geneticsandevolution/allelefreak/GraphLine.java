@@ -17,15 +17,6 @@ public class GraphLine {
     private float inbreeding;
     private int generationsNumber;
 
-    public GraphLine() {
-        qfreq = 0.0f;
-        fitAA = 0.0f;
-        fitAa = 0.0f;
-        fitaa = 0.0f;
-        pop = 0;
-        inbreeding = 0.0f;
-        generationsNumber = 0;
-    }
 
     public GraphLine(float initFreq, float alleleFitAA, float alleleFitAa, float alleleFitaa,
                      int allelePop, float alleleInBreeding, int generations) {
@@ -184,20 +175,6 @@ public class GraphLine {
      */
     private float adjustFreq(float freq, float fitness) {
         return freq * fitness;
-    }
-
-    private float averageFitness(float q, float AAFit, float AaFit, float aaFit) {
-        float avgFit;
-        float p = 1 - q;
-        avgFit = p * p * AAFit + 2 * p * q * AaFit + q * q * aaFit;
-        return avgFit;
-    }
-
-    private float qFreqOneGen(float qFreq, float AaFit, float aaFit, float avgFit) {
-        float output;
-        float p = 1 - qFreq;
-        output = (qFreq * qFreq * aaFit) / avgFit + (p * qFreq * AaFit) / avgFit;
-        return output;
     }
 
 }

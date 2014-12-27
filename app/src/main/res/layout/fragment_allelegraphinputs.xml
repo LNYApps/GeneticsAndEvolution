@@ -141,20 +141,26 @@
                 android:textSize="@dimen/fragment_ps_textsize"/>
         </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/allele_freak_button_graph"
-            android:gravity="center"
-            android:text="@string/allele_param_graph"/>
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <TableRow>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/allele_freak_button_graph"
+                    android:gravity="center"
+                    android:text="@string/allele_param_graph"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/allele_freak_button_clear"
-            android:gravity="center"
-            android:text="@string/allele_param_clear"/>
-
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/allele_freak_button_clear"
+                    android:layout_gravity="center"
+                    android:text="@string/allele_param_clear"/>
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 </ScrollView>

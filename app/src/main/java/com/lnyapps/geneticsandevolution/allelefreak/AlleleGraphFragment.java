@@ -30,7 +30,6 @@ public class AlleleGraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_allelegraph, container, false);
-        //start of graphing code
 
         mChart = (LineChart) rootView.findViewById(R.id.chart);
         mChart.setNoDataText(getResources().getString(R.string.allele_graph_no_data));
@@ -44,10 +43,8 @@ public class AlleleGraphFragment extends Fragment {
         mChart.setDrawYValues(true);
         mChart.setStartAtZero(true);
         mChart.setYRange(0, 1.0f, false);
-
         //Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"OpenSans-Light.ttf");
 
-        //end
         return rootView;
     }
 
@@ -64,7 +61,6 @@ public class AlleleGraphFragment extends Fragment {
     public void graph(){
         ArrayList<LineDataSet> sets = new ArrayList<LineDataSet>();
         for(int i = 0; i<lines.size(); i++){
-            //Entry entry = new Entry(lines.get(i), i);
             ArrayList<Entry> entries = lines.get(i);
             int lineNumber = i+1;
             LineDataSet ds = new LineDataSet(entries, "Allele " + lineNumber);

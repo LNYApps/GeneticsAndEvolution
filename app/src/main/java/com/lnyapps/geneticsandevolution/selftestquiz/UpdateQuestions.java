@@ -1,7 +1,6 @@
 package com.lnyapps.geneticsandevolution.selftestquiz;
 
 import android.app.Activity;
-import android.os.Message;
 
 import com.lnyapps.geneticsandevolution.R;
 
@@ -42,13 +41,12 @@ public class UpdateQuestions extends Thread{
     {
         URL url;
         URLConnection conn;
-        int fileSize, lastSlash;
+        int lastSlash;
         String fileName;
         BufferedInputStream inStream;
         BufferedOutputStream outStream;
         File outFile;
         FileOutputStream fileStream;
-        Message msg;
 
         try
         {
@@ -74,7 +72,7 @@ public class UpdateQuestions extends Thread{
             fileStream = new FileOutputStream(outFile);
             outStream = new BufferedOutputStream(fileStream, DOWNLOAD_BUFFER_SIZE);
             byte[] data = new byte[DOWNLOAD_BUFFER_SIZE];
-            int bytesRead = 0, totalRead = 0;
+            int bytesRead;
             while(!isInterrupted() && (bytesRead = inStream.read(data, 0, data.length)) >= 0)
             {
                 outStream.write(data, 0, bytesRead);

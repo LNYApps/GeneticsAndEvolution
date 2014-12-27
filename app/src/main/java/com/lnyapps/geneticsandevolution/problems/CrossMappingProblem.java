@@ -55,21 +55,71 @@ public class CrossMappingProblem extends GenEvolProblem {
 
         String linkage = "";
         if(solution[0]<0.45f && solution[1]<0.45f && solution[2]<0.45f){
-            String tempFirst = firstParental.substring(0,1);
-            String tempSecond = secondParental.substring(0,1);
-            for(int i=0; i<dashesAB; i++){
-                tempFirst += "-";
-                tempSecond += "-";
+            //finding highest rec-fraction
+            int max = 0;
+            if(solution[1]>solution[0]){
+                max = 1;
             }
-            tempFirst+= firstParental.substring(1,2);
-            tempSecond+= secondParental.substring(1,2);
-            for(int i=0; i<dashesBC; i++){
-                tempFirst += "-";
-                tempSecond += "-";
+            if(solution[2]>solution[max]){
+                max = 2;
             }
-            tempFirst += firstParental.substring(2);
-            tempSecond += secondParental.substring(2);
-            linkage = tempFirst + "//" + tempSecond;
+
+            //0 = atob
+            //1 = atoc
+            //2 = btoc
+
+            if(max==1){
+                String tempFirst = firstParental.substring(0,1);
+                String tempSecond = secondParental.substring(0,1);
+                for(int i=0; i<dashesAB; i++){
+                    tempFirst += "-";
+                    tempSecond += "-";
+                }
+                tempFirst+= firstParental.substring(1,2);
+                tempSecond+= secondParental.substring(1,2);
+                for(int i=0; i<dashesBC; i++){
+                    tempFirst += "-";
+                    tempSecond += "-";
+                }
+                tempFirst += firstParental.substring(2);
+                tempSecond += secondParental.substring(2);
+                linkage = tempFirst + "//" + tempSecond;
+            }
+            else if(max ==0){
+                String tempFirst = firstParental.substring(0,1);
+                String tempSecond = secondParental.substring(0,1);
+                for(int i=0; i<dashesAC; i++){
+                    tempFirst += "-";
+                    tempSecond += "-";
+                }
+                tempFirst += firstParental.substring(2);
+                tempSecond += secondParental.substring(2);
+                for(int i=0; i<dashesBC; i++) {
+                    tempFirst += "-";
+                    tempSecond += "-";
+                }
+                tempFirst += firstParental.substring(1,2);
+                tempSecond += secondParental.substring(1,2);
+                linkage = tempFirst + "//" + tempSecond;
+            }
+            else{ //max==2
+                String tempFirst = firstParental.substring(1,2);
+                String tempSecond = secondParental.substring(1,2);
+                for(int i=0; i<dashesAB; i++){
+                    tempFirst += "-";
+                    tempSecond += "-";
+                }
+                tempFirst += firstParental.substring(0,1);
+                tempSecond += secondParental.substring(0,1);
+                for(int i=0; i<dashesAC; i++) {
+                    tempFirst += "-";
+                    tempSecond += "-";
+                }
+                tempFirst += firstParental.substring(2);
+                tempSecond += secondParental.substring(2);
+                linkage = tempFirst + "//" + tempSecond;
+            }
+
         }
         else if((solution[0]<0.45f && solution[1]<0.45f && solution[2]>0.45f)
                 || (solution[0]<0.45f && solution[1]>0.45f && solution[2]<0.45f)
@@ -603,7 +653,7 @@ public class CrossMappingProblem extends GenEvolProblem {
                 maxIndex=i;
             }
         }
-        int secondMaxIndex = 0;
+        int secondMaxIndex;
         secondMaxIndex = secondParental(values, maxIndex);
 
         //calculating the recombinants and determining recombinant gamete frequency

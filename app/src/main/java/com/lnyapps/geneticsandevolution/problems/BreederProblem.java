@@ -114,23 +114,19 @@ public class BreederProblem extends GenEvolProblem {
     }
 
     private double calcHeritability(double startingPhenotype, double selectedPhenotype, double responsePhenotype){
-        double output = (startingPhenotype - responsePhenotype)/(startingPhenotype - selectedPhenotype);
-        return output;
+        return (startingPhenotype - responsePhenotype)/(startingPhenotype - selectedPhenotype);
     }
 
     private double calcStartingPhenotype(double selectedPhenotype, double responsePhenotype, double heritability){
-        double output = (responsePhenotype - selectedPhenotype*heritability)/(1-heritability);
-        return output;
+        return (responsePhenotype - selectedPhenotype*heritability)/(1-heritability);
     }
 
     private double calcSelectedPhenotype(double startingPhenotype, double responsePhenotype, double heritability){
-        double output = (responsePhenotype-startingPhenotype)/heritability + startingPhenotype;
-        return output;
+        return (responsePhenotype-startingPhenotype)/heritability + startingPhenotype;
     }
 
     private double calcResponsePhenotype(double startingPhenotype, double selectedPhenotype, double heritability){
-        double output = startingPhenotype - (startingPhenotype-selectedPhenotype)*heritability;
-        return output;
+        return startingPhenotype - (startingPhenotype-selectedPhenotype)*heritability;
     }
 
 }

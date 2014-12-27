@@ -131,23 +131,19 @@ public class PopGrowthProblem extends GenEvolProblem {
     }
 
     private double calcPopGrowthRate(double initialPopSize, double finalPopSize, double time){
-        double output = Math.log(finalPopSize/initialPopSize)/time;
-        return output;
+        return Math.log(finalPopSize/initialPopSize)/time;
     }
 
     private double calcTime(double growthRate, double initialPopSize, double finalPopSize){
-        double output = Math.log(finalPopSize/initialPopSize)/growthRate;
-        return output;
+        return Math.log(finalPopSize/initialPopSize)/growthRate;
     }
 
     private double calcFinalPop(double growthRate, double initialPopSize, double time){
-        double output = (int) initialPopSize*Math.exp(growthRate*time);
-        return output;
+        return (int) initialPopSize*Math.exp(growthRate*time);
     }
 
     private double calcInitialPop(double growthRate, double finalPopSize, double time){
-        double output = finalPopSize/Math.exp(growthRate*time);
-        return output;
+        return finalPopSize/Math.exp(growthRate*time);
     }
 
 }

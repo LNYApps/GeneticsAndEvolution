@@ -18,8 +18,6 @@ import com.lnyapps.geneticsandevolution.R;
  */
 public class AlleleFreakFragment extends Fragment {
 
-    ViewPager mViewPager;
-    FragmentPagerAdapter mFragmentPagerAdapter;
     public AlleleGraphFragment graphFrag;
     public AlleleGraphInputsFragment graphInputsFrag;
 
