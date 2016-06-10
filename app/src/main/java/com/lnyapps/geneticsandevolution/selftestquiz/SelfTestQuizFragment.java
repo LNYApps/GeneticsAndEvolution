@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 /**
  * Created by Jonathan Tseng on 10/31/2014.
  */
-public class SelfTestQuizFragment extends Fragment {
+public class SelfTestQuizFragment extends Fragment implements InstallDialogListener {
 
     private VocabList mVocabList;
     private VocabQuestion mCurrentVocabQuestion;
@@ -61,6 +62,13 @@ public class SelfTestQuizFragment extends Fragment {
         if (item.getItemId() == R.id.stq_action_refresh) {
             mVocabList.shuffle();
             setQuizQuestion(getView());
+            return true;
+        }
+        else if (item.getItemId() == R.id.stq_action_newQuiz) {
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            InstallDialogFragment installD = new InstallDialogFragment();
+            installD.delegate = this;
+            installD.show(fm, "fragment_installquiz");
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -151,6 +159,14 @@ public class SelfTestQuizFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(getResources().getString(R.string.self_test_quiz));
+    }
+
+    public void quizInstalled(String quizName) {
+        setQuizTerms();
+        setQuizQuestion(getView());
+        ((MainActivity)getActivity()).onSectionAttached(quizName);
+        ((MainActivity)getActivity()).restoreActionBar();
+
     }
 
 }

@@ -18,6 +18,7 @@ import com.lnyapps.geneticsandevolution.allelefreak.AlleleGraphInputsFragment;
 import com.lnyapps.geneticsandevolution.crosssimulator.CrossSimulatorParentFragment;
 import com.lnyapps.geneticsandevolution.problemgenerator.ProblemGeneratorFragment;
 import com.lnyapps.geneticsandevolution.problemsolver.ProblemSolverFragment;
+import com.lnyapps.geneticsandevolution.selftestquiz.UpdateQuestionsListener;
 import com.lnyapps.geneticsandevolution.selftestquiz.SelfTestQuizFragment;
 import com.lnyapps.geneticsandevolution.selftestquiz.UpdateQuestions;
 
@@ -25,14 +26,14 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends FragmentActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, AlleleGraphInputsFragment.OnGraphSelectedListener{
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, AlleleGraphInputsFragment.OnGraphSelectedListener, UpdateQuestionsListener {
 
     public static final int MESSAGE_DOWNLOAD_STARTED = 1000;
     public static final int MESSAGE_DOWNLOAD_COMPLETE = 1001;
     public static final int MESSAGE_DOWNLOAD_CANCELED = 1003;
     public static final int MESSAGE_CONNECTING_STARTED = 1004;
 
-    private Thread downloaderThread;
+    private UpdateQuestions downloaderThread;
     public ArrayList<ArrayList<String>> lines = new ArrayList<ArrayList<String>>();
 
     /**
@@ -60,6 +61,7 @@ public class MainActivity extends FragmentActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         downloaderThread = new UpdateQuestions(this, getString(R.string.quiz_questions_url));
+        downloaderThread.delegate = this;
         downloaderThread.start();
     }
 
@@ -160,5 +162,9 @@ public class MainActivity extends FragmentActivity
         AlleleFreakFragment frag =
                 (AlleleFreakFragment)manager.findFragmentByTag("tag");
         frag.graphFrag.clear();
+    }
+
+    public void quizUpdated(String errMsg) {
+
     }
 }

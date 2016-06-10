@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.lnyapps.geneticsandevolution.MainActivity;
 import com.lnyapps.geneticsandevolution.R;
@@ -56,6 +57,10 @@ public class AboutFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         setUpOnlineDocumentationButton(rootView);
         setUpCourseWebpageButton(rootView);
+
+        TextView verName = (TextView)rootView.findViewById(R.id.about_textview_vername);
+        verName.setText("Version: " + BuildConfig.VERSION_NAME);
+
         return rootView;
     }
 

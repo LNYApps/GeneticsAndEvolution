@@ -21,6 +21,7 @@ public class UpdateQuestions extends Thread{
     private String downloadUrl;
     private static final int DOWNLOAD_BUFFER_SIZE = 4096;
 
+    public UpdateQuestionsListener delegate;
 
     public UpdateQuestions(Activity activity, String inUrl)
     {
@@ -48,6 +49,8 @@ public class UpdateQuestions extends Thread{
         File outFile;
         FileOutputStream fileStream;
 
+        String errMsg = "";
+
         try
         {
             url = new URL(downloadUrl);
@@ -63,6 +66,9 @@ public class UpdateQuestions extends Thread{
             }
             if(fileName.equals(""))
             {
+                fileName = mParentActivity.getString(R.string.quiz_questions_file_name);
+            }
+            if (fileName.substring(0,4).equals("test")) {
                 fileName = mParentActivity.getString(R.string.quiz_questions_file_name);
             }
 
@@ -84,15 +90,28 @@ public class UpdateQuestions extends Thread{
         }
         catch(MalformedURLException e)
         {
-            String errMsg = mParentActivity.getString(R.string.error_message_bad_url);
+            errMsg = mParentActivity.getString(R.string.error_message_bad_url);
         }
         catch(FileNotFoundException e)
         {
-            String errMsg = mParentActivity.getString(R.string.error_message_file_not_found);
+            errMsg = mParentActivity.getString(R.string.error_message_file_not_found);
         }
         catch(Exception e)
         {
-            String errMsg = mParentActivity.getString(R.string.error_message_general);
+            errMsg = mParentActivity.getString(R.string.error_message_general);
         }
+
+        final String err = errMsg;
+
+        if (delegate != null) {
+            mParentActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    delegate.quizUpdated(err);
+                }
+            });
+
+        }
+
     }
 }
