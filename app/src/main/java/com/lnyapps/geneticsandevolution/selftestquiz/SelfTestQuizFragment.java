@@ -98,8 +98,11 @@ public class SelfTestQuizFragment extends Fragment implements InstallDialogListe
         try {
             File file = new File(getActivity().getFilesDir() + "/" + "GenEvolTerms.json");
             FileInputStream inputStream = new FileInputStream(file);
-            VocabJsonParser parser = new VocabJsonParser();
+            VocabJsonParser parser = new VocabJsonParser(inputStream);
             mVocabList = new VocabList(new ArrayList<VocabTerm>(parser.parse(inputStream)));
+            String qName = parser.readQuizName();
+            ((MainActivity)getActivity()).onSectionAttached(qName);
+            ((MainActivity)getActivity()).restoreActionBar();
         } catch (Exception e) {
             Log.e("VocabTermParsing", "failed to set vocab terms", e);
         }

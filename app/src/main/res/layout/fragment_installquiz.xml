@@ -6,7 +6,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Examples: 'GENEV' - Default app quiz, 'POPGN' - Population Genetics Quiz"
+        android:text="'GENEV' - Default app quiz\n'POPGN' - Population Genetics Quiz\n or custom quiz code"
         android:id="@+id/stq_installInstructView"
         android:layout_gravity="center_horizontal" />
 
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter 5 char quiz code"
+        android:text="@string/stq_enterMessage"
         android:id="@+id/stq_installQuizNameView"
         android:layout_gravity="center_horizontal" />
 
@@ -69,7 +69,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(create your own quizzes at http://quizupdate.genevol.com)"
+        android:text="@string/stq_CYO_Message"
         android:layout_gravity="center_horizontal"
         android:id="@+id/moreView" />
 

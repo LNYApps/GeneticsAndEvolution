@@ -150,7 +150,16 @@
     <string name="stq_submit">Submit</string>
     <string name="stq_shuffle">Shuffle</string>
     <string name="stq_newQuiz">Install New Quiz</string>
+    <string name="stq_enterMessage">Enter 5 char Quiz Code</string>
+    <string name="stq_installDialogTitle">Install New Quiz</string>
+    <string name="stq_installValidating">Validating...</string>
+    <string name="stq_connection_error">Connection error. Check Internet connectivity</string>
+    <string name="stq_quizCodeRetrieveURL">http://quizupdate.genevol.com/testQuizCode.php?quizCode=</string>
+    <string name="stq_CYO_Message">(create your own custom quizzes at http://quizupdate.genevol.com)</string>
+
+
     <string name="error_message_bad_url">URL is invalid</string>
+
     <string name="error_message_file_not_found">File is not found at this URL</string>
     <string name="error_message_general">Error downloading file</string>
 

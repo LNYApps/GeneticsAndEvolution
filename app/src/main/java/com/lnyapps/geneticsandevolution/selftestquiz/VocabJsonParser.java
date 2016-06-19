@@ -12,12 +12,24 @@ import java.util.List;
  */
 public class VocabJsonParser {
 
+    JSONObject json;
+
+    public VocabJsonParser(InputStream jsonStream) throws Exception {
+        byte[] buffer = new byte[jsonStream.available()];
+        jsonStream.read(buffer);
+        jsonStream.close();
+        String text = new String(buffer, "UTF-8");
+        json = new JSONObject(text);
+    }
+
     public List<VocabTerm> parse(InputStream jsonStream) throws Exception {
+        /*
         byte[] buffer = new byte[jsonStream.available()];
         jsonStream.read(buffer);
         jsonStream.close();
         String text = new String(buffer, "UTF-8");
         JSONObject json = new JSONObject(text);
+        */
         ArrayList<VocabTerm> terms = new ArrayList<VocabTerm>(readTerms(json));
         return terms;
     }
@@ -41,5 +53,9 @@ public class VocabJsonParser {
             terms.add(term);
         }
         return terms;
+    }
+
+    public String readQuizName() throws Exception  {
+        return json.getString("QuizDescription");
     }
 }
