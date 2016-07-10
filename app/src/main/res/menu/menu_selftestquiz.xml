@@ -2,5 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/stq_action_refresh"
         android:title="@string/stq_shuffle"
+        android:icon="@drawable/ic_action_shuff"
+        android:showAsAction="always" />
+    <item android:id="@+id/stq_action_newQuiz"
+        android:title="@string/stq_newQuiz"
+        android:icon="@drawable/ic_action_clouddownload2"
         android:showAsAction="always" />
 </menu>

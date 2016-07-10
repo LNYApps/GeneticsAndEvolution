@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="'GENEV' - Default app quiz\n'POPGN' - Population Genetics Quiz\n or custom quiz code"
+        android:id="@+id/stq_installInstructView"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stq_installCodeEditText"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:maxLength="5"
+        android:width="100dp"
+        android:inputType="textCapCharacters" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stq_enterMessage"
+        android:id="@+id/stq_installQuizNameView"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:layout_marginLeft = "10dp"
+            android:id="@+id/stq_installCancelButton"
+             />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight = "1">
+
+        </View>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stq_installProgressBar"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Install"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:id="@+id/stq_installInstallButton"
+            android:enabled="false" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stq_CYO_Message"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/moreView" />
+
+
+</LinearLayout>
